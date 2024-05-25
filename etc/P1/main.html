@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>음악 작곡 페이지</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="logo.png" alt="로고">
+    </div>
+    <div class="buttons">
+      <button class="save-button">Save</button>
+      <button class="publish-button">Publish</button>
+    </div>
+  </header>
+  <main>
+    <div class="controls">
+      <button class="control-button play">Play</button>
+      <button class="control-button pause">Pause</button>
+      <button class="control-button stop">Stop</button>
+      <button class="control-button record">Record</button>
+    </div>
+    <div class="main-content">
+      <aside class="instrument-panel">
+        <!-- 악기 추가 영역 -->
+        <button class="add-track-button" onclick="showInstrumentModal()">+Add Track</button>
+        <div id="instrument-controls">
+          <!-- 악기 조절 영역 -->
+        </div>
+      </aside>
+      <div class="composition-area">
+        <!-- 작곡을 할 수 있는 부분 -->
+        작곡할 수 있는 영역
+      </div>
+    </div>
+    <div class="instrument-display hidden">
+      <div class="instrument-select">
+        <!-- 악기 선택 영역 -->
+      </div>
+      <div class="instrument-list">
+        <!-- 악기 모양이 뜨는 부분 -->
+      </div>
+    </div>
+  </main>
+
+  <!-- 악기 모델 선택 -->
+  <div id="instrument-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-button" onclick="hideInstrumentModal()">&times;</span>
+      <h2>악기 선택</h2>
+      <button class="instrument-button" onclick="addInstrument('피아노')">피아노</button>
+      <button class="instrument-button" onclick="addInstrument('드럼')">드럼</button>
+    </div>
+  </div>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

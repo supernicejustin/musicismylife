@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>설정</title>
+    <link rel="icon" href="../media/etc/IMG_2701.JPG">
+    <style>
+        @import url(../style/STYLE_Settings.css);
+        @import url(../style/STYLE_sidebar.css);
+    </style>
+</head>
+
+<body>
+
+  <div class="sidebar background">
+    <div class="logo">
+      <a href="KR_home.html"><img src="../media/etc/IMG_2701.JPG" alt="Logo" style="max-height: 130px;"></a><img src="../media/etc/Design.png" alt="Logo" style="max-height: 75px; margin-bottom: 30px;">
+    </div>
+    <ul class="menu">
+      <a href="KR_home.html"><li>홈</li></a>
+      <a href="KR_settings.html#generl"><li style="background-color: #222;">설정</li></a>
+    </ul>
+  </div>
+
+  <div class="settings">
+
+    <h1>설정</h1>
+
+      <div class="setting-screen">
+        <div class="ssidebar">
+          <ul>
+            <a href="#general"><li>일반</li></a>
+            <a href="#playback"><li>재생</li></a>
+            <a href="#privacy"><li>개인정보 보호</li></a>
+            <a href="#language"><li>언어</li></a>
+          </ul>
+        </div>
+
+      <div class="content">
+
+        <div id="general" class="setting-section">
+          <h2>일반</h2>
+          <div class="topcontent">
+            <input type="checkbox" checked id="darkmode">
+            <label for="darkmode">다크 모드</label>
+          </div>
+          <div style="margin-top: 30px;">
+            <input type="checkbox" id="restrictedmode">
+            <label for="restrictedmode">제한 모드</label>
+            <p>제한 모드를 사용하면 미성년자 부적합 콘텐츠를 포함할 가능성이 있는 동영상과 노래를 숨길 수 있습니다. 100% 정확히 필터링할 수는 없지만 이러한 유형의 콘텐츠를 대부분 차단할 수 있습니다.</p>
+          </div>
+        </div>
+
+        <div id="playback" class="setting-section">
+          <h2>재생</h2>
+          <div class="topcontent">
+            <p style="margin-top: 50px;">오디오 품질</p>
+            <select style="margin-bottom: 10px;">
+              <option value="low">보통 - AAC 128kbps</option>
+              <option value="medium">고품질 - AAC 320kbps</option>
+              <option value="high" selected>무손실 - FLAC 24비트/48kHz</option>
+              <option value="very-high">고해상도 무손실 - FLAC 24비트/192kHz</option>
+            </select> <br>
+            무손실 스트리밍은 매우 많은 데이터를 소비합니다
+            <div style="font-size: 13px;">
+              3분 길이의 노래에 소비되는 데이터는 대략 다음과 같습니다.<br>- 128kbps 보통인 경우 3MB<br>- 320kbps 고품질인 경우 7MB<br>- 무손실 24비트/48kHz인 경우 36MB<br>- 고해상도 무손실 24비트/192kHz인 경우 145MB</p>
+            </div>
+            <p>지원 사항은 노래의 재생 가능 여부, 네트워크 상태와 연결된 스피커 또는 헤드폰 기능에 따라 다릅니다.</p>
+          </div>
+          <div style="margin-top: 50px;">
+            <input type="checkbox" checked id="autoqueue">
+            <label for="autoqueue">자동 대기열</label>
+            <p>대기열이 끝나면 비슷한 트랙이 재생됩니다.</p>
+          </div>
+        </div>
+
+        <div id="privacy" class="setting-section">
+          <h2>개인정보 보호</h2>
+          <div class="topcontent">
+            <button style="font-size: 17px;"><a href="KR_Settings.html#general">🎧 재생 기록 지우기</a></button>
+            <p>이 계정의 재생 기록을 모든 기기에서 삭제합니다. </p>
+          </div>
+          <div style="margin-top: 30px;">
+            <input type="checkbox" id="listeninghistory">
+            <label for="listeninghistory">재생 기록 일시중지</label>
+          </div>
+          <div style="margin-top: 40px;">
+            <button style="font-size: 17px;"><a href="KR_Settings.html#general">🔍 검색 기록 삭제</a></button>
+            <p>모든 기기에서 이 계정의 검색 기록을 삭제합니다.</p>
+          </div>
+          <div style="margin-top: 30px;">
+            <input type="checkbox" checked id="searchhistory">
+            <label for="searchhistory">검색 기록 일시중지</label>
+          </div>
+        </div>
+
+        <div id="language" class="setting-section">
+          <h2>언어</h2>
+          <div class="topcontent">
+          <button><a href="../settings.html#language">English</a></button>
+            |
+          <button><a href="KR_settings.html#language" style="color: #aaa;">한국어</a></button>
+            |
+          <button><a href="../JP/JP_settings.html#language">日本語</a></button>
+          </div>
+        </div>
+
+      </div>
+
+  </div>
+
+</body>
+

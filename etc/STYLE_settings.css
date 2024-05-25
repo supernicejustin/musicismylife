@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0f0f29;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.settings {
+    max-width: 600px;
+    margin: 0 auto 50px; /* 위쪽 마진 주면 사이드바까지 내려와서 위쪽 빼고 나머지 50px씩 마진 */
+    padding: 20px;
+}
+
+.audioquality {
+    margin-bottom: 15px;
+}
+
+p {
+    display: block;
+    margin-bottom: 5px;
+}
+
+select { /* input[type="radio"], input[type="checkbox"] */
+    width: 100%; /* .setting class의 폭 전체 (600px) */
+    padding: 10px;
+    background-color: aliceblue;
+    border-radius: 25px;
+}
+
+button { /* 버튼을 배경색과 같게하고 border 없앰 */
+    background-color: #0f0f29;
+    border: none;
+}
+
+.setting-screen {
+    width: 600px;
+    height: 400px;
+    padding: 20px;
+    border-radius: 30px;
+}

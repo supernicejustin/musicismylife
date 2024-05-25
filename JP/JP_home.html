@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>ホーム</title>
+  <link rel="icon" href="../media/etc/IMG_2701.JPG">
+  <style>
+    @import url(../style/STYLE_Home.css);
+    @import url(../style/STYLE_sidebar.css);
+    @import url(../style/STYLE_Chatbot.css);
+  </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+  </style>
+</head>
+
+<body>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "@google/generative-ai": "https://esm.run/@google/generative-ai"
+      }
+    }
+  </script>
+
+  <div class="sidebar">
+    <div class="logo">
+      <a href="JP_home.html"><img src="../media/etc/IMG_2701.JPG" alt="Logo" style="max-height: 130px;"></a><a href=""><img src="../media/etc/Design.png" alt="Logo" style="max-height: 75px; margin-bottom: 30px;"></a> <!-- 작곡 파트로 이동하기 위한 로고 (로고 변경 가능, 추후 작곡파트 완성 후 연결) -->
+    </div>
+      <ul class="menu">
+        <a href="JP_home.html"><li style="background-color: #222;">ホーム</li></a>
+        <a href="JP_settings.html#general"><li>設定</li></a>
+      </ul>
+  </div>
+
+  <div>
+    <div style="padding-top: 30px;">
+      <h1 style="margin: 0px 0px 30px 265px; display: inline;">ホーム</h1>
+      <h4 style="float: right; margin-right: 30px; display: inline;">ログイン</h4> <!-- 오른쪽 정렬 (text-align 썼는데 안되서 딴거 씀), 너무 오른쪽에 붙어서 마진 줌. 추후 로그인 페이지와 연결-->
+      <h4 style="float: right; margin-right: 20px; display: inline;">サインアップ</h4>
+      <!-- h1, h4 두 태그는 원래 줄바꿈이 되지만 같은 열에 있어야 하므로 display: inline; 속성 사용함으로써 같은 열에 표시 -->
+    </div>
+    <h2 style="margin: 0px 265px; padding-top: 60px;">おすすめのアルバム</h2>
+    <!-- 위쪽과 아래와 왼쪽(사이드바 넓이보다 더 크게) 알맞게 마진을 줌 -->
+  </div>
+
+  <div class="content scrollbar"> <!-- content 속성으로 공간을 만들어 주고, scrollbar 속성으로 overflow상황에서 가로 스크롤 구현 -->
+
+    <!-- 앨범 표시 부문 -->
+
+    <div class="album">
+      <a href="../Blank.html"><img src="../media/album/IMG_2027.JPG" alt="Album" class="albumart"></a>
+      <div class="album-title">Lover</div>
+      <div class="album-artist">Taylor Swift</div>
+    </div>
+    
+    <div class="album">
+      <img src="../media/album/IMG_2029.JPG" alt="Album" class="albumart">
+      <div class="album-title">AUSTIN</div>
+      <div class="album-artist">Post Malone</div>
+    </div>
+
+    <div class="album">
+      <img src="../media/album/IMG_2030.PNG" alt="Album" class="albumart">
+      <div class="album-title">GUTS</div>
+      <div class="album-artist">Oliva Rodrigo</div>
+    </div>
+
+    <div class="album">
+      <img src="../media/album/IMG_2039.JPG" alt="Album" class="albumart">
+      <div class="album-title">x (Deluxe Edition)</div>
+      <div class="album-artist">Ed Sheeran</div>
+    </div>
+    
+    <div class="album">
+      <img src="../media/album/IMG_2049.JPG" alt="Album" class="albumart">
+      <div class="album-title">Divinely Uninspired To A Hellish Extent</div>
+      <div class="album-artist">Lewis Capaldi</div>
+    </div>
+    
+    <div class="album">
+      <img src="../media/album/IMG_2059.JPG" alt="Album" class="albumart">
+      <div class="album-title">After Hours</div>
+      <div class="album-artist">The Weeknd</div>
+    </div>
+        
+    <div class="album">
+      <img src="../media/album/IMG_2069.JPG" alt="Album" class="albumart">
+      <div class="album-title">My Everything (Deluxe)</div>
+      <div class="album-artist">Ariana Grande</div>
+    </div>
+    
+    <div class="album">
+      <img src="../media/album/IMG_2079.JPG" alt="Album" class="albumart">
+      <div class="album-title">Future Nostalgia</div>
+      <div class="album-artist">Dua Lipa</div>
+    </div>
+    
+    <div class="album">
+      <img src="../media/album/IMG_2089.JPG" alt="Album" class="albumart">
+      <div class="album-title">Love Goes</div>
+      <div class="album-artist">Sam Smith</div>
+    </div>
+
+    <!-- 더 추가 가능 -->
+
+  </div>
+
+  <div>
+    <h2 style="margin: 0px 265px;">おすすめのアーティスト</h2>
+  </div>
+  
+  <div class="content scrollbar">
+
+    <!-- 아티스트 표시 부문 -->
+
+    <div class="album"> <!-- 앨범 표시 때 사용했던 속성 재활용 -->
+      <a href="../Blank.html"><img class="profile" src="../media/profile/unnamed.jpg" alt="Artist Profile"></a> <!-- alt내용 변경함 -->
+      <div class="artist-name">Taylor Swift</div> <!-- artist-name 속성으로 변경함 -->
+    </div>
+
+    <div class="album">
+      <img class="profile" src="../media/profile/unnamed.jpg" alt="Artist Profile">
+      <div class="artist-name">Taylor Swift</div>
+    </div>
+    
+    <div class="album">
+      <img class="profile" src="../media/profile/unnamed.jpg" alt="Artist Profile">
+      <div class="artist-name">Taylor Swift</div>
+    </div>
+    
+    <div class="album">
+      <img class="profile" src="../media/profile/unnamed.jpg" alt="Artist Profile">
+      <div class="artist-name">Taylor Swift</div>
+    </div>
+    
+    <div class="album">
+      <img class="profile" src="../media/profile/unnamed.jpg" alt="Artist Profile">
+      <div class="artist-name">Taylor Swift</div>
+    </div>
+    
+    <div class="album">
+      <img class="profile" src="../media/profile/unnamed.jpg" alt="Artist Profile">
+      <div class="artist-name">Taylor Swift</div>
+    </div>
+    
+    <div class="album">
+      <img class="profile" src="../media/profile/unnamed.jpg" alt="Artist Profile">
+      <div class="artist-name">Taylor Swift</div>
+    </div>
+    
+    <div class="album">
+      <img class="profile" src="../media/profile/unnamed.jpg" alt="Artist Profile">
+      <div class="artist-name">Taylor Swift</div>
+    </div>
+    
+    <div class="album">
+      <img class="profile" src="../media/profile/unnamed.jpg" alt="Artist Profile">
+      <div class="artist-name">Taylor Swift</div>
+    </div>
+
+    <!-- 지금은 Taylor Swift로 도배했지만 변경하면됨 -->
+    <!-- 더 추가 가능 -->
+
+  </div>
+
+
+  <!-- 챗봇 html -->
+
+  <button class="chatbot-toggler">
+    <span class="material-symbols-rounded">mode_comment</span>
+    <span class="material-symbols-outlined">close</span>
+  </button>
+  <div class="chatbot">
+    <header>
+      <h2>チャットボット</h2>
+      <span class="close-btn material-symbols-outlined">close</span>
+    </header>
+    <ul class="chatbox">
+      <li class="chat incoming">
+        <span class="material-symbols-outlined">smart_toy</span>
+        <p>こんにちは👋<br>何をお手伝いしましょうか？</p>
+      </li>
+    </ul>
+    <div class="chat-input">
+      <textarea placeholder="メッセージ入力···" spellcheck="false" required></textarea>
+      <span id="send-btn" class="material-symbols-rounded">send</span>
+    </div>
+  </div>
+
+  <!-- 챗봇 스크립트 -->
+  <script type="module">
+    import { GoogleGenerativeAI } from "@google/generative-ai";
+    const genAI = new GoogleGenerativeAI('AIzaSyAUOyuSGwGGOp_YTo1xjLoXt6DgXw8jh7A');
+
+    const chatbotToggler = document.querySelector(".chatbot-toggler");
+    const closeBtn = document.querySelector(".close-btn");
+    const chatbox = document.querySelector(".chatbox");
+    const chatInput = document.querySelector(".chat-input textarea");
+    const sendChatBtn = document.querySelector(".chat-input span");
+
+    let userMessage = null;
+    const inputInitHeight = chatInput.scrollHeight;
+
+    async function runModel(prompt) {
+        const model = genAI.getGenerativeModel({ model: "gemini-pro"});
+      
+        const result = await model.generateContent(prompt);
+        const response = await result.response;
+        const text = response.text();
+        return (text);
+      }
+      
+
+    const createChatLi = (message, className) => {
+        const chatLi = document.createElement("li");
+        chatLi.classList.add("chat", `${className}`);
+        let chatContent = className === "outgoing" ? `<p></p>` : `<span class="material-symbols-outlined">smart_toy</span><p></p>`;
+        chatLi.innerHTML = chatContent;
+        chatLi.querySelector("p").textContent = message;
+        return chatLi;
+    }
+
+    // 챗봇 출력 부분
+    const generateResponse = async (chatElement, userMessage) => {
+        const messageElement = chatElement.querySelector("p");
+        try {
+            const answer = await runModel(userMessage);
+            messageElement.textContent = answer;
+            // 오류 출력
+        } catch (error) {
+            console.error("応答の生成に失敗しました;", error);
+            messageElement.textContent = "すみません、エラーが発生しました。";
+        }
+        chatbox.scrollTo(0, chatbox.scrollHeight);
+    }
+
+    const handleChat = () => {
+        userMessage = chatInput.value.trim(); // userMessage:사용자가 입력한것 --> value로
+        // chatInput: textarea부분
+        if(!userMessage) return; // 공백시 return
+        
+        // 입력된 textarea를 지우고 높이를 기본값으로 설정
+        chatInput.value = "";
+        chatInput.style.height = `${inputInitHeight}px`;
+
+        // 입력한 메시지를 대화 상자에 추가
+        chatbox.appendChild(createChatLi(userMessage, "outgoing"));
+        chatbox.scrollTo(0, chatbox.scrollHeight);
+
+        setTimeout(() => {
+            // 응답을 기다리는 동안 "Thinking..." 메시지 표시
+            const incomingChatLi = createChatLi("考え中···", "incoming");
+            chatbox.appendChild(incomingChatLi);
+            chatbox.scrollTo(0, chatbox.scrollHeight);
+            generateResponse(incomingChatLi, userMessage);
+        }, 600);
+    }
+
+    chatInput.addEventListener("input", () => {
+        // 내용 길이에 따라 입력된 textarea의 높이를 조정
+        chatInput.style.height = `${inputInitHeight}px`;
+        chatInput.style.height = `${chatInput.scrollHeight}px`;
+    });
+
+    chatInput.addEventListener("keydown", (e) => {
+        // Shift 키와 윈도우키를 누르지 않은 채로 Enter 키를 누른 경우에만 채팅 처리
+        // 창 너비가 800 px보다 큰 경우에만 채팅 처리
+        if(e.key === "Enter" && !e.shiftKey && window.innerWidth > 800) {
+            e.preventDefault();
+            handleChat();
+        }
+    });
+
+    sendChatBtn.addEventListener("click", handleChat);
+    closeBtn.addEventListener("click", () => document.body.classList.remove("show-chatbot"));
+    chatbotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
+
+  </script>
+
+</body>
+
+</html>
+

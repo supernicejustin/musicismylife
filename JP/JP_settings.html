@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>設定</title>
+    <link rel="icon" href="../media/etc/IMG_2701.JPG">
+<head>
+    <style>
+        @import url(../style/STYLE_Settings.css);
+        @import url(../style/STYLE_sidebar.css);
+    </style>
+</head>
+
+<body>
+
+  <div class="sidebar background">
+    <div class="logo">
+      <a href="JP_home.html"><img src="../media/etc/IMG_2701.JPG" alt="Logo" style="max-height: 130px;"></a><img src="../media/etc/Design.png" alt="Logo" style="max-height: 75px; margin-bottom: 30px;">
+    </div>
+    <ul class="menu">
+      <a href="JP_home.html"><li>ホーム</li></a>
+      <a href="JP_settings.html#general"><li style="background-color: #222;">設定</li></a>
+    </ul>
+  </div>
+
+  <div class="settings">
+
+    <h1>設定</h1>
+
+      <div class="setting-screen">
+        <div class="ssidebar">
+          <ul>
+            <a href="#general"><li>一般</li></a>
+            <a href="#playback"><li>再生</li></a>
+            <a href="#privacy"><li>プライバシー</li></a>
+            <a href="#language"><li>言語</li></a>
+          </ul>
+        </div>
+
+      <div class="content">
+
+        <div id="general" class="setting-section">
+          <h2>一般</h2>
+          <div style="margin-top: 50px;">
+            <input type="checkbox" checked id="darkmode">
+            <label for="darkmode">ダークモード</label>
+          </div>
+          <div style="margin-top: 30px;">
+            <input type="checkbox" id="darkmode">
+            <label >制限付きモード</label>
+            <p>制限付きモードを有効にすると、成人向けコンテンツを含む可能性のある動画や曲を非表示にできます。フィルタは 100% の精度ではありませんが、これで通常ほとんどの成人向けコンテンツは除外できます。</p>
+          </div>
+        </div>
+
+        <div id="playback" class="setting-section">
+          <h2>再生</h2>
+          <p style="margin-top: 50px;">オーディオの品質</p>
+          <select style="margin-bottom: 10px;">
+            <option value="low">標準 - AAC 128kbps</option>
+            <option value="medium">高音質 - AAC 320kbps</option>
+            <option value="high" selected>ロスレス - FLAC 24ビット/48kHz</option>
+            <option value="very-high">ハイレゾロスレス - FLAC 24ビット/192kHz</option>
+          </select> <br>
+          ロスレスストリーミングを使用すると、データ使用量が大幅に増加します。
+          <div style="font-size: 13px;">
+            3分間の曲のデータ使用量は、およそ以下の通りです:<br>- 標準 (128kbps) の場合は3MB<br>- 高音質 (320kbps) の場合は7MB<br>-  ロスレス (24ビット/48 kHz) の場合は36MB<br>-  ハイレゾロスレス (24ビット/192kHz) の場合は145MB</p>
+          </div>
+          <p>どのオーディオ品質に対応しているかは、入手できる楽曲の種類、ネットワークの状態、接続されているスピーカーやヘッドフォンの機能によって異なります。</p>
+          <div style="margin-top: 50px;">
+            <input type="checkbox" checked>
+            動的キュー
+            <p>これまで再生した内容に基づいてキューとラジオが更新されます。</p>
+          </div>
+        </div>
+
+        <div id="privacy" class="setting-section">
+          <h2>プライバシー</h2>
+          <div style="margin-top: 50px;">
+            <button style="font-size: 17px;"><a href="JP_Settings.html#general">🎧 再生履歴を削除</a></button>
+            <p>このアカウントの再生履歴がすべてのデバイスから削除されます。</p>
+          </div>
+          <div style="margin-top: 30px;">
+            <input type="checkbox">
+            再生履歴を保存しない
+          </div>
+          <div style="margin-top: 40px;">
+            <button style="font-size: 17px;"><a href="JP_Settings.html#general">🔍 検索履歴を削除</a></button>
+            <p>このアカウントの検索履歴がすべてのデバイスから削除されます。</p>
+          </div>
+          <div style="margin-top: 30px;">
+            <input type="checkbox" checked>
+            検索履歴を保存しない
+          </div>
+        </div>
+
+        <div id="language" class="setting-section">
+          <h2>言語</h2>
+          <div style="margin-top: 50px;">
+            <button><a href="../settings.html#language">English</a></button>
+            |
+            <button><a href="../KR/KR_settings.html#language">한국어</a></button>
+            |
+            <button><a href="JP_settings.html#language" style="color: #aaa;">日本語</a></button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+

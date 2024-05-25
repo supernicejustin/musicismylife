@@ -1,0 +1,91 @@
+* {
+    box-sizing: border-box;
+  }
+
+body {
+    font-family: sans-seif;
+    background-color: #0f0f29;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.settings {
+    margin-top:70px;
+    margin-left: 500px;
+}
+
+.setting-screen { /* 설정창 부분 전체틀 */
+    display: flex;
+    background-color: #1b1b1b;
+    width: 900px; /* 설정창 전체 넓이 */
+    height: 600px; /* 설정창 전체 높이 */
+}
+  
+.ssidebar { /* 설정창 사이드바 */
+    width: 200px; /* 설정창 사이드바 넓이 */
+    background-color: #333333;
+    font-size: 14px;
+    font-weight: bold;
+}
+  
+.ssidebar ul {
+    padding: 0;
+    margin: 0;
+    /* 위치 조정 */
+}
+  
+.ssidebar li {
+    list-style: none; /* ul li로 리스트 만들거기 때문에 list-style: none; */
+    padding: 15px 20px;
+    height: 56px; /* 다른 언어로 변경할 때 언어간 높이 차이로 인한 움직임 방지 */
+    cursor: pointer; /* 커서 모양 손모양으로 */
+    border-bottom: 1px solid #666666; /* 구분선 */
+}
+
+.ssidebar li:hover {
+  background-color: #4b4b4b;
+}
+  
+a {
+    text-decoration: none; /* 링크 밑줄 제거 */
+    color: #f8f8f8; /* 흰색보다 약간 탁한색 */
+}
+
+label:hover {
+    cursor: pointer;
+}
+  
+.content {
+    flex: 1;
+    padding: 0 20px 0 20px; /* 설정창 사이드바 옆 설정화면 사방 공간 */
+}
+
+.topcontent {
+  margin-top: 50px; /* 창 마다 창 제목 밑의 가장 위에 있는 항목에 대한 마진 */
+}
+  
+.setting-section {
+    display: none; /* 선택되기 전까지는 내용 없음 (공간도 차지 안함) */
+}
+  
+.setting-section:target {
+    display: block; /* 선택되면 내용 보임 */
+}
+
+select { /* audio quality 부분 */
+    width: 50%;
+    padding: 10px;
+    background-color: aliceblue;
+    border-radius: 25px; /* 둥글게 둥글게 */
+}
+
+button { /* 버튼을 배경색과 같게하고 border 없앰 */
+    background-color: #1b1b1b;
+    border: none;
+}
+
+input:hover {
+    cursor: pointer;
+}

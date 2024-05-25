@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Settings</title>
+  <link rel="icon" href="media/etc/IMG_2701.JPG">
+  <style>
+    @import url(style/STYLE_Settings.css);
+    @import url(style/STYLE_sidebar.css);
+  </style>
+</head>
+
+<body>
+
+  <div class="sidebar background">
+    <div class="logo">
+      <a href="home.html"><img src="media/etc/IMG_2701.JPG" alt="Logo" style="max-height: 130px;"></a><img src="media/etc/Design.png" alt="Logo" style="max-height: 75px; margin-bottom: 30px;">
+    </div>
+    <ul class="menu">
+      <a href="home.html"><li>Home</li></a>
+      <a href="settings.html#general"><li style="background-color: #222;">Settings</li></a>
+    </ul>
+  </div>
+
+
+  <div class="settings">
+
+    <h1>Settings</h1>
+
+      <div class="setting-screen">
+        <div class="ssidebar">
+          <ul>
+            <a href="#general"><li>General</li></a> <!-- general로 이동 -->
+            <a href="#playback"><li>Playback</li></a> <!-- playback로 이동 -->
+            <a href="#privacy"><li>Privacy</li></a> <!-- privacy로 이동 -->
+            <a href="#language"><li>Language</li></a> <!-- language로 이동 -->
+          </ul>
+        </div>
+
+      <div class="content">
+
+        <div id="general" class="setting-section"> <!-- a href="#general"과 id="general"를 연결 -->
+          <h2>General</h2>
+          <div class="topcontent">
+            <input type="checkbox" checked id="darkmode">
+            <label for="darkmode">Dark Mode</label> <!-- id와 label이용해 텍스트 선택시에도 checkbox 변화 -->
+          </div>
+          <div style="margin-top: 30px;">
+            <input type="checkbox" id="restrictedmode">
+            <label for="restrictedmode">Restricted Mode</label>
+            <p>Restricted Mode can help hide videos and songs with potentially mature content. No filter is 100% accurate, but it should help you avoid most of this type of content.</p>
+          </div>
+        </div>
+
+        <div id="playback" class="setting-section"> <!-- a href="#playback"과 id="playback"를 연결 -->
+          <h2>Playback</h2>
+          <div class="topcontent">
+            <p>Audio Quality</p>
+            <select style="margin-bottom: 10px;">
+              <option value="low">Normal - AAC 128kbps</option>
+              <option value="medium">High - AAC 320kbps</option>
+              <option value="high" selected>Lossless - FLAC 24bit/48kHz</option>
+              <option value="very-high">Hi-Res Lossless - FLAC 24bit/192kHz</option>
+            </select> <br>
+            Lossless streaming will consume significantly more data.
+            <div style="font-size: 13px;">
+              A three minute song will be approximately:<br>- 3 MB with Normal at 128 kbps<br>- 7 MB with High at 320 kbps<br>- 36 MB with Lossless at 24-bit/48kHz<br>- 145 MB with Hi-Res Lossless at 24-bit/192 kHz</p>
+            </div>
+            <p>Support varies and depends on song availability, network conditions, and connected speaker or headphone capability.</p>
+          </div>
+          <div style="margin-top: 30px;">
+            <input type="checkbox" checked id="autoqueue">
+            <label for="autoqueue">Auto queue</label>
+            <p>Similar tracks will play when your queue ends.</p>
+          </div>
+          <div style="margin-top: 30px">
+            <p>Sleep timer</p>
+            <div style="font-size: 13px;">
+              Stop audio in (Up to 1 hour)
+            </div>
+            <form style="margin-top: 5px;">
+              <input type="time" value="00:00" min="00:01" max="01:00" style="background-color: #444; color: #fff; border: none;">
+              <input type="submit" value="Submit" style="background-color: #222; color: #fff; border: none;">
+            </form>
+          </div>
+        </div>
+
+        <div id="privacy" class="setting-section"> <!-- a href="#privacy"과 id="privacy"를 연결 -->
+          <h2>Privacy</h2>
+          <div class="topcontent">
+            <button style="font-size: 17px;"><a href="settings.html#general">🎧 Clear listening history</a></button>
+            <p>Clear this account's listening history from all devices.</p>
+          </div>
+          <div style="margin-top: 30px;">
+            <input type="checkbox" id="listeninghistory">
+            <label for="listeninghistory">Pause listening history</label>
+          </div>
+          <div style="margin-top: 40px;">
+            <button style="font-size: 17px;"><a href="settings.html#general">🔍 Clear search history</a></button>
+            <p>Clear searches made with this account from all devices</p>
+          </div>
+          <div style="margin-top: 30px;">
+            <input type="checkbox" checked id="searchhistory">
+            <label for="searchhistory">Pause search history</label>
+          </div>
+        </div>
+
+        <div id="language" class="setting-section"> <!-- a href="#language"과 id="language"를 연결 -->
+          <h2>Language</h2>
+          <div class="topcontent">
+            <button><a href="settings.html#language" style="color: #aaa;">English</a></button>
+            |
+            <button><a href="KR/KR_settings.html#language">한국어</a></button> <!-- 다른 언어 language화면으로 이동 -->
+            |
+            <button><a href="JP/JP_settings.html#language">日本語</a></button>
+          </div>
+        </div>
+
+      </div>
+
+  </div>
+
+</body>
+
+</html>

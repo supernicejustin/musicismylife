@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <link rel="icon" href="media/etc/IMG_2701.JPG">
+  <style>
+    @import url(style/STYLE_Home.css);
+    @import url(style/STYLE_sidebar.css);
+  </style>
+</head>
+
+<body>
+
+  <div class="sidebar">
+    <div class="logo">
+      <a href="Home.html"><img src="media/etc/IMG_2701.JPG" alt="Logo" style="max-height: 130px;"></a><a href=""><img src="media/etc/Design.png" alt="Logo" style="max-height: 75px; margin-bottom: 30px;"></a> <!-- 작곡 파트로 이동하기 위한 로고 (로고 변경 가능, 추후 작곡파트 완성 후 연결) -->
+    </div>
+      <ul class="menu">
+        <a href="Home.html"><li style="background-color: #222;">Home</li></a>
+        <a href="Settings.html#general"><li>Settings</li></a>
+      </ul>
+  </div>
+
+  <div>
+    <div style="padding-top: 30px;">
+      <h1 style="margin: 0px 0px 30px 265px; display: inline;">Home</h1>
+      <h4 style="float: right; margin-right: 30px; display: inline;">log in</h4> <!-- 오른쪽 정렬 (text-align 썼는데 안되서 딴거 씀), 너무 오른쪽에 붙어서 마진 줌. 추후 로그인 페이지와 연결-->
+      <h4 style="float: right; margin-right: 20px; display: inline;">sign up</h4>
+      <!-- h1, h4 두 태그는 원래 줄바꿈이 되지만 같은 열에 있어야 하므로 display: inline; 속성 사용함으로써 같은 열에 표시 -->
+    </div>
+    <h2 style="margin: 0px 265px; padding-top: 60px;">Featured Albums</h2>
+    <!-- 위쪽과 아래와 왼쪽(사이드바 넓이보다 더 크게) 알맞게 마진을 줌 -->
+  </div>
+
+  <div class="content scrollbar"> <!-- content 속성으로 공간을 만들어 주고, scrollbar 속성으로 overflow상황에서 가로 스크롤 구현 -->
+
+    <!-- 앨범 표시 부문 -->
+
+    <div class="album">
+      <a href="Blank.html"><img src="media/album/IMG_2027.JPG" alt="Album" class="albumart"></a>
+      <div class="album-title">Lover</div>
+      <div class="album-artist">Taylor Swift</div>
+    </div>
+    
+    <div class="album">
+      <img src="media/album/IMG_2029.JPG" alt="Album" class="albumart">
+      <div class="album-title">AUSTIN</div>
+      <div class="album-artist">Post Malone</div>
+    </div>
+
+    <div class="album">
+      <img src="media/album/IMG_2030.PNG" alt="Album" class="albumart">
+      <div class="album-title">GUTS</div>
+      <div class="album-artist">Oliva Rodrigo</div>
+    </div>
+
+    <div class="album">
+      <img src="media/album/IMG_2039.JPG" alt="Album" class="albumart">
+      <div class="album-title">x (Deluxe Edition)</div>
+      <div class="album-artist">Ed Sheeran</div>
+    </div>
+    
+    <div class="album">
+      <img src="media/album/IMG_2049.JPG" alt="Album" class="albumart">
+      <div class="album-title">Divinely Uninspired To A Hellish Extent</div>
+      <div class="album-artist">Lewis Capaldi</div>
+    </div>
+    
+    <div class="album">
+      <img src="media/album/IMG_2059.JPG" alt="Album" class="albumart">
+      <div class="album-title">After Hours</div>
+      <div class="album-artist">The Weeknd</div>
+    </div>
+        
+    <div class="album">
+      <img src="media/album/IMG_2069.JPG" alt="Album" class="albumart">
+      <div class="album-title">My Everything (Deluxe)</div>
+      <div class="album-artist">Ariana Grande</div>
+    </div>
+    
+    <div class="album">
+      <img src="media/album/IMG_2079.JPG" alt="Album" class="albumart">
+      <div class="album-title">Future Nostalgia</div>
+      <div class="album-artist">Dua Lipa</div>
+    </div>
+    
+    <div class="album">
+      <img src="media/album/IMG_2089.JPG" alt="Album" class="albumart">
+      <div class="album-title">Love Goes</div>
+      <div class="album-artist">Sam Smith</div>
+    </div>
+
+    <!-- 더 추가 가능 -->
+
+  </div>
+
+  <div>
+    <h2 style="margin: 0px 265px;">Featured Artist</h2>
+  </div>
+  
+  <div class="content scrollbar">
+
+    <!-- 아티스트 표시 부문 -->
+
+    <div class="album"> <!-- 앨범 표시 때 사용했던 속성 재활용 -->
+      <a href="Blank.html"><img class="profile" src="media/profile/unnamed.jpg" alt="Artist Profile"></a> <!-- alt내용 변경함 -->
+      <div class="artist-name">Taylor Swift</div> <!-- artist-name 속성으로 변경함 -->
+    </div>
+
+    <div class="album">
+      <img class="profile" src="media/profile/unnamed.jpg" alt="Artist Profile">
+      <div class="artist-name">Taylor Swift</div>
+    </div>
+    
+    <div class="album">
+      <img class="profile" src="media/profile/unnamed.jpg" alt="Artist Profile">
+      <div class="artist-name">Taylor Swift</div>
+    </div>
+    
+    <div class="album">
+      <img class="profile" src="media/profile/unnamed.jpg" alt="Artist Profile">
+      <div class="artist-name">Taylor Swift</div>
+    </div>
+    
+    <div class="album">
+      <img class="profile" src="media/profile/unnamed.jpg" alt="Artist Profile">
+      <div class="artist-name">Taylor Swift</div>
+    </div>
+    
+    <div class="album">
+      <img class="profile" src="media/profile/unnamed.jpg" alt="Artist Profile">
+      <div class="artist-name">Taylor Swift</div>
+    </div>
+    
+    <div class="album">
+      <img class="profile" src="media/profile/unnamed.jpg" alt="Artist Profile">
+      <div class="artist-name">Taylor Swift</div>
+    </div>
+    
+    <div class="album">
+      <img class="profile" src="media/profile/unnamed.jpg" alt="Artist Profile">
+      <div class="artist-name">Taylor Swift</div>
+    </div>
+    
+    <div class="album">
+      <img class="profile" src="media/profile/unnamed.jpg" alt="Artist Profile">
+      <div class="artist-name">Taylor Swift</div>
+    </div>
+
+    <!-- 지금은 Taylor Swift로 도배했지만 변경하면됨 -->
+    <!-- 더 추가 가능 -->
+
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="../media/etc/IMG_2701.JPG">
+    <title>Settings</title>
+    <style>
+        @import url(STYLE_settings.css);
+        @import url(../style/STYLE_sidebar.css);
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <a href="EN_Home.html"><img src="../media/etc/IMG_2701.JPG" alt="Logo" style="max-height: 130px;"></a> <!-- 메인 로고 (누르면 home.html로 연결되어있음) -->
+            <img src="../media/etc/Design.png" alt="Logo" style="max-height: 75px; margin-bottom: 30px;"> <!-- 작곡 파트로 이동하기 위한 로고 (로고 변경 가능, 추후 작곡파트 완성 후 연결) -->
+        </div>
+        <ul class="menu">
+            <a href="EN_Home.html"><li>Home</li></a>
+            <a href="EN_settings.html"><li>Settings</li></a>
+        </ul>
+    </div>
+
+    <div class="settings">
+        <h1 style="margin-bottom: 90px; margin-top: 40px;">Settings</h1>
+        <div class="setting-screen">
+        <div class="audioquality">
+            <h3>General</h3>
+            <div>
+                <input type="checkbox" checked>
+                Dark Mode
+            </div>
+            <div style="margin-top: 10px;">
+                <input type="checkbox">
+                Restricted Mode
+            </div>
+            <h3 style="margin-top: 50px;">Playback</h3>
+            <p>Audio Quality</p>
+            <select>
+                <option value="low">Normal - AAC 256kbps</option>
+                <option value="medium">High - AAC 320kbps</option>
+                <option value="high" selected>Lossless - FLAC 24bit/48kHz</option>
+                <option value="very-high">Hi-Res Lossless - FLAC 24bit/192kHz</option>
+            </select>
+        </div>
+        <div style="margin-top: 10px;">
+            <h3 style="margin-top: 50px;">Language</h3>
+            <button><a href="EN_settings.html">🇬🇧 English</a></button>
+            |
+            <button><a href="KR/KR_settings.html">🇰🇷 한국어</a></button>
+            |
+            <button><a href="JP/JP_settings.html">🇯🇵 日本語</a></button>
+        </div>
+    </div>
+</body>
+</html>
