@@ -36,6 +36,7 @@ body {
 }
 
 .albumart:hover {
+    transition: 0.1s ease-out;
     transform: scale(1.05); /*호버시 앨범커버 주변효과 */
     box-shadow: 0px 0px 3px 2px #0f0f29; /* 현재 주변 그림자 효과 안보이는 상태 */
 }
@@ -63,6 +64,7 @@ body {
 }
 
 .profile:hover {
+    transition: 0.1s ease-out;
     transform: scale(1.05);
     box-shadow: 0px 0px 3px 2px #0f0f29;
 }
