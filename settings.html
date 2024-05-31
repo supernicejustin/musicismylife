@@ -79,7 +79,7 @@
         <div id="privacy" class="setting-section"> <!-- a href="#privacy"과 id="privacy"를 연결 -->
           <h2>Privacy</h2>
           <div class="topcontent">
-            <button style="font-size: 17px;"><a href="settings.html#general">🎧 Clear listening history</a></button>
+            <button style="font-size: 17px;" onclick="javascript:btn()"><a href="home.html">🎧 Clear listening history</a></button>
             <p>Clear this account's listening history from all devices.</p>
           </div>
           <div style="margin-top: 30px;">
@@ -87,7 +87,7 @@
             <label for="listeninghistory">Pause listening history</label>
           </div>
           <div style="margin-top: 40px;">
-            <button style="font-size: 17px;"><a href="settings.html#general">🔍 Clear search history</a></button>
+            <button style="font-size: 17px;" onclick="javascript:btn()"><a href="home.html">🔍 Clear search history</a></button>
             <p>Clear searches made with this account from all devices</p>
           </div>
           <div style="margin-top: 30px;">
@@ -110,6 +110,12 @@
       </div>
 
   </div>
+
+  <script>
+    function btn(){
+        alert('History has been cleared.');
+    }
+    </script>
 
 </body>
 

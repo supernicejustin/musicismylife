@@ -169,12 +169,13 @@
   <!-- 챗봇 html -->
 
   <button class="chatbot-toggler">
-    <span class="material-symbols-rounded">mode_comment</span>
+    <span class="material-symbols-rounded" style="margin-left: 8px;">mode_comment</span>
+    <h4 style="margin-left: 43px;">Assistant</h4>
     <span class="material-symbols-outlined">close</span>
   </button>
   <div class="chatbot">
     <header>
-      <h2>Chatbot</h2>
+      <h2>Assistant</h2>
       <p>Powered by Gemini</p>
       <span class="close-btn material-symbols-outlined">close</span>
     </header>
@@ -264,7 +265,7 @@
             chatbox.appendChild(incomingChatLi);
             chatbox.scrollTo(0, chatbox.scrollHeight);
             generateResponse(incomingChatLi, userMessage); // 응답 생성 함수 호출
-        }, 600); // 600ms 후에 응답 생성
+        }, 0); // 응답 생성 지연시간 설정
     }
 
     // 입력란 내용 길이에 따라 높이 조절

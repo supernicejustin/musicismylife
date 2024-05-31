@@ -32,6 +32,7 @@
         <a href="JP_home.html"><li style="background-color: #222;">ホーム</li></a>
         <a href="JP_settings.html#general"><li>設定</li></a>
       </ul>
+      <footer>© 2024 Musicsite</footer>
   </div>
 
   <div>
@@ -169,12 +170,13 @@
   <!-- 챗봇 html -->
 
   <button class="chatbot-toggler">
-    <span class="material-symbols-rounded">mode_comment</span>
+    <span class="material-symbols-rounded" style="margin-left: 3px;">mode_comment</span>
+    <h4 style="margin: 0 0 3px 30px;">アシスタント</h4>
     <span class="material-symbols-outlined">close</span>
   </button>
   <div class="chatbot">
     <header>
-      <h2>Chatbot</h2>
+      <h2>アシスタント</h2>
       <p>Powered by Gemini</p>
       <span class="close-btn material-symbols-outlined">close</span>
     </header>
@@ -192,61 +194,69 @@
 
   <!-- 챗봇 스크립트 -->
   <script type="module">
+    // Google Generative AI 라이브러리 가져오기
     import { GoogleGenerativeAI } from "@google/generative-ai";
+    
+    // Generative AI 초기화 및 API 키 설정
     const genAI = new GoogleGenerativeAI('AIzaSyAUOyuSGwGGOp_YTo1xjLoXt6DgXw8jh7A');
 
-    const chatbotToggler = document.querySelector(".chatbot-toggler");
-    const closeBtn = document.querySelector(".close-btn");
-    const chatbox = document.querySelector(".chatbox");
-    const chatInput = document.querySelector(".chat-input textarea");
-    const sendChatBtn = document.querySelector(".chat-input span");
+    // 챗봇 기능에 필요한 DOM 요소 선택
+    const chatbotToggler = document.querySelector(".chatbot-toggler"); // 챗봇 토글 버튼
+    const closeBtn = document.querySelector(".close-btn"); // 챗봇 닫기 버튼
+    const chatbox = document.querySelector(".chatbox"); // 채팅 메시지를 표시하는 영역
+    const chatInput = document.querySelector(".chat-input textarea"); // 사용자 입력란
+    const sendChatBtn = document.querySelector(".chat-input span"); // 메시지 전송 버튼
 
+    // 사용자 메시지 저장 변수 및 입력란 초기 높이 저장
     let userMessage = null;
     const inputInitHeight = chatInput.scrollHeight;
 
+    // 사용자가 입력한 메시지로 모델 실행
     async function runModel(prompt) {
-        const model = genAI.getGenerativeModel({ model: "gemini-pro"});
+        const model = genAI.getGenerativeModel({ model: "gemini-pro"}); // 모델 가져오기
       
+        // 사용자 메시지로 콘텐츠 생성
         const result = await model.generateContent(prompt);
         const response = await result.response;
         const text = response.text();
-        return (text);
-      }
-      
-
+        return (text); // 생성된 텍스트 반환
+    }
+    
+    // 채팅 메시지 리스트 항목 생성
     const createChatLi = (message, className) => {
-        const chatLi = document.createElement("li");
-        chatLi.classList.add("chat", `${className}`);
+        const chatLi = document.createElement("li"); // 새로운 리스트 항목 생성
+        chatLi.classList.add("chat", `${className}`); // 클래스 추가
+        // 메시지 타입에 따라 내용 설정
         let chatContent = className === "outgoing" ? `<p></p>` : `<span class="material-symbols-outlined">smart_toy</span><p></p>`;
-        chatLi.innerHTML = chatContent;
-        chatLi.querySelector("p").textContent = message;
-        return chatLi;
+        chatLi.innerHTML = chatContent; // HTML 설정
+        chatLi.querySelector("p").textContent = message; // 메시지 내용 설정
+        return chatLi; // 리스트 항목 반환
     }
 
-    // 챗봇 출력 부분
+    // 챗봇 응답 생성
     const generateResponse = async (chatElement, userMessage) => {
         const messageElement = chatElement.querySelector("p");
         try {
-            const answer = await runModel(userMessage);
-            messageElement.textContent = answer;
-            // 오류 출력
+            const answer = await runModel(userMessage); // 모델 실행하여 응답 생성
+            messageElement.textContent = answer; // 응답 내용 설정
         } catch (error) {
-            console.error("応答の生成に失敗しました;", error);
-            messageElement.textContent = "すみません、エラーが発生しました。";
+            // 오류 처리
+            console.error("応答の生成に失敗しました。;", error);
+            messageElement.textContent = "すみません、エラーが発生しました。"; // 오류 메시지 표시
         }
-        chatbox.scrollTo(0, chatbox.scrollHeight);
+        chatbox.scrollTo(0, chatbox.scrollHeight); // 채팅 박스를 최신 메시지로 스크롤
     }
 
+    // 채팅 처리
     const handleChat = () => {
-        userMessage = chatInput.value.trim(); // userMessage:사용자가 입력한것 --> value로
-        // chatInput: textarea부분
-        if(!userMessage) return; // 공백시 return
+        userMessage = chatInput.value.trim(); // 사용자 입력 메시지 가져오기
+        if(!userMessage) return; // 메시지가 비어있으면 반환
         
-        // 입력된 textarea를 지우고 높이를 기본값으로 설정
+        // 입력란 초기화 및 높이 재설정
         chatInput.value = "";
         chatInput.style.height = `${inputInitHeight}px`;
 
-        // 입력한 메시지를 대화 상자에 추가
+        // 사용자 메시지를 채팅 박스에 추가
         chatbox.appendChild(createChatLi(userMessage, "outgoing"));
         chatbox.scrollTo(0, chatbox.scrollHeight);
 
@@ -255,30 +265,34 @@
             const incomingChatLi = createChatLi("考え中···", "incoming");
             chatbox.appendChild(incomingChatLi);
             chatbox.scrollTo(0, chatbox.scrollHeight);
-            generateResponse(incomingChatLi, userMessage);
-        }, 600);
+            generateResponse(incomingChatLi, userMessage); // 응답 생성 함수 호출
+        }, 0); // 응답 생성 지연시간 설정
     }
 
+    // 입력란 내용 길이에 따라 높이 조절
     chatInput.addEventListener("input", () => {
-        // 내용 길이에 따라 입력된 textarea의 높이를 조정
-        chatInput.style.height = `${inputInitHeight}px`;
-        chatInput.style.height = `${chatInput.scrollHeight}px`;
+        chatInput.style.height = `${inputInitHeight}px`; // 초기 높이로 재설정
+        chatInput.style.height = `${chatInput.scrollHeight}px`; // 새로운 내용에 맞게 높이 조절
     });
 
+    // Enter 키를 눌러 채팅 처리
     chatInput.addEventListener("keydown", (e) => {
-        // Shift 키와 윈도우키를 누르지 않은 채로 Enter 키를 누른 경우에만 채팅 처리
-        // 창 너비가 800 px보다 큰 경우에만 채팅 처리
-        if(e.key === "Enter" && !e.shiftKey && window.innerWidth > 800) {
-            e.preventDefault();
-            handleChat();
+        if(e.key === "Enter" && !e.shiftKey && window.innerWidth > 800) { // Shift 키를 누르지 않고 Enter 키를 눌렀으며 창 너비가 800px 이상인 경우
+            e.preventDefault(); // 기본 Enter 키 동작 방지
+            handleChat(); // 채팅 처리 함수 호출
         }
     });
 
+    // 전송 버튼 클릭 시 채팅 처리
     sendChatBtn.addEventListener("click", handleChat);
+
+    // 닫기 버튼 클릭 시 챗봇 닫기
     closeBtn.addEventListener("click", () => document.body.classList.remove("show-chatbot"));
+
+    // 토글 버튼 클릭 시 챗봇 표시/숨기기 토글
     chatbotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
 
-  </script>
+</script>
 
 </body>
 

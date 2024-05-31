@@ -86,12 +86,12 @@ button { /* 버튼을 배경색과 같게하고 border 없앰 */
     border: none;
 }
 
-input:hover {
-    cursor: pointer;
+.history {
+    background-color: #3ab440;
+    font-size: 17px;
+    border-radius: 10px;
 }
 
-footer {
-    position : absolute;
-    bottom : 0;
-    font-size: 12px;
+input:hover {
+    cursor: pointer;
 }

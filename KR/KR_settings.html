@@ -20,6 +20,7 @@
       <a href="KR_home.html"><li>홈</li></a>
       <a href="KR_settings.html#generl"><li style="background-color: #222;">설정</li></a>
     </ul>
+    <footer>© 2024 Musicsite</footer>
   </div>
 
   <div class="settings">
@@ -77,7 +78,7 @@
         <div id="privacy" class="setting-section">
           <h2>개인정보 보호</h2>
           <div class="topcontent">
-            <button style="font-size: 17px;"><a href="KR_Settings.html#general">🎧 재생 기록 지우기</a></button>
+            <button style="font-size: 17px;" onclick="javascript:btn()"><a href="KR_home.html">🎧 재생 기록 지우기</a></button>
             <p>이 계정의 재생 기록을 모든 기기에서 삭제합니다. </p>
           </div>
           <div style="margin-top: 30px;">
@@ -85,7 +86,7 @@
             <label for="listeninghistory">재생 기록 일시중지</label>
           </div>
           <div style="margin-top: 40px;">
-            <button style="font-size: 17px;"><a href="KR_Settings.html#general">🔍 검색 기록 삭제</a></button>
+            <button style="font-size: 17px;" onclick="javascript:btn()"><a href="KR_home.html">🔍 검색 기록 삭제</a></button>
             <p>모든 기기에서 이 계정의 검색 기록을 삭제합니다.</p>
           </div>
           <div style="margin-top: 30px;">
@@ -108,6 +109,13 @@
       </div>
 
   </div>
+
+  <script>
+    function btn(){
+        alert('기록이 삭제되었습니다.');
+    }
+    </script>
+
 
 </body>
 
