@@ -21,24 +21,25 @@ body {
 .scrollbar { /* content 부분 가로 스크롤 기능 */
     overflow: hidden;
     white-space: nowrap;
-    cursor: pointer;
 }
 
-.scrollbar::-webkit-scrollbar {
-    width: 10px;
+.scrollbar::-webkit-scrollbar { /* 스크롤바 높이 */
+    height: 17px;
 }
 
-/* 스크롤바 막대기 */
-.scrollbar::-webkit-scrollbar-thumb {
+.scrollbar::-webkit-scrollbar-thumb { /* 스크롤바 막대기 기본 색 */
     background-color: #666;
 }
 
-.scrollbar::-webkit-scrollbar-thumb:hover {
+.scrollbar::-webkit-scrollbar-thumb:hover { /* 스크롤바 막대기 호버시 색 */
     background-color: #555;
 }
 
-/* 스크롤바 백그라운드 */
-.scrollbar::-webkit-scrollbar-track {
+.scrollbar::-webkit-scrollbar-thumb:active {  /* 스크롤바 막대기 활성화시 색 */
+    background-color: #444;
+}
+
+.scrollbar::-webkit-scrollbar-track { /* 스크롤바 배경 (전체 배경색과 같게함) */
     background-color: #0f0f29;
 }
 
@@ -93,18 +94,8 @@ body {
     text-align: center;
 }
 
-h1 {
-    color:clinear-gradient(135deg, #ff6b6b, #f7d794, #1dd1a1);
-    animation: gradientBG 15s ease infinite;
-}
-
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
 footer {
     position : absolute;
     bottom : 0;
+    font-size: 12px;
 }

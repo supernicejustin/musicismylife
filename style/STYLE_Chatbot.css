@@ -137,7 +137,11 @@ header h2 {
   max-width: 75%;
   color: #fff;
   font-size: 0.95rem;
-  background: #724ae8;
+  background: linear-gradient(135deg, #FFCC33, #290f29, #00CED1);
+  background-size: 400% 400%;
+  transition: all 0.2s ease;
+  animation: gradientBG 20s ease infinite;
+  scroll-behavior: smooth;
 }
 .chatbox .incoming p {
   border-radius: 10px 10px 10px 0;
@@ -172,7 +176,7 @@ header h2 {
 }
 .chat-input span {
   align-self: flex-end;
-  color: #724ae8;
+  color: #000;
   cursor: pointer;
   height: 55px;
   display: flex;
