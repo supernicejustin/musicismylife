@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=divice-width, initial-scale=1.0" />
+  <title>Library</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0f0f29;
+      color: white;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      font-size: 16px;
+      padding: 15px;
+      cursor: pointer;
+    }
+
+    li:hover {
+      background-color: #333;
+    }
+
+    fieldset {
+      border-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    .main {
+      display: flex;
+      height: 100vh;
+    }
+
+    .sidebar {
+      width: 240px;
+      height: 100vh;
+      background-color: #000;
+    }
+
+    .Logo {
+      height: 130px;
+      padding: 15px;
+      border-bottom: 1px solid #333;
+    }
+
+    .MainLogoIMG {
+      width: 130px;
+    }
+
+    .ComposerLogoIMG {
+      width: 75px;
+      margin-bottom: 2rem;
+    }
+
+    .main-content {
+      background-color: #0f0f29;
+      flex: 1;
+      border-radius: 1rem;
+      overflow: auto;
+      padding: 0 1.5rem 0 1.5rem;
+    }
+
+    nav {
+      margin: 2rem 2rem 0 2rem;
+      display: flex;
+      flex-direction: row-reverse;
+    }
+
+    .signin {
+      border-radius: 1rem;
+      padding: 15px;
+      height: 16px;
+    }
+
+    .Login {
+      border-radius: 1rem;
+      padding: 15px;
+      height: 16px;
+    }
+
+    .signin:hover {
+      background-color: grey;
+    }
+
+    .Login:hover {
+      background-color: grey;
+    }
+
+    .recommend {
+      background-color: #131355;
+      width: fit-content;
+      height: fit-content;
+    }
+
+    .gbox {
+      display: flex;
+      height: auto;
+      background-color: #131355;
+    }
+
+    .gtext {
+      padding: 3rem;
+      width: auto;
+    }
+
+    .albumg {
+      width: 250px;
+      margin: 10px;
+    }
+
+    .albumart:hover {
+      transform: scale(1.05);
+      /*호버시 앨범커버 주변효과 */
+      box-shadow: 0px 0px 3px 2px #0f0f29;
+      /* 현재 주변 그림자 효과 안보이는 상태 */
+    }
+
+    .albumart {
+      width: 100%;
+      /* 가로 사이즈에 맞춤 */
+      height: auto;
+    }
+
+    .galbum-title {
+      display: inline-block;
+      font-weight: bold;
+      margin-top: 8px;
+      font-size: 2rem;
+    }
+
+    .galbum-artist {
+      font-size: 16px;
+      color: #ccc;
+      margin-top: 1rem;
+    }
+
+    .곡수 {
+      font-size: 16px;
+      color: #ccc;
+    }
+
+    .목록설명 {
+      padding-top: 2rem;
+    }
+
+    .glistb {
+      background-color: #131355;
+      display: flex;
+      flex-direction: column;
+      width: auto;
+      margin-top: 2rem;
+    }
+
+    .profile {
+      box-sizing: border-box;
+      border-radius: 50%;
+      /* 둥글게 처리 */
+    }
+
+    .profile:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 0px 3px 2px #0f0f29;
+    }
+
+    .artist-name {
+      /* 앨범 타이틀 때보다 마진 조금 더 주고 글씨 크기도 조금 더 크게하고 가운데 정렬 */
+      margin-top: 10px;
+      font-size: 15px;
+      text-align: center;
+    }
+
+    .glisth {
+      min-height: fit-content;
+      margin-left: 3rem;
+    }
+
+    .glisti {
+      width: 40px;
+      height: auto;
+      margin-top: 1rem;
+      margin-left: 4rem;
+      margin-right: 4rem;
+    }
+
+    .glistib {
+      border-bottom: 1px solid gray;
+    }
+
+    .glistt {
+      display: inline-block;
+      padding-bottom: 1rem;
+      padding-left: 3rem;
+      font-weight: bold;
+    }
+
+    .glistartist {
+      display: inline-block;
+      padding-left: 10rem;
+    }
+
+    .glistartista {
+      color: #ccc;
+    }
+
+    .glistalbum {
+      display: inline-block;
+      padding-left: 10rem;
+      color: #ccc;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main">
+    <div class="sidebar">
+      <div class="Logo">
+        <a class="MainLogo" href="../혁준/musicsite/musicsite/Home.html"><img class="MainLogoIMG" src="IMG_2701.JPG"
+            alt="Hompage Logo"></a>
+        <a class="ComposerLogo" href=""><img class="ComposerLogoIMG" src="Design.png" alt="Composer Logo"></a>
+        <!--여기에 작곡 사이트 집어 넣기-->
+      </div>
+      <div class="menu">
+        <ul>
+          <li><a class="Search" href="../상규/searchtab.html">Search</a></li>
+          <!--다시 누르면 검색 첫 화면으로 돌아옴-->
+          <li><a class="Library" href="../상규/Library.html">Library</a></li>
+          <!--여기에 라이브러리 링크 넣기-->
+          <li><a class="Create Playlist" href="">Create Playlist</a></li>
+          <!--플레이 리스트 링크 넣기-->
+        </ul>
+      </div>
+    </div>
+    <div class="main-content">
+      <nav>
+        <div class="Login"><a href="">Log in</a></div>
+        <!--로그인 창 넣기-->
+        <div class="signin"><a href="">Sign in</a></div>
+        <!--회원가입 창 넣기-->
+      </nav>
+      <section class="gbox">
+        <div class="recommend">
+          <div class="albumg">
+            <a href="Blank.html"><img src="../상규/보관함/liked-music-.png" alt="Album" class="albumart"></a>
+          </div>
+        </div>
+        <div class="gtext">
+          <div class="galbum-title">좋아요 표시한 음악</div>
+          <div class="galbum-artist">자동 재생목록</div>
+          <div class="곡수">0곡</div>
+          <div class="목록설명">모든 좋아요를 표시한 음악이 여기에 표시됩니다.</div>
+        </div>
+      </section>
+      <section class="glistb">
+        <div class="glist">
+          <div class="glistib">
+            <a class="glisth" href=""><img class="glisti" src="../상규/보관함/glisti1.jpg" alt="glisti">
+              <div class="glistt">I Really Want To Stay At Your House(Acoustic)</div>
+            </a>
+            <div class="glistartist">
+              <a href="" class="">
+                <div class="glistartista">Lunity</div>
+              </a>
+            </div>
+            <div class="glistalbum">I Really Want To Stay At Your House(Acoustic)</div>
+          </div>
+        </div>
+        <div class="glist">
+          <div class="glistib">
+            <a class="glisth" href=""><img class="glisti" src="../상규/보관함/glisti1.jpg" alt="glisti">
+              <div class="glistt">I Really Want To Stay At Your House(Acoustic)</div>
+            </a>
+            <div class="glistartist">
+              <a href="" class="">
+                <div class="glistartista">Lunity</div>
+              </a>
+            </div>
+            <div class="glistalbum">I Really Want To Stay At Your House(Acoustic)</div>
+          </div>
+        </div>
+        <div class="glist">
+          <div class="glistib">
+            <a class="glisth" href=""><img class="glisti" src="../상규/보관함/glisti1.jpg" alt="glisti">
+              <div class="glistt">I Really Want To Stay At Your House(Acoustic)</div>
+            </a>
+            <div class="glistartist">
+              <a href="" class="">
+                <div class="glistartista">Lunity</div>
+              </a>
+            </div>
+            <div class="glistalbum">I Really Want To Stay At Your House(Acoustic)</div>
+          </div>
+        </div>
+        <div class="glist">
+          <div class="glistib">
+            <a class="glisth" href=""><img class="glisti" src="../상규/보관함/glisti1.jpg" alt="glisti">
+              <div class="glistt">I Really Want To Stay At Your House(Acoustic)</div>
+            </a>
+            <div class="glistartist">
+              <a href="" class="">
+                <div class="glistartista">Lunity</div>
+              </a>
+            </div>
+            <div class="glistalbum">I Really Want To Stay At Your House(Acoustic)</div>
+          </div>
+        </div>
+        <div class="glist">
+          <div class="glistib">
+            <a class="glisth" href=""><img class="glisti" src="../상규/보관함/glisti1.jpg" alt="glisti">
+              <div class="glistt">I Really Want To Stay At Your House(Acoustic)</div>
+            </a>
+            <div class="glistartist">
+              <a href="" class="">
+                <div class="glistartista">Lunity</div>
+              </a>
+            </div>
+            <div class="glistalbum">I Really Want To Stay At Your House(Acoustic)</div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  </div>
+  </div>
+</body>
+
+</html>

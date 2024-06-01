@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=divice-width, initial-scale=1.0" />
+  <title>searchtab</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0f0f29;
+      color: white;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      font-size: 16px;
+      padding: 15px;
+      cursor: pointer;
+    }
+
+    li:hover {
+      background-color: #333;
+    }
+
+    fieldset {
+      border-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    .main {
+      display: flex;
+      height: 100vh;
+    }
+
+    .sidebar {
+      width: 240px;
+      height: 100vh;
+      background-color: #000;
+    }
+
+    .Logo {
+      height: 130px;
+      padding: 15px;
+      border-bottom: 1px solid #333;
+    }
+
+    .MainLogoIMG {
+      width: 130px;
+    }
+
+    .ComposerLogoIMG {
+      width: 75px;
+      margin-bottom: 2rem;
+    }
+
+    .main-content {
+      background-color: #0f0f29;
+      flex: 1;
+      border-radius: 1rem;
+      overflow: auto;
+      padding: 0 1.5rem 0 1.5rem;
+    }
+
+    .Pagename {
+      font-size: 40px;
+      margin: 30px;
+      flex: 1;
+    }
+
+    nav {
+      margin: 2rem 2rem 0 2rem;
+      display: flex;
+      flex-direction: row-reverse;
+    }
+
+    .signin {
+      border-radius: 1rem;
+      padding: 15px;
+      height: 16px;
+    }
+
+    .Login {
+      border-radius: 1rem;
+      padding: 15px;
+      height: 16px;
+    }
+
+    .signin:hover {
+      background-color: grey;
+    }
+
+    .Login:hover {
+      background-color: grey;
+    }
+
+    .searchbar {
+      border: 2px solid #000;
+      border-radius: 3rem;
+      width: 500px;
+      height: 2.5rem;
+      position: relative;
+      left: 4rem;
+      text-indent: 3rem;
+      background-image: url(icons8-돋보기.svg);
+      background-repeat: no-repeat;
+      background-size: 25px;
+      background-position: left 10px center;
+    }
+
+    ::placeholder {
+      text-align: left;
+    }
+
+    .searchbutton {
+      border: 2px solid #000;
+      border-radius: 5rem;
+      margin-left: 4rem;
+      width: 5rem;
+      color: #000;
+      background-color: white;
+    }
+
+    .recommend {
+      container-type: inline-size;
+      background-color: #131355;
+      margin-top: 0.75rem;
+      margin-left: 4rem;
+    }
+
+    .scrollbar {
+      /* content 부분 가로 스크롤 기능 */
+      overflow: hidden;
+      white-space: nowrap;
+      cursor: pointer;
+      height: 250px;
+    }
+
+    .scrollbar::-webkit-scrollbar {
+      width: 10px;
+      /* 스크롤바 너비 설정 */
+    }
+
+    .scrollbar::-webkit-scrollbar-thumb {
+      background-color: #666;
+      /* 스크롤바 색상 설정 */
+      border-radius: 10px;
+      /* 스크롤바 테두리 모양 설정 */
+    }
+
+    .scrollbar::-webkit-scrollbar-thumb:hover {
+      background-color: #555;
+      /* 호버 시 스크롤바 색상 설정 */
+    }
+
+    .scrollbar::-webkit-scrollbar-thumb:active {
+      background-color: #444;
+      /* 클릭 시 스크롤바 색상 설정 */
+    }
+
+    .scrollbar::-webkit-scrollbar-track {
+      background-color: #0f0f29;
+      /* 스크롤바 트랙 색상 설정 */
+    }
+
+    /* Firefox용 스크롤바 */
+    .scrollbar {
+      scrollbar-color: #666 #0f0f29;
+      /* 스크롤바 색상 설정 */
+    }
+
+    .scrollbar:hover {
+      overflow: auto;
+      /* 호버 상태에서만 스크롤바 표시 */
+    }
+
+    .album {
+      display: inline-block;
+      /* 같은 열로 표시 되면서 크기, 간격 속성 지정 */
+      width: 170px;
+      margin: 10px;
+      vertical-align: top;
+      /* 요소의 맨 위를 줄에서 가장 큰 요소의 맨 위에 맞춤 */
+    }
+
+    .albumart:hover {
+      transform: scale(1.05);
+      /*호버시 앨범커버 주변효과 */
+      box-shadow: 0px 0px 3px 2px #0f0f29;
+      /* 현재 주변 그림자 효과 안보이는 상태 */
+    }
+
+    .album img {
+      width: 100%;
+      /* 가로 사이즈에 맞춤 */
+      height: auto;
+    }
+
+    .album-title {
+      margin-top: 8px;
+      font-size: 14px;
+      overflow: hidden;
+      /* 앨범 타이틀이 너무 길면 글자 자름 */
+    }
+
+    .album-artist {
+      font-size: 12px;
+      /* 글씨를 타이틀 보다는 작게 */
+      color: #ccc;
+      /* 약간 어둡게 처리 */
+    }
+
+    .profile {
+      box-sizing: border-box;
+      border-radius: 50%;
+      /* 둥글게 처리 */
+    }
+
+    .profile:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 0px 3px 2px #0f0f29;
+    }
+
+    .artist-name {
+      /* 앨범 타이틀 때보다 마진 조금 더 주고 글씨 크기도 조금 더 크게하고 가운데 정렬 */
+      margin-top: 10px;
+      font-size: 15px;
+      text-align: center;
+    }
+
+    .엘범추천 {
+      margin-left: 4rem;
+      margin-top: 2rem;
+    }
+
+    .분장제 {
+      margin-top: 1rem;
+      margin-left: 4rem;
+    }
+
+    td {
+      padding: 0px;
+      margin: 0px;
+    }
+
+    .분위기장르 {
+      margin-top: 1rem;
+      margin-left: 4rem;
+      background-color: #131355;
+      overflow: hidden;
+      white-space: nowrap;
+      border-radius: 1rem;
+    }
+
+    .분위기장르:hover {
+      overflow: auto;
+    }
+
+    .분장 {
+      margin: 1rem;
+      background-color: #47478a;
+      border-radius: 0.5rem;
+      width: 10rem;
+      height: 3rem;
+    }
+
+    .내용 {
+      text-align: center;
+      padding: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main">
+    <div class="sidebar">
+      <div class="Logo">
+        <a class="MainLogo" href="/musicsite/musicsite/Home.html"><img class="MainLogoIMG" src="IMG_2701.JPG"
+            alt="Hompage Logo"></a>
+        <a class="ComposerLogo" href=""><img class="ComposerLogoIMG" src="Design.png" alt="Composer Logo"></a>
+        <!--여기에 작곡 사이트 집어 넣기-->
+      </div>
+      <div class="menu">
+        <ul>
+          <li><a class="Search" href="#">Search</a></li>
+          <!--다시 누르면 검색 첫 화면으로 돌아옴-->
+          <li><a class="Library" href="../상규/Library.html">Library</a></li>
+          <!--여기에 라이브러리 링크 넣기-->
+          <li><a class="Create Playlist" href="">Create Playlist</a></li>
+          <!--플레이 리스트 링크 넣기-->
+        </ul>
+      </div>
+    </div>
+    <div class="main-content">
+      <nav>
+        <div class="Login"><a href="">Log in</a></div>
+        <!--로그인 창 넣기-->
+        <div class="signin"><a href="">Sign in</a></div>
+        <!--회원가입 창 넣기-->
+        <h1 class="Pagename">Search</h1>
+      </nav>
+      <section class="searchbox">
+        <form>
+          <fieldset>
+            <input class="searchbar" type="search" placeholder="지금 듣고 싶은 노래를 검색하세요!" list="song">
+            <button class="searchbutton" type="submit" value="text">검색</button>
+            <datalist id="song">
+              <option value="Lover" label="Taylor Swift"></option>
+              <option value="AUSTIN" label="Post Malone"></option>
+              <option value="GUTS" label="Oliva Rodrigo"></option>
+              <option value="After Hours" label="The Weeknd"></option>
+            </datalist>
+          </fieldset>
+        </form>
+      </section>
+      <h2 class="분장제">분위기와 장르</h2>
+      <section class="분위기장르">
+        <table class="분장표">
+          <tr>
+            <td><a href="../상규/searchin.html">
+                <div class="분장">
+                  <p class="내용">1990년대</p>
+                </div>
+              </a></td>
+            <td><a href="">
+                <div class="분장">
+                  <p class="내용">록</p>
+                </div>
+              </a></td>
+            <td><a href="">
+                <div class="분장">
+                  <p class="내용">연말연시</p>
+                </div>
+              </a></td>
+            <td><a href="">
+                <div class="분장">
+                  <p class="내용">인디 & 얼터너티브</p>
+                </div>
+              </a></td>
+            <td><a href="">
+                <div class="분장">
+                  <p class="내용">편안한 분위기</p>
+                </div>
+              </a></td>
+            <td><a href="">
+                <div class="분장">
+                  <p class="내용">OST & 뮤지컬</p>
+                </div>
+              </a></td>
+            <td><a href="">
+                <div class="분장">
+                  <p class="내용">1980년대</p>
+                </div>
+              </a></td>
+            <td><a href="">
+                <div class="분장">
+                  <p class="내용">가족</p>
+                </div>
+              </a></td>
+          </tr>
+          <tr>
+            <td><a href="">
+                <div class="분장">
+                  <p class="내용">클래식</p>
+                </div>
+              </a></td>
+            <td><a href="">
+                <div class="분장">
+                  <p class="내용">잠잘 때</p>
+                </div>
+              </a></td>
+            <td><a href="">
+                <div class="분장">
+                  <p class="내용">행복한 기분</p>
+                </div>
+              </a></td>
+            <td><a href="">
+                <div class="분장">
+                  <p class="내용">댄스 & 일렉트로닉</p>
+                </div>
+              </a></td>
+            <td><a href="">
+                <div class="분장">
+                  <p class="내용">재즈</p>
+                </div>
+              </a></td>
+            <td><a href="">
+                <div class="분장">
+                  <p class="내용">블루스</p>
+                </div>
+              </a></td>
+            <td><a href="">
+                <div class="분장">
+                  <p class="내용">국내 댄스</p>
+                </div>
+              </a></td>
+            <td><a href="">
+                <div class="분장">
+                  <p class="내용">포크 / 어쿠스틱</p>
+                </div>
+              </a></td>
+          </tr>
+          <tr>
+            <td><a href="">
+                <div class="분장">
+                  <p class="내용">한국 힙합</p>
+                </div>
+              </a></td>
+            <td><a href="">
+                <div class="분장">
+                  <p class="내용">국내 발라드</p>
+                </div>
+              </a></td>
+            <td><a href="">
+                <div class="분장">
+                  <p class="내용">사랑 노래</p>
+                </div>
+              </a></td>
+            <td><a href="">
+                <div class="분장">
+                  <p class="내용">파티 음악</p>
+                </div>
+              </a></td>
+            <td><a href="">
+                <div class="분장">
+                  <p class="내용">힙합</p>
+                </div>
+              </a></td>
+            <td><a href="">
+                <div class="분장">
+                  <p class="내용">국내 R&B</p>
+                </div>
+              </a></td>
+            <td><a href="">
+                <div class="분장">
+                  <p class="내용">2000년대</p>
+                </div>
+              </a></td>
+            <td><a href="">
+                <div class="분장">
+                  <p class="내용">슬픔</p>
+                </div>
+              </a></td>
+          </tr>
+          <tr>
+            <td><a href="">
+                <div class="분장">
+                  <p class="내용">운동할 때</p>
+                </div>
+              </a></td>
+            <td><a href="">
+                <div class="분장">
+                  <p class="내용">POP</p>
+                </div>
+              </a></td>
+            <td><a href="">
+                <div class="분장">
+                  <p class="내용">집중할 때</p>
+                </div>
+              </a></td>
+            <td><a href="">
+                <div class="분장">
+                  <p class="내용">크리스마스</p>
+                </div>
+              </a></td>
+            <td><a href="">
+                <div class="분장">
+                  <p class="내용">1970년대</p>
+                </div>
+              </a></td>
+            <td><a href="">
+                <div class="분장">
+                  <p class="내용">1960년대</p>
+                </div>
+              </a></td>
+            <td><a href="">
+                <div class="분장">
+                  <p class="내용">메탈</p>
+                </div>
+              </a></td>
+            <td><a href="">
+                <div class="분장">
+                  <p class="내용">J팝</p>
+                </div>
+              </a></td>
+          </tr>
+        </table>
+      </section>
+      <h2 class="엘범추천">추천 엘범</h2>
+      <section class="recommend">
+        <div class="content scrollbar">
+          <div class="album">
+            <a href="Blank.html"><img src="../상규/album/IMG_2027.JPG" alt="Album" class="albumart"></a>
+            <div class="album-title">Lover</div>
+            <div class="album-artist">Taylor Swift</div>
+          </div>
+
+          <div class="album">
+            <img src="../상규/album/IMG_2029.JPG" alt="Album" class="albumart">
+            <div class="album-title">AUSTIN</div>
+            <div class="album-artist">Post Malone</div>
+          </div>
+
+          <div class="album">
+            <img src="../상규/album/IMG_2030.PNG" alt="Album" class="albumart">
+            <div class="album-title">GUTS</div>
+            <div class="album-artist">Oliva Rodrigo</div>
+          </div>
+
+          <div class="album">
+            <img src="../상규/album/IMG_2039.JPG" alt="Album" class="albumart">
+            <div class="album-title">x (Deluxe Edition)</div>
+            <div class="album-artist">Ed Sheeran</div>
+          </div>
+
+          <div class="album">
+            <img src="../상규/album/IMG_2049.JPG" alt="Album" class="albumart">
+            <div class="album-title">Divinely Uninspired To A Hellish Extent</div>
+            <div class="album-artist">Lewis Capaldi</div>
+          </div>
+
+          <div class="album">
+            <img src="../상규/album/IMG_2059.JPG" alt="Album" class="albumart">
+            <div class="album-title">After Hours</div>
+            <div class="album-artist">The Weeknd</div>
+          </div>
+
+          <div class="album">
+            <img src="../상규/album/IMG_2069.JPG" alt="Album" class="albumart">
+            <div class="album-title">My Everything (Deluxe)</div>
+            <div class="album-artist">Ariana Grande</div>
+          </div>
+
+          <div class="album">
+            <img src="../상규/album/IMG_2079.JPG" alt="Album" class="albumart">
+            <div class="album-title">Future Nostalgia</div>
+            <div class="album-artist">Dua Lipa</div>
+          </div>
+
+          <div class="album">
+            <img src="../상규/album/IMG_2089.JPG" alt="Album" class="albumart">
+            <div class="album-title">Love Goes</div>
+            <div class="album-artist">Sam Smith</div>
+          </div>
+
+          <!-- 더 추가 가능 -->
+
+        </div>
+      </section>
+    </div>
+  </div>
+
+
+
+</body>
+
+</html>
