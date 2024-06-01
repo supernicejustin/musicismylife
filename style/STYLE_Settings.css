@@ -87,7 +87,7 @@ button { /* 버튼을 배경색과 같게하고 border 없앰 */
 }
 
 .history {
-    background-color: #179141;
+    background-color: #11642e;
     font-size: 17px;
     border: 1px solid #000;
     border-radius: 5px;
@@ -97,18 +97,22 @@ input:hover {
     cursor: pointer;
 }
 
+/* 토글 버튼 */
+
 
 .toggle ul.alert_switch li {
     width: 215px;
     position: relative;
 }
 
+/* ul의 기본적인 공백 지우기 + 장식 없애기 */
 ul {
     padding:0px;
     margin:0px;
     list-style:none
 }
 
+/* 스위치 크기와 기본적인 요소 + OFF로 전환할 때 스위치 색상 */
 .toggle input[type="checkbox"] {
     width: 65px;
     height: 30px;
@@ -125,6 +129,7 @@ ul {
     cursor: pointer;
 }
 
+/* OFF로 전환할 때 스위치 */
 .toggle input[type="checkbox"]:after {
     content: '';
     display: inline-block;
@@ -150,6 +155,7 @@ ul {
     opacity: .5;
 }
 
+/* ON으로 전활할 때 스위치 색상 */
 .toggle input:checked[type="checkbox"] {
     background-color: #179141;
     transition: all .5s ease;
@@ -163,6 +169,7 @@ ul {
     font-size: 12px;
 }
 
+/* ON으로 전환할 때 스위치 */
 .toggle input:checked[type="checkbox"]:after {
     left: 40px;
     transition: all .3s ease;

@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Easter Egg</title>
+  <title>Egg</title>
   <link rel="icon" href="media/etc/IMG_2701.JPG">
   <style>
     body {
@@ -33,7 +33,7 @@
     }
 
     canvas:hover {
-        cursor: pointer;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -70,7 +70,7 @@
     // 배경 투명 설정
     renderer.setClearColor(0x000000, 0);
 
-    // OrbitControls 설정
+    // OrbitControls(마우스로 움직이기) 설정
     let controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true; // 감속 효과 추가
     controls.dampingFactor = 0.25; // 감속 비율 설정
@@ -78,7 +78,7 @@
     controls.minDistance = 5; // 줌 최소 거리
     controls.maxDistance = 200; // 줌 최대 거리
 
-    let mixer; // AnimationMixer를 선언
+    let mixer; // 애니메이션 믹서(3D모델 애니메이션에 필요) 선언
     let clock = new THREE.Clock(); // Clock을 선언
 
     let loader = new GLTFLoader();
@@ -89,10 +89,9 @@
       mixer = new THREE.AnimationMixer(gltf.scene);
       const clips = gltf.animations;
 
-      // 첫 번째 클립을 재생
       const action = mixer.clipAction(clips[0]);
       action.loop = THREE.LoopRepeat;
-      action.setLoop(THREE.LoopPingPong);
+      action.setLoop(THREE.LoopPingPong); // 끝까지 재생하면 역재생
       action.play();
 
       // 애니메이션 속도 조절
