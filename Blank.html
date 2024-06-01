@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blank Page</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+        }
+
+        .sidebar {
+            width: 240px;
+            height: 100vh;
+            background-color: #000;
+            position: fixed;
+            overflow: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .logo {
+            height: 130px;
+            padding: 15px;
+            border-bottom: 1px solid #333;
+        }
+
+        .menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu li {
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .menu li:hover {
+            background-color: #333;
+        }
+
+        .menu li i {
+            margin-right: 10px;
+        }
+
+        .content {
+            margin-left: 240px;
+            height: 300px;
+            background: linear-gradient(45deg, #B99BA1, #E3E1E8);
+            border-radius: 20px 20px 0px 0px;
+            box-shadow: 1px 1px 7px pink;
+        }
+
+        .img {
+            height: 170px;
+            padding: 10px;
+            padding-top: 110px;
+            border-radius: 20px;
+            float: left;
+        }
+
+        .mini {
+            border-radius: 50%;
+            height: 20px;
+        }
+
+        .button-container {
+            display: inline-block;
+            border-radius: 50%;
+            padding: 1px;
+            margin-left: 10px;
+            margin-top: 20px;
+            padding: 5px;
+            transition: background-color 0.5s;
+            cursor: pointer;
+        }
+
+        .button-container:hover {
+            background-color: rgb(55, 187, 83);
+        }
+
+        .button {
+            border-radius: 50%;
+            height: 50px;
+        }
+
+        .bottom {
+            margin-left: 240px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .introduce {
+            padding-top: 140px;
+        }
+
+        .flex-grow {
+            flex-grow: 1;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 20px;
+            background-color: #333;
+            border-radius: 5px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-menu a {
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #575757;
+        }
+
+        .fa-list-ul {
+            margin-left: auto;
+            padding-right: 20px;
+            cursor: pointer;
+        }
+
+        .track-header {
+            margin-left: 240px;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .track-header div {
+            padding: 0 10px;
+        }
+
+        .track-list {
+            margin-left: 240px;
+            list-style: none;
+            padding: 0;
+            margin-top: 0;
+        }
+
+        .track-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+
+        .track-list li:hover {
+            background-color: gray;
+        }
+
+        .track-list li a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .track-list li a:hover {
+            text-decoration: underline;
+        }
+
+        .track-number {
+            width: 20px;
+            margin-right: 10px;
+        }
+
+        .track-duration {
+            margin-left: auto;
+            padding-right: 20px;
+        }
+        
+        .Singer:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <link rel="stylesheet" href="./css/heart.css">
+    <link rel="stylesheet" href="./css/select.css?v=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <a href="home.html"><img src="media/etc/IMG_2701.JPG" alt="Logo" style="max-height: 130px;"></a>
+            <img src="media/etc/Design.png" alt="Logo" style="max-height: 75px; margin-bottom: 30px;">
+        </div>
+        <ul class="menu">
+            <a href="menu/Search.html">
+                <li><i class="fas fa-search"></i>Search</li>
+            </a>
+            <a href="menu/Library.html">
+                <li><i class="fas fa-book"></i>Your Library</li>
+            </a>
+            <a href="menu/Playlist.html">
+                <li><i class="fas fa-plus"></i>Create Playlist</li>
+            </a>
+            <a href="menu/LikedSongs.html">
+                <li><i class="fas fa-heart"></i>Liked Songs</li>
+            </a>
+        </ul>
+    </div>
+    <div>
+        <div class="content">
+            <img class="img" src="media/album/IMG_2027.JPG">
+            <div class="introduce"><br>
+                <p>앨범</p>
+                <h1>Lover</h1>
+                <img class="mini" src="media/profile/unnamed.jpg">
+                <span><a href="Singer.html" class="Singer">Taylor Swift</a></span><span> . 2019 . 18곡,1시간1분</span>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="button-container">
+                <img src="media/etc/playbutton.png" class="button">
+            </div>
+            <label for="checkbox">
+                <input type="checkbox" id="checkbox" hidden>
+                <svg t="1689815540548" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" p-id="2271">
+                    <path
+                        d="M742.4 101.12A249.6 249.6 0 0 0 512 256a249.6 249.6 0 0 0-230.72-154.88C143.68 101.12 32 238.4 32 376.32c0 301.44 416 546.56 480 546.56s480-245.12 480-546.56c0-137.92-111.68-275.2-249.6-275.2z"
+                        fill="#231F20" p-id="2272" id="heart"></path>
+                </svg>
+                <span></span>
+            </label>
+            <select name="option" id="option">
+                <option value="Library">내 라이브러리에 추가하기</option>
+                <option value="Live">아티스트 라디오 보러가기</option>
+                <option value="Playlist">플레이리스트에 추가하기</option>
+                <option value="Share">공유</option>
+            </select>
+            <input type="submit" value="submit">
+            <i class="fa-solid fa-list-ul" id="dropdownToggle">목록</i>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a href="#">보기 설정</a>
+                <a href="#">목록</a>
+                <a href="#">작게</a>
+            </div>
+        </div>
+        <!-- Track list header -->
+        <div class="track-header">
+            <div>#</div>
+            <div>제목</div>
+            <div class="track-duration"><i class="fas fa-clock"></i></div>
+        </div>
+        <!-- Track list -->
+        <ul class="track-list">
+            <li><a href="track1.html"><span class="track-number">1</span>I Forgot That You Existed <span class="track-duration">2:50</span></a></li>
+            <li><a href="track2.html"><span class="track-number">2</span>Cruel Summer <span class="track-duration">2:58</span></a></li>
+            <li><a href="track3.html"><span class="track-number">3</span>Lover <span class="track-duration">3:41</span></a></li>
+            <li><a href="track4.html"><span class="track-number">4</span>The Man <span class="track-duration">3:10</span></a></li>
+            <li><a href="track5.html"><span class="track-number">5</span>The Archer <span class="track-duration">3:31</span></a></li>
+            <li><a href="track6.html"><span class="track-number">6</span>I Think He Knows <span class="track-duration">2:53</span></a></li>
+            <li><a href="track5.html"><span class="track-number">7</span>Miss Americana & The Heartbreak Prince <span class="track-duration">3:54</span></a></li>
+            <li><a href="track5.html"><span class="track-number">8</span>Paper Rings <span class="track-duration">3:42</span></a></li>
+            <li><a href="track5.html"><span class="track-number">9</span>Cornelia Street <span class="track-duration">4:47</span></a></li>
+            <li><a href="track5.html"><span class="track-number">10</span>Death By A Thousand Cuts <span class="track-duration">3:18</span></a></li>
+            <li><a href="track5.html"><span class="track-number">11</span>London Boy <span class="track-duration">3:10</span></a></li>
+            <li><a href="track5.html"><span class="track-number">12</span>Soon You'll Get Better (feat. The Chicks) <span class="track-duration">3:21</span></a></li>
+            <li><a href="track5.html"><span class="track-number">13</span>False God <span class="track-duration">3:20</span></a></li>
+            <li><a href="track5.html"><span class="track-number">14</span>You Need To Calm Down <span class="track-duration">2:51</span></a></li>
+            <li><a href="track5.html"><span class="track-number">15</span>Afterglow <span class="track-duration">3:43</span></a></li>
+        </ul>
+    </div>
+    <script>
+        document.getElementById("dropdownToggle").addEventListener("click", function () {
+            var dropdown = document.getElementById("dropdownMenu");
+            if (dropdown.style.display === "block") {
+                dropdown.style.display = "none";
+            } else {
+                dropdown.style.display = "block";
+            }
+        });
+
+        window.addEventListener("click", function (event) {
+            var dropdown = document.getElementById("dropdownMenu");
+            if (!event.target.matches('.fa-list-ul')) {
+                if (dropdown.style.display === "block") {
+                    dropdown.style.display = "none";
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

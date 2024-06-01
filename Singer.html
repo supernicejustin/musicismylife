@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+        }
+
+        .sidebar {
+            width: 240px;
+            height: 100vh;
+            background-color: #000;
+            position: fixed;
+            overflow: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .logo {
+            height: 130px;
+            padding: 15px;
+            border-bottom: 1px solid #333;
+        }
+
+        .menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu li {
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .menu li:hover {
+            background-color: #333;
+        }
+
+        .menu li i {
+            margin-right: 10px;
+        }
+
+        .content {
+            background-image: url('./media/profile/Post.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 20px;
+            margin-left: 240px;
+        }
+
+        .content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+
+        .artist-info {
+            position: relative;
+            z-index: 1;
+        }
+
+        .artist-info h1 {
+            font-size: 48px;
+            margin: 0;
+        }
+
+        .artist-info p {
+            font-size: 18px;
+        }
+
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .play-button {
+            background-color: #1db954;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .follow-button {
+            background-color: transparent;
+            color: white;
+            border: 1px solid white;
+            border-radius: 50px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .main-content {
+            display: flex;
+            margin-left: 240px;
+            padding: 20px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .popular-music, .albums {
+            display: flex;
+            overflow-x: auto;
+        }
+
+        .item {
+            margin-right: 20px;
+            text-align: center;
+        }
+
+        .item img {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+        }
+
+        .item p {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .tracks {
+            flex: 3;
+            margin-right: 20px;
+        }
+
+        .tracks h2 {
+            margin-bottom: 10px;
+        }
+
+        .tracks ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .tracks li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .tracks li img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+
+        .track-info {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            transition: background-color 0.3s;
+        }
+
+        .track-info:hover {
+            background-color: #333;
+        }
+
+        .track-info:hover span.track-number {
+            visibility: hidden;
+        }
+
+        .track-info:hover span.track-number::before {
+            content: "\f04b";
+            /* Unicode for the play icon */
+            font-family: 'FontAwesome';
+            visibility: visible;
+        }
+
+        .track-info div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .track-duration {
+            color: #b3b3b3;
+        }
+
+        .track-plays {
+            color: #b3b3b3;
+            margin-right: 300px;
+        }
+
+        .recommendations {
+            flex: 3;
+        }
+
+        .recommendations h2 {
+            margin-bottom: 10px;
+        }
+
+        .recommendations .rec-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            
+        }
+
+        .recommendations .rec-info img {
+            width: 100px;
+            height: 100px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <a href="home.html"><img src="media/etc/IMG_2701.JPG" alt="Logo" style="max-height: 130px;"></a>
+            <img src="media/etc/Design.png" alt="Logo" style="max-height: 75px; margin-bottom: 30px;">
+        </div>
+        <ul class="menu">
+            <a href="menu/Search.html">
+                <li><i class="fas fa-search"></i>Search</li>
+            </a>
+            <a href="menu/Library.html">
+                <li><i class="fas fa-book"></i>Your Library</li>
+            </a>
+            <a href="menu/Playlist.html">
+                <li><i class="fas fa-plus"></i>Create Playlist</li>
+            </a>
+            <a href="menu/LikedSongs.html">
+                <li><i class="fas fa-heart"></i>Liked Songs</li>
+            </a>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="artist-info">
+            <h1>Taylor Swift</h1>
+            <p>월별 리스너 109,349,377명</p>
+            <div class="buttons">
+                <button class="play-button"><i class="fas fa-play"></i> 재생</button>
+                <button class="follow-button">팔로우하기</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <i class="fas fa-ellipsis-h"></i>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="tracks">
+            <h2>인기</h2>
+            <ul>
+                <li>
+                    <div class="track-info">
+                        <span class="track-number">1</span>
+                        <img src="./media/profile/Post.jpg" alt="Album Art">
+                        <div>
+                            <p>Fortnight (feat. Post Malone)</p>
+                            <span class="track-plays">312,917,919회</span>
+                        </div>
+                    </div>
+                    <div class="track-duration">3:48</div>
+                </li>
+                <li>
+                    <div class="track-info">
+                        <span class="track-number">2</span>
+                        <img src="./media/profile/Post.jpg" alt="Album Art">
+                        <div>
+                            <p>I Can Do It With a Broken Heart</p>
+                            <span class="track-plays">196,074,255회</span>
+                        </div>
+                    </div>
+                    <div class="track-duration">3:38</div>
+                </li>
+                <li>
+                    <div class="track-info">
+                        <span class="track-number">3</span>
+                        <img src="./media/profile/Post.jpg" alt="Album Art">
+                        <div>
+                            <p>Down Bad</p>
+                            <span class="track-plays">172,444,484회</span>
+                        </div>
+                    </div>
+                    <div class="track-duration">4:21</div>
+                </li>
+                <li>
+                    <div class="track-info">
+                        <span class="track-number">4</span>
+                        <img src="./media/album/IMG_2027.JPG" alt="Album Art">
+                        <div>
+                            <p>Cruel Summer</p>
+                            <span class="track-plays">2,128,358,993회</span>
+                        </div>
+                    </div>
+                    <div class="track-duration">2:58</div>
+                </li>
+                <li>
+                    <div class="track-info">
+                        <span class="track-number">5</span>
+                        <img src="./media/album/THE TORTURED POETS DEPARTMENT.jpg" alt="Album Art">
+                        <div>
+                            <p>So Long, London</p>
+                            <span class="track-plays">378,510,591회</span>
+                        </div>
+                    </div>
+                    <div class="track-duration">2:45</div>
+                </li>
+            </ul>
+        </div>
+        <div class="recommendations">
+            <h2>아티스트 추천</h2>
+            <div class="rec-info">
+                <img src="./media/album/THE TORTURED POETS DEPARTMENT.jpg" alt="추천 아티스트">
+                <div>
+                    <p>THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY</p>
+                    <p>앨범</p>
+                </div>
+            </div>
+        </div>
+        <div class="recommendations">
+            <h2>팬들이 함께 좋아하는 아티스트</h2>
+            <div class="rec-info">
+                <img src="./media/profile/weeknd.jpg" alt="The Weeknd">
+                <div>
+                    <p>The Weeknd</p>
+                    <p>월별 리스너 106,080,920명</p>
+                </div>
+            </div>
+            <div class="rec-info">
+                <img src="./media/profile/sza.jpg" alt="SZA">
+                <div>
+                    <p>SZA</p>
+                    <p>월별 리스너 66,197,074명</p>
+                </div>
+            </div>
+            <div class="rec-info">
+                <img src="./media/profile/coldplay.jpg" alt="Coldplay">
+                <div>
+                    <p>Coldplay</p>
+                    <p>월별 리스너 71,231,022명</p>
+                </div>
+            </div>
+            <div class="rec-info">
+                <img src="./media/profile/ed sheeran.jpg" alt="Ed Sheeran">
+                <div>
+                    <p>Ed Sheeran</p>
+                    <p>월별 리스너 77,434,891명</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-content section-container">
+        <div class="section">
+            <h2>인기 음악</h2>
+            <div class="popular-music">
+                <div class="item">
+                    <img src="./media/album/fortnite.jfif" alt="Fortnight">
+                    <p>Fortnight (feat. Post Malone)</p>
+                </div>
+                <div class="item">
+                    <img src="./media/album/1989.jpg" alt="1989 (Taylor's Version)">
+                    <p>Welcome To New York (Taylor's Version)</p>
+                </div>
+                <div class="item">
+                    <img src="./media/album/Shake It Off.jpg" alt="Shake It Off">
+                    <p>Shake It Off</p>
+                </div>
+                <div class="item">
+                    <img src="./media/album/Fearless (Platinum Edition).jpg" alt="You Belong With Me">
+                    <p>You Belong With Me</p>
+                </div>
+                <div class="item">
+                    <img src="./media/album/I Knew You Were Trouble..jpg" alt="I Knew You Were Trouble.">
+                    <p>I Knew You Were Trouble.</p>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <h2>앨범</h2>
+            <div class="albums">
+                <div class="item">
+                    <img src="./media/album/THE TORTURED POETS DEPARTMENT.jpg" alt="THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY">
+                    <p>THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY</p>
+                </div>
+                <div class="item">
+                    <img src="./media/album/1989.jpg" alt="1989 (Taylor's Version)">
+                    <p>1989 (Taylor's Version)</p>
+                </div>
+                <div class="item">
+                    <img src="./media/album/Midnights (3am Edition).jpg" alt="Midnights (3am Edition)">
+                    <p>Midnights (3am Edition)</p>
+                </div>
+                <div class="item">
+                    <img src="./media/album/Speak Now (Taylor's Version).jpg" alt="Speak Now (Taylor's Version)">
+                    <p>Speak Now (Taylor's Version)</p>
+                </div>
+                <div class="item">
+                    <img src="./media/album/Red (Taylor's Version).jpg" alt="Red (Taylor's Version)">
+                    <p>Red (Taylor's Version)</p>
+                </div>
+                <div class="item">
+                    <img src="./media/album/Fearless (Taylor's Version).jpg" alt="Fearless (Taylor's Version): The Kissing In The Rain Chapter">
+                    <p>Fearless (Taylor's Version): The Kissing In The Rain Chapter</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

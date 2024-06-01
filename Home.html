@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0f0f29; /* 전체 배경색 */
+            color: white;
+        }
+
+        .sidebar {
+            width: 240px;
+            height: 100vh; /* 100% 높이로 보여져라 */
+            background-color: #000; /* 사이드바 배경색 */
+            position: fixed;
+            overflow: hidden; /* 스크롤바 생기는거 방지 (화면 크기 줄여서 스크롤바가 생기면 로고가 깨짐) */
+        }
+
+        a {
+            text-decoration: none; /* 링크 밑줄 제거 */
+            color: white; /* 흰색으로 다른 텍스트들이랑 맞추기 */
+        }
+
+        .logo {
+            height: 130px;
+            padding: 15px;
+            border-bottom: 1px solid #333;
+        }
+
+        .menu {
+            list-style: none; /* ul li로 리스트 만들거기 때문에 list-style: none; */
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu li {
+            padding: 15px 20px;
+            cursor: pointer;
+        }
+
+        .menu li:hover {
+            background-color: #333;
+        }
+
+        .content { /* 앨범이나 아티스트 사진 표시하는 공간 */
+            margin-left: 240px; /* 사이드바가 분리된 공간이 아니기 때문에 사이드바 넓이 만큼 옆으로 띄어줌 */
+            padding: 20px;
+            margin-bottom: 50px;
+        }
+
+        .scrollbar { /* content 부분 가로 스크롤 기능 */
+            overflow: hidden;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        .scrollbar:hover { /* 호버시에만 스크롤바 표시 */
+            overflow: auto;
+        }
+
+        .album {
+            display: inline-block; /* 같은 열로 표시 되면서 크기, 간격 속성 지정 */
+            width: 170px;
+            margin: 10px;
+            vertical-align: top; /* 요소의 맨 위를 줄에서 가장 큰 요소의 맨 위에 맞춤 */
+        }
+
+        .albumart:hover {
+            box-shadow: 0 0px 3px 2px white; /* 호버시 앨범커버 주변효과 */
+        }
+
+        .album img {
+            width: 100%;
+            /* 가로 사이즈에 맞춤 */
+            height: auto;
+        }
+
+        .album-title {
+            margin-top: 8px;
+            font-size: 14px;
+            overflow: hidden; /* 앨범 타이틀이 너무 길면 글자 자름 */
+        }
+
+        .album-artist {
+            font-size: 12px; /* 글씨를 타이틀 보다는 작게 */
+            color: #ccc; /* 약간 어둡게 처리 */
+        }
+
+        .profile {
+            box-sizing: border-box;
+            border-radius: 50%; /* 둥글게 처리 */
+        }
+
+        .profile:hover {
+            box-shadow: 0 0px 3px 2px rgb(255, 255, 255);
+        }
+
+        .artist-name { /* 앨범 타이틀 때보다 마진 조금 더 주고 글씨 크기도 조금 더 크게하고 가운데 정렬 */
+            margin-top: 10px;
+            font-size: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <a href="home.html"><img src="media/etc/IMG_2701.JPG" alt="Logo" style="max-height: 130px;"></a> <!-- 메인 로고 (누르면 home.html로 연결되어있음) -->
+            </a><img src="media/etc/Design.png" alt="Logo" style="max-height: 75px; margin-bottom: 30px;"> <!-- 작곡 파트로 이동하기 위한 로고 (로고 변경 가능, 추후 작곡파트 완성 후 연결) -->
+        </div>
+        <ul class="menu">
+            <li>Search</li> <!-- 여기에 a href로 링크 주면 됨 -->
+            </a><li>Your Library</li>
+            </a><li>Create Playlist</li>
+            </a><li>Liked Songs</li>
+        </ul>
+    </div>
+    <div>
+        <div style="padding-top: 30px;">
+            <h1 style="margin: 0px 0px 30px 265px; display: inline;"><strong>Home</strong></h1>
+            <h4 style="float: right; margin-right: 30px; display: inline;">log in</h4> <!-- 오른쪽 정렬 (text-align 썼는데 안되서 딴거 씀), 너무 오른쪽에 붙어서 마진 줌. 추후 로그인 페이지와 연결-->
+            <h4 style="float: right; margin-right: 20px; display: inline;">sign in</h4>
+            <!-- h1, h4 두 태그는 원래 줄바꿈이 되지만 같은 열에 있어야 하므로 display: inline; 속성 사용함으로써 같은 열에 표시 -->
+        </div>
+        <h2 style="margin: 0px 265px; padding-top: 60px;">Featured Albums</h2>
+        <!-- 위쪽과 아래와 왼쪽(사이드바 넓이보다 더 크게) 알맞게 마진을 줌 -->
+    </div>
+    <div class="content scrollbar"> <!-- content 속성으로 공간을 만들어 주고, scrollbar 속성으로 overflow상황에서 가로 스크롤 구현 -->
+        <!-- 앨범 표시 부문 -->
+        <div class="album">
+            <a href="Blank.html"><img src="media/album/IMG_2027.JPG" alt="Album" class="albumart"></a>
+            <div class="album-title">Lover</div>
+            <div class="album-artist">Taylor Swift</div>
+        </div>
+        <div class="album">
+            <img src="media/album/IMG_2029.JPG" alt="Album" class="albumart">
+            <div class="album-title">AUSTIN</div>
+            <div class="album-artist">Post Malone</div>
+        </div>
+        <div class="album">
+            <img src="media/album/IMG_2030.PNG" alt="Album" class="albumart">
+            <div class="album-title">GUTS</div>
+            <div class="album-artist">Oliva Rodrigo</div>
+        </div>
+        <div class="album">
+            <img src="media/album/IMG_2039.JPG" alt="Album" class="albumart">
+            <div class="album-title">x (Deluxe Edition)</div>
+            <div class="album-artist">Ed Sheeran</div>
+        </div>
+        <div class="album">
+            <img src="media/album/IMG_2049.JPG" alt="Album" class="albumart">
+            <div class="album-title">Divinely Uninspired To A Hellish Extent</div>
+            <div class="album-artist">Lewis Capaldi</div>
+        </div>
+        <div class="album">
+            <img src="media/album/IMG_2059.JPG" alt="Album" class="albumart">
+            <div class="album-title">After Hours</div>
+            <div class="album-artist">The Weeknd</div>
+        </div>
+        <div class="album">
+            <img src="media/album/IMG_2069.JPG" alt="Album" class="albumart">
+            <div class="album-title">My Everything (Deluxe)</div>
+            <div class="album-artist">Ariana Grande</div>
+        </div>
+        <div class="album">
+            <img src="media/album/IMG_2079.JPG" alt="Album" class="albumart">
+            <div class="album-title">Piano Man (Legacy Edition)</div>
+            <div class="album-artist">Billy Joel</div>
+        </div>
+        <!-- 더 추가 가능 -->
+    </div>
+
+    <div>
+        <h2 style="margin: 0px 265px;">Featured Artist</h2>
+    </div>
+    <div class="content scrollbar">
+        <!-- 아티스트 표시 부문 -->
+        <div class="album"> <!-- 앨범 표시 때 사용했던 속성 재활용 -->
+            <a href="Blank.html"><img class="profile" src="media/profile/unnamed.jpg" alt="Artist Profile"></a> <!-- alt내용 변경함 -->
+            <div class="artist-name">Taylor Swift</div> <!-- artist-name 속성으로 변경함 -->
+        </div>
+        <div class="album">
+            <img class="profile" src="media/profile/unnamed.jpg" alt="Artist Profile">
+            <div class="artist-name">Taylor Swift</div>
+        </div>
+        <div class="album">
+            <img class="profile" src="media/profile/unnamed.jpg" alt="Artist Profile">
+            <div class="artist-name">Taylor Swift</div>
+        </div>
+        <div class="album">
+            <img class="profile" src="media/profile/unnamed.jpg" alt="Artist Profile">
+            <div class="artist-name">Taylor Swift</div>
+        </div>
+        <div class="album">
+            <img class="profile" src="media/profile/unnamed.jpg" alt="Artist Profile">
+            <div class="artist-name">Taylor Swift</div>
+        </div>
+        <div class="album">
+            <img class="profile" src="media/profile/unnamed.jpg" alt="Artist Profile">
+            <div class="artist-name">Taylor Swift</div>
+        </div>
+        <div class="album">
+            <img class="profile" src="media/profile/unnamed.jpg" alt="Artist Profile">
+            <div class="artist-name">Taylor Swift</div>
+        </div>
+        <div class="album">
+            <img class="profile" src="media/profile/unnamed.jpg" alt="Artist Profile">
+            <div class="artist-name">Taylor Swift</div>
+        </div>
+        <div class="album">
+            <img class="profile" src="media/profile/unnamed.jpg" alt="Artist Profile">
+            <div class="artist-name">Taylor Swift</div>
+        </div>
+        <!-- 지금은 Taylor Swift로 도배했지만 변경하면됨 -->
+        <!-- 더 추가 가능 -->
+    </div>
+</body>
+</html>
