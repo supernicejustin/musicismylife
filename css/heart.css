@@ -4,6 +4,7 @@ body {
 
 svg {
     margin-top: 20px;
+    margin-left: 10px;
     width: 40px;
     /*상대포지션*/
     position: relative;

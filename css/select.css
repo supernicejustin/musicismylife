@@ -17,6 +17,7 @@ select {
     background-repeat: no-repeat;
     background-position: right 10px top 50%;
     background-size: 10px;
+    margin-left: 10px;
 }
 
 input[type="submit"] {
@@ -29,7 +30,8 @@ input[type="submit"] {
     display: inline-block;
     font-size: 16px;
     margin: 4px;
-    margin-top: 20px;
+    margin-top: 25px;
+    margin-left: 10px;
     cursor: pointer;
     border-radius: 4px;
 }
