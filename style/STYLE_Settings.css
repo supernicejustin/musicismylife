@@ -87,11 +87,91 @@ button { /* 버튼을 배경색과 같게하고 border 없앰 */
 }
 
 .history {
-    background-color: #3ab440;
+    background-color: #179141;
     font-size: 17px;
-    border-radius: 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
 }
 
 input:hover {
     cursor: pointer;
+}
+
+
+.toggle ul.alert_switch li {
+    width: 215px;
+    position: relative;
+}
+
+ul {
+    padding:0px;
+    margin:0px;
+    list-style:none
+}
+
+.toggle input[type="checkbox"] {
+    width: 65px;
+    height: 30px;
+    display: inline-block;
+    appearance: none;
+    margin-right: 3px;
+    background-color: #333333;
+    border-radius: 50px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -15px;
+    transition: all .5s ease;
+    cursor: pointer;
+}
+
+.toggle input[type="checkbox"]:after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50px;
+    position: absolute;
+    top: 50%;
+    left: 6px;
+    margin-top: -10px;
+    transition: all .3s ease;
+}
+
+.toggle input[type="checkbox"]:before {
+    content: 'OFF';
+    position: absolute;
+    right: 10px;
+    color: #ffffff;
+    font-size: 12px;
+    top: 50%;
+    margin-top: -7px;
+    opacity: .5;
+}
+
+.toggle input:checked[type="checkbox"] {
+    background-color: #179141;
+    transition: all .5s ease;
+}
+
+.toggle input:checked[type="checkbox"]:before {
+    content: 'ON';
+    right: auto;
+    left: 15px;
+    color: #ffffff;
+    font-size: 12px;
+}
+
+.toggle input:checked[type="checkbox"]:after {
+    left: 40px;
+    transition: all .3s ease;
+}
+
+.toggle ul.alert_switch li label {
+    position: absolute;
+    font-size: 0;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
 }

@@ -42,14 +42,27 @@
 
         <div id="general" class="setting-section"> <!-- a href="#general"과 id="general"를 연결 -->
           <h2>General</h2>
-          <div class="topcontent">
-            <input type="checkbox" checked id="darkmode">
-            <label for="darkmode">Dark Mode</label> <!-- id와 label이용해 텍스트 선택시에도 checkbox 변화 -->
+          <div class="toggle topcontent">
+            <ul class="alert_switch">
+              <li>
+                Dark Mode
+                <input type="checkbox" checked id="darkmode">
+                <label for="darkmode">Dark Mode</label> <!-- id와 label이용해 텍스트 선택시에도 checkbox 변화 -->
+              </li>
+            </ul>
           </div>
-          <div style="margin-top: 30px;">
-            <input type="checkbox" id="restrictedmode">
-            <label for="restrictedmode">Restricted Mode</label>
+          <div class="toggle" style="margin-top: 30px;">
+            <ul class="alert_switch">
+              <li>
+                Restricted Mode
+                <input type="checkbox" id="restrictedmode">
+                <label for="restrictedmode">Restricted Mode</label>
+              </li>
+            </ul>
             <p>Restricted Mode can help hide videos and songs with potentially mature content. No filter is 100% accurate, but it should help you avoid most of this type of content.</p>
+          </div>
+          <div style="margin-top: 40px;">
+            💬 <button class="history"><a href="home.html">Feedback</a></button>
           </div>
         </div>
 
@@ -69,9 +82,14 @@
             </div>
             <p>Support varies and depends on song availability, network conditions, and connected speaker or headphone capability.</p>
           </div>
-          <div style="margin-top: 30px;">
-            <input type="checkbox" checked id="autoqueue">
-            <label for="autoqueue">Auto queue</label>
+          <div class="toggle" style="margin-top: 30px;">
+            <ul class="alert_switch">
+              <li style="width: 183px;">
+                Auto queue
+                <input type="checkbox" checked id="autoqueue">
+                <label for="autoqueue">Auto queue</label>
+              </li>
+            </ul>
             <p>Similar tracks will play when your queue ends.</p>
           </div>
         </div>
@@ -79,20 +97,30 @@
         <div id="privacy" class="setting-section"> <!-- a href="#privacy"과 id="privacy"를 연결 -->
           <h2>Privacy</h2>
           <div class="topcontent">
-            <button style="font-size: 17px;" onclick="javascript:btn()"><a href="home.html">🎧 Clear listening history</a></button>
+            🎧 <button class="history" onclick="javascript:btn()"><a href="home.html">Clear listening history</a></button>
             <p>Clear this account's listening history from all devices.</p>
           </div>
-          <div style="margin-top: 30px;">
-            <input type="checkbox" id="listeninghistory">
-            <label for="listeninghistory">Pause listening history</label>
+          <div class="toggle" style="margin-top: 30px;">
+            <ul class="alert_switch">
+              <li style="width: 260px;">
+                Pause listening history
+                <input type="checkbox" id="listeninghistory">
+                <label for="listeninghistory">Pause listening history</label>
+              </li>
+            </ul>
           </div>
           <div style="margin-top: 40px;">
-            <button style="font-size: 17px;" onclick="javascript:btn()"><a href="home.html">🔍 Clear search history</a></button>
+            🔍 <button class="history" style="font-size: 17px;" onclick="javascript:btn()"><a href="home.html">Clear search history</a></button>
             <p>Clear searches made with this account from all devices</p>
           </div>
-          <div style="margin-top: 30px;">
-            <input type="checkbox" checked id="searchhistory">
-            <label for="searchhistory">Pause search history</label>
+          <div class="toggle" style="margin-top: 30px;">
+            <ul class="alert_switch">
+              <li style="width: 260px;">
+                Pause search history
+                <input type="checkbox" checked id="searchhistory">
+                <label for="searchhistory">Pause search history</label>
+              </li>
+            </ul>
           </div>
         </div>
 

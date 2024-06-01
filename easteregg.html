@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Easter Egg</title>
+  <link rel="icon" href="media/etc/IMG_2701.JPG">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #FFCC33, #290f29, #00CED1);
+      background-size: 400% 400%;
+      transition: all .2s ease;
+      animation: gradientBG 20s ease infinite;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    canvas { 
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="canvas" width="1000" height="1000"></canvas>
+
+  <!-- three.js 빌드 도구 없이 설치 -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.165.0/build/three.module.js",
+        "GLTFLoader": "https://unpkg.com/three@0.165.0/examples/jsm/loaders/GLTFLoader.js",
+        "OrbitControls": "https://unpkg.com/three@0.165.0/examples/jsm/controls/OrbitControls.js"
+      }
+    }
+  </script>
+
+  <script type="module">
+    import { GLTFLoader } from 'GLTFLoader';
+    import { OrbitControls } from 'OrbitControls';
+    import * as THREE from 'three';
+
+    let scene = new THREE.Scene();
+    let renderer = new THREE.WebGLRenderer({
+      canvas: document.querySelector('#canvas'),
+      antialias: true // 계단현상 없애기
+    });
+    renderer.outputEncoding = THREE.sRGBEncoding; // 정확한 색상 표현
+
+    // 카메라 설정
+    let camera = new THREE.PerspectiveCamera(30, 1);
+    camera.position.set(0, 0, 500);
+
+    // 배경 투명 설정
+    renderer.setClearColor(0x000000, 0);
+
+    // OrbitControls 설정
+    let controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true; // 감속 효과 추가
+    controls.dampingFactor = 0.25; // 감속 비율 설정
+    controls.screenSpacePanning = false; // 수평 이동 비활성화
+    controls.minDistance = 5; // 줌 최소 거리
+    controls.maxDistance = 200; // 줌 최대 거리
+
+    let mixer; // AnimationMixer를 선언
+    let clock = new THREE.Clock(); // Clock을 선언
+
+    let loader = new GLTFLoader();
+    loader.load('media/3d/scene.gltf', function (gltf) {
+      scene.add(gltf.scene);
+
+      // 애니메이션 믹서 설정
+      mixer = new THREE.AnimationMixer(gltf.scene);
+      const clips = gltf.animations;
+
+      // 첫 번째 클립을 재생
+      const action = mixer.clipAction(clips[0]);
+      action.loop = THREE.LoopRepeat;
+      action.setLoop(THREE.LoopPingPong);
+      action.play();
+
+      // 애니메이션 속도 조절
+      mixer.timeScale = 0.5;
+
+      function animate() {
+        requestAnimationFrame(animate);
+
+        // 시간 업데이트 및 애니메이션 실행
+        const delta = clock.getDelta();
+        if (mixer) mixer.update(delta);
+
+        controls.update(); // OrbitControls 업데이트
+        renderer.render(scene, camera);
+      }
+
+      animate();
+    });
+  </script>
+
+</body>
+</html>
