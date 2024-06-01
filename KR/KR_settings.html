@@ -41,14 +41,27 @@
 
         <div id="general" class="setting-section">
           <h2>일반</h2>
-          <div class="topcontent">
-            <input type="checkbox" checked id="darkmode">
-            <label for="darkmode">다크 모드</label>
+          <div class="toggle topcontent">
+            <ul class="alert_switch">
+              <li style="width: 165px;">
+                다크 모드
+                <input type="checkbox" checked id="darkmode">
+                <label for="darkmode">다크 모드</label>
+              </li>
+            </ul>
           </div>
-          <div style="margin-top: 30px;">
-            <input type="checkbox" id="restrictedmode">
-            <label for="restrictedmode">제한 모드</label>
+          <div class="toggle" style="margin-top: 30px;">
+            <ul class="alert_switch">
+              <li style="width: 165px;">
+                제한 모드
+                <input type="checkbox" id="restrictedmode">
+                <label for="restrictedmode">제한 모드</label>
+              </li>
+            </ul>
             <p>제한 모드를 사용하면 미성년자 부적합 콘텐츠를 포함할 가능성이 있는 동영상과 노래를 숨길 수 있습니다. 100% 정확히 필터링할 수는 없지만 이러한 유형의 콘텐츠를 대부분 차단할 수 있습니다.</p>
+          </div>
+          <div style="margin-top: 40px;">
+            💬 <button class="history"><a href="#">피드백</a></button>
           </div>
         </div>
 
@@ -68,9 +81,14 @@
             </div>
             <p>지원 사항은 노래의 재생 가능 여부, 네트워크 상태와 연결된 스피커 또는 헤드폰 기능에 따라 다릅니다.</p>
           </div>
-          <div style="margin-top: 50px;">
-            <input type="checkbox" checked id="autoqueue">
-            <label for="autoqueue">자동 대기열</label>
+          <div class="toggle" style="margin-top: 30px;">
+            <ul class="alert_switch">
+              <li style="width: 183px;">
+                자동 대기열
+                <input type="checkbox" checked id="autoqueue">
+                <label for="autoqueue">자동 대기열</label>
+              </li>
+            </ul>
             <p>대기열이 끝나면 비슷한 트랙이 재생됩니다.</p>
           </div>
         </div>
@@ -78,20 +96,30 @@
         <div id="privacy" class="setting-section">
           <h2>개인정보 보호</h2>
           <div class="topcontent">
-            <button class="history" onclick="javascript:btn()"><a href="KR_home.html">🎧 재생 기록 지우기</a></button>
+            🎧 <button class="history" onclick="javascript:btn()"><a href="KR_home.html">재생 기록 지우기</a></button>
             <p>이 계정의 재생 기록을 모든 기기에서 삭제합니다. </p>
           </div>
-          <div style="margin-top: 30px;">
-            <input type="checkbox" id="listeninghistory">
-            <label for="listeninghistory">재생 기록 일시중지</label>
+          <div class="toggle" style="margin-top: 30px;">
+            <ul class="alert_switch">
+              <li style="width: 230px;">
+                재생 기록 일시중지
+                <input type="checkbox" id="listeninghistory">
+                <label for="listeninghistory">재생 기록 일시중지</label>
+              </li>
+            </ul>
           </div>
           <div style="margin-top: 40px;">
-            <button class="history" onclick="javascript:btn()"><a href="KR_home.html">🔍 검색 기록 삭제</a></button>
+            🔍 <button class="history" onclick="javascript:btn()"><a href="KR_home.html">검색 기록 삭제</a></button>
             <p>모든 기기에서 이 계정의 검색 기록을 삭제합니다.</p>
           </div>
-          <div style="margin-top: 30px;">
-            <input type="checkbox" checked id="searchhistory">
-            <label for="searchhistory">검색 기록 일시중지</label>
+          <div class="toggle" style="margin-top: 30px;">
+            <ul class="alert_switch">
+              <li style="width: 230px;">
+                검색 기록 일시중지
+                <input type="checkbox" checked id="searchhistory">
+                <label for="searchhistory">검색 기록 일시중지</label>
+              </li>
+            </ul>
           </div>
         </div>
 
@@ -100,7 +128,7 @@
           <div class="topcontent">
           <button><a href="../settings.html#language">English</a></button>
             |
-          <button><a href="KR_settings.html#language" style="color: #aaa;">한국어</a></button>
+          <button style="color: #179141;">한국어</button>
             |
           <button><a href="../JP/JP_settings.html#language">日本語</a></button>
           </div>
