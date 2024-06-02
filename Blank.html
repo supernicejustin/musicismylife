@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko"> <!-- HTML 문서의 언어를 한국어로 설정 -->
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blank Page</title>
+    <meta charset="UTF-8"> <!-- 문서의 문자 인코딩을 UTF-8로 설정 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 반응형 웹 디자인을 위한 뷰포트 설정 -->
+    <title>Blank Page</title> <!-- 웹 페이지 제목 -->
     <style>
+        /* 기본 바디 스타일 */
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -13,6 +14,7 @@
             color: white;
         }
 
+        /* 사이드바 스타일 */
         .sidebar {
             width: 240px;
             height: 100vh;
@@ -21,17 +23,20 @@
             overflow: hidden;
         }
 
+        /* 링크 스타일 */
         a {
             text-decoration: none;
             color: white;
         }
 
+        /* 로고 스타일 */
         .logo {
             height: 130px;
             padding: 15px;
             border-bottom: 1px solid #333;
         }
 
+        /* 메뉴 스타일 */
         .menu {
             list-style: none;
             padding: 0;
@@ -53,6 +58,7 @@
             margin-right: 10px;
         }
 
+        /* 메인 콘텐츠 스타일 */
         .content {
             margin-left: 240px;
             height: 300px;
@@ -61,6 +67,7 @@
             box-shadow: 1px 1px 7px pink;
         }
 
+        /* 앨범 이미지 스타일 */
         .img {
             height: 170px;
             padding: 10px;
@@ -69,11 +76,13 @@
             float: left;
         }
 
+        /* 작은 이미지 스타일 */
         .mini {
             border-radius: 50%;
             height: 20px;
         }
 
+        /* 버튼 컨테이너 스타일 */
         .button-container {
             display: inline-block;
             border-radius: 50%;
@@ -85,15 +94,22 @@
             cursor: pointer;
         }
 
-        .button-container:hover {
-            background-color: rgb(55, 187, 83);
+        /* 버튼 hover 스타일 */
+        .button-container:hover .button {
+            transform: scale(1.2);
+            /* 버튼 크기 확대 */
+            box-shadow: 0 0 20px rgb(55, 187, 83);
+            /* 상자 그림자 효과 */
         }
 
+        /* 버튼 스타일 */
         .button {
             border-radius: 50%;
             height: 50px;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
+        /* 하단 섹션 스타일 */
         .bottom {
             margin-left: 240px;
             display: flex;
@@ -101,6 +117,7 @@
             position: relative;
         }
 
+        /* 소개 섹션 스타일 */
         .introduce {
             padding-top: 140px;
         }
@@ -109,6 +126,7 @@
             flex-grow: 1;
         }
 
+        /* 드롭다운 메뉴 스타일 */
         .dropdown-menu {
             display: none;
             position: absolute;
@@ -137,6 +155,7 @@
             cursor: pointer;
         }
 
+        /* 트랙 헤더 스타일 */
         .track-header {
             margin-left: 240px;
             display: flex;
@@ -149,6 +168,8 @@
             padding: 0 10px;
         }
 
+        /* 트랙 리스트 스타일 */
+        /* 트랙 리스트 스타일 */
         .track-list {
             margin-left: 240px;
             list-style: none;
@@ -157,15 +178,17 @@
         }
 
         .track-list li {
-            padding: 10px 0;
+            padding: 10px 20px;
             border-bottom: 1px solid #333;
             display: flex;
             align-items: center;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
+            cursor: pointer;
         }
 
         .track-list li:hover {
-            background-color: gray;
+            background-color: #575757;
+            transform: scale(1.02);
         }
 
         .track-list li a {
@@ -177,7 +200,7 @@
         }
 
         .track-list li a:hover {
-            text-decoration: underline;
+            text-decoration: none;
         }
 
         .track-number {
@@ -185,26 +208,99 @@
             margin-right: 10px;
         }
 
+        .track-title {
+            flex-grow: 1;
+        }
+
         .track-duration {
             margin-left: auto;
-            padding-right: 20px;
         }
-        
+
+        /* 가수 이름 스타일 */
         .Singer:hover {
             text-decoration: underline;
         }
+
+        /* select 요소 스타일 */
+        .select-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .select-list {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px 40px 10px 10px;
+            font-size: 16px;
+            color: #333;
+            cursor: pointer;
+            outline: none;
+            width: 100%;
+            max-width: 300px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="none" stroke="gray" stroke-width=".5" d="M2 0L0 2h4zm0 5L0 3h4z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 10px top 50%;
+            background-size: 10px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+            margin-left: 10px;
+            margin-top: 23px;
+        }
+
+        .select-list:hover {
+            border-color: #888;
+            box-shadow: 0 0 5px rgba(136, 136, 136, 0.5);
+        }
+
+        .select-list:focus {
+            border-color: #555;
+            box-shadow: 0 0 5px rgba(85, 85, 85, 0.5);
+        }
+
+        /* custom-submit 버튼 스타일 */
+        .custom-submit {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px;
+            margin-top: 25px;
+            margin-left: 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .custom-submit:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+
+        .custom-submit:active {
+            background-color: #3e8e41;
+        }
     </style>
+    <!-- 외부 스타일시트 및 아이콘 폰트 연결 -->
     <link rel="stylesheet" href="./css/heart.css">
-    <link rel="stylesheet" href="./css/select.css?v=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
+    <!-- 사이드바 -->
     <div class="sidebar">
+        <!-- 로고 영역 -->
         <div class="logo">
             <a href="home.html"><img src="media/etc/IMG_2701.JPG" alt="Logo" style="max-height: 130px;"></a>
             <img src="media/etc/Design.png" alt="Logo" style="max-height: 75px; margin-bottom: 30px;">
         </div>
+        <!-- 메뉴 리스트 -->
         <ul class="menu">
             <a href="menu/Search.html">
                 <li><i class="fas fa-search"></i>Search</li>
@@ -220,22 +316,24 @@
             </a>
         </ul>
     </div>
+    <!-- 메인 콘텐츠 영역 -->
     <div>
         <div class="content">
-            <img class="img" src="media/album/IMG_2027.JPG">
+            <img class="img" src="media/album/IMG_2027.JPG"> <!-- 앨범 이미지 -->
             <div class="introduce"><br>
                 <p>앨범</p>
                 <h1>Lover</h1>
-                <img class="mini" src="media/profile/unnamed.jpg">
+                <img class="mini" src="media/profile/unnamed.jpg"> <!-- 아티스트 프로필 이미지 -->
                 <span><a href="Singer.html" class="Singer">Taylor Swift</a></span><span> . 2019 . 18곡,1시간1분</span>
             </div>
         </div>
+        <!-- 하단 버튼 및 메뉴 영역 -->
         <div class="bottom">
             <div class="button-container">
-                <img src="media/etc/playbutton.png" class="button">
+                <img src="media/etc/playbutton.png" class="button"> <!-- 재생 버튼 -->
             </div>
             <label for="checkbox">
-                <input type="checkbox" id="checkbox" hidden>
+                <input type="checkbox" id="checkbox" hidden> <!-- 숨겨진 체크박스 -->
                 <svg t="1689815540548" class="icon" viewBox="0 0 1024 1024" version="1.1"
                     xmlns="http://www.w3.org/2000/svg" p-id="2271">
                     <path
@@ -244,46 +342,64 @@
                 </svg>
                 <span></span>
             </label>
-            <select name="option" id="option">
-                <option value="Library">내 라이브러리에 추가하기</option>
-                <option value="Live">아티스트 라디오 보러가기</option>
-                <option value="Playlist">플레이리스트에 추가하기</option>
-                <option value="Share">공유</option>
-            </select>
-            <input type="submit" value="submit">
+            <!-- 드롭다운 메뉴 -->
+            <div class="select-container">
+                <select name="option" class="select-list">
+                    <option value="Library">내 라이브러리에 추가하기</option>
+                    <option value="Live">아티스트 라디오 보러가기</option>
+                    <option value="Playlist">플레이리스트에 추가하기</option>
+                    <option value="Share">공유</option>
+                </select>
+            </div>
+            <input type="button" value="Submit" class="custom-submit">
             <i class="fa-solid fa-list-ul" id="dropdownToggle">목록</i>
             <div class="dropdown-menu" id="dropdownMenu">
-                <a href="#">보기 설정</a>
-                <a href="#">목록</a>
-                <a href="#">작게</a>
+                <a href="#">내 라이브러리에 추가하기</a>
+                <a href="#">아티스트 라디오 보러가기</a>
+                <a href="#">플레이리스트에 추가하기</a>
+                <a href="#">공유</a>
             </div>
         </div>
-        <!-- Track list header -->
+        <!-- 트랙 리스트 헤더 -->
         <div class="track-header">
             <div>#</div>
             <div>제목</div>
-            <div class="track-duration"><i class="fas fa-clock"></i></div>
+            <div>재생 시간</div>
         </div>
-        <!-- Track list -->
+        <!-- 트랙 리스트 -->
         <ul class="track-list">
-            <li><a href="track1.html"><span class="track-number">1</span>I Forgot That You Existed <span class="track-duration">2:50</span></a></li>
-            <li><a href="track2.html"><span class="track-number">2</span>Cruel Summer <span class="track-duration">2:58</span></a></li>
-            <li><a href="track3.html"><span class="track-number">3</span>Lover <span class="track-duration">3:41</span></a></li>
-            <li><a href="track4.html"><span class="track-number">4</span>The Man <span class="track-duration">3:10</span></a></li>
-            <li><a href="track5.html"><span class="track-number">5</span>The Archer <span class="track-duration">3:31</span></a></li>
-            <li><a href="track6.html"><span class="track-number">6</span>I Think He Knows <span class="track-duration">2:53</span></a></li>
-            <li><a href="track5.html"><span class="track-number">7</span>Miss Americana & The Heartbreak Prince <span class="track-duration">3:54</span></a></li>
-            <li><a href="track5.html"><span class="track-number">8</span>Paper Rings <span class="track-duration">3:42</span></a></li>
-            <li><a href="track5.html"><span class="track-number">9</span>Cornelia Street <span class="track-duration">4:47</span></a></li>
-            <li><a href="track5.html"><span class="track-number">10</span>Death By A Thousand Cuts <span class="track-duration">3:18</span></a></li>
-            <li><a href="track5.html"><span class="track-number">11</span>London Boy <span class="track-duration">3:10</span></a></li>
-            <li><a href="track5.html"><span class="track-number">12</span>Soon You'll Get Better (feat. The Chicks) <span class="track-duration">3:21</span></a></li>
-            <li><a href="track5.html"><span class="track-number">13</span>False God <span class="track-duration">3:20</span></a></li>
-            <li><a href="track5.html"><span class="track-number">14</span>You Need To Calm Down <span class="track-duration">2:51</span></a></li>
-            <li><a href="track5.html"><span class="track-number">15</span>Afterglow <span class="track-duration">3:43</span></a></li>
+            <li><a href="track1.html"><span class="track-number">1</span>I Forgot That You Existed <span
+                        class="track-duration">2:50</span></a></li>
+            <li><a href="track2.html"><span class="track-number">2</span>Cruel Summer <span
+                        class="track-duration">2:58</span></a></li>
+            <li><a href="track3.html"><span class="track-number">3</span>Lover <span
+                        class="track-duration">3:41</span></a></li>
+            <li><a href="track4.html"><span class="track-number">4</span>The Man <span
+                        class="track-duration">3:10</span></a></li>
+            <li><a href="track5.html"><span class="track-number">5</span>The Archer <span
+                        class="track-duration">3:31</span></a></li>
+            <li><a href="track5.html"><span class="track-number">7</span>Miss Americana & The Heartbreak Prince <span
+                        class="track-duration">3:54</span></a></li>
+            <li><a href="track5.html"><span class="track-number">8</span>Paper Rings <span
+                        class="track-duration">3:42</span></a></li>
+            <li><a href="track5.html"><span class="track-number">9</span>Cornelia Street <span
+                        class="track-duration">4:47</span></a></li>
+            <li><a href="track5.html"><span class="track-number">10</span>Death By A Thousand Cuts <span
+                        class="track-duration">3:18</span></a></li>
+            <li><a href="track5.html"><span class="track-number">11</span>London Boy <span
+                        class="track-duration">3:10</span></a></li>
+            <li><a href="track5.html"><span class="track-number">12</span>Soon You'll Get Better (feat. The Chicks)
+                    <span class="track-duration">3:21</span></a></li>
+            <li><a href="track5.html"><span class="track-number">13</span>False God <span
+                        class="track-duration">3:20</span></a></li>
+            <li><a href="track5.html"><span class="track-number">14</span>You Need To Calm Down <span
+                        class="track-duration">2:51</span></a></li>
+            <li><a href="track5.html"><span class="track-number">15</span>Afterglow <span
+                        class="track-duration">3:43</span></a></li>
         </ul>
     </div>
     <script>
+        // 드롭다운 메뉴 토글 기능
         document.getElementById("dropdownToggle").addEventListener("click", function () {
             var dropdown = document.getElementById("dropdownMenu");
             if (dropdown.style.display === "block") {
@@ -293,6 +409,7 @@
             }
         });
 
+        // 드롭다운 메뉴 외부 클릭 시 닫기 기능
         window.addEventListener("click", function (event) {
             var dropdown = document.getElementById("dropdownMenu");
             if (!event.target.matches('.fa-list-ul')) {
