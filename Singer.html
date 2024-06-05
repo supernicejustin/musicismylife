@@ -17,38 +17,51 @@
         .sidebar {
             width: 240px;
             height: 100vh;
+            /* 100% 높이로 보여져라 */
             background-color: #000;
+            /* 사이드바 배경색 */
             position: fixed;
             overflow: hidden;
+            /* 스크롤바 생기는거 방지 (화면 크기 줄여서 스크롤바가 생기면 로고가 깨짐) */
         }
 
         a {
             text-decoration: none;
+            /* 링크 밑줄 제거 */
             color: white;
+            /* 흰색으로 다른 텍스트들이랑 맞추기 */
         }
 
         .logo {
-            height: 130px;
-            padding: 15px;
+            height: 150px;
+            padding: 10px;
             border-bottom: 1px solid #333;
         }
 
         .menu {
-            list-style: none;
             padding: 0;
             margin: 0;
         }
 
         .menu li {
+            list-style: none;
+            /* ul li로 리스트 만들거기 때문에 list-style: none; */
             padding: 15px 20px;
             cursor: pointer;
-            display: flex;
-            align-items: center;
+            /* 커서 모양 손모양으로 */
+            border-bottom: 1px solid #7a7a7a;
         }
 
         .menu li:hover {
             background-color: #333;
         }
+
+        footer {
+            position: absolute;
+            bottom: 0;
+            font-size: 12px;
+        }
+
 
         .menu li i {
             margin-right: 10px;
@@ -134,7 +147,8 @@
             font-size: 24px;
         }
 
-        .popular-music, .albums {
+        .popular-music,
+        .albums {
             display: flex;
             overflow-x: auto;
         }
@@ -190,16 +204,20 @@
             flex: 1;
             transition: background-color 0.3s;
             padding: 10px;
-            height: 60px; /* 수정됨 (추가) */
-            width: 600px; /* 수정됨 (추가) */
-            border-radius: 10px; /* 수정됨 (추가) */
+            height: 60px;
+            /* 수정됨 (추가) */
+            width: 600px;
+            /* 수정됨 (추가) */
+            border-radius: 10px;
+            /* 수정됨 (추가) */
         }
 
         .track-info:hover {
             background-color: #333;
         }
 
-        .track-number { /* 수정됨 (추가) */
+        .track-number {
+            /* 수정됨 (추가) */
             width: 50px;
         }
 
@@ -223,7 +241,8 @@
 
         .track-duration {
             color: #b3b3b3;
-            margin-left: 20px; /* 수정됨 (추가) */
+            margin-left: 20px;
+            /* 수정됨 (추가) */
         }
 
         .track-plays {
@@ -233,7 +252,8 @@
 
         .recommendations {
             flex: 3;
-            margin-left: 60px; /* 수정됨 (추가) */
+            margin-left: 60px;
+            /* 수정됨 (추가) */
         }
 
         .recommendations h2 {
@@ -244,7 +264,7 @@
             display: flex;
             align-items: center;
             margin-bottom: 20px;
-            
+
         }
 
         .recommendations .rec-info img {
@@ -364,7 +384,7 @@
             <div class="rec-info">
                 <a href="Blank.html">
                     <img src="./media/album/IMG_2027.JPG" alt="추천 아티스트" class="Lover">
-                </a>    
+                </a>
                 <div>
                     <p>Lover</p>
                     <p>Album</p>
@@ -435,7 +455,8 @@
             <h2>Album</h2>
             <div class="albums">
                 <div class="item">
-                    <img src="./media/album/THE TORTURED POETS DEPARTMENT.jpg" alt="THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY">
+                    <img src="./media/album/THE TORTURED POETS DEPARTMENT.jpg"
+                        alt="THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY">
                     <p>THE TORTURED POETS <br>DEPARTMENT</p>
                 </div>
                 <div class="item">
@@ -455,7 +476,8 @@
                     <p>Red (Taylor's Version)</p>
                 </div>
                 <div class="item">
-                    <img src="./media/album/Fearless (Taylor's Version).jpg" alt="Fearless (Taylor's Version): The Kissing In The Rain Chapter">
+                    <img src="./media/album/Fearless (Taylor's Version).jpg"
+                        alt="Fearless (Taylor's Version): The Kissing In The Rain Chapter">
                     <p>Fearless : The Kissing In The <br>Rain Chapter</p>
                 </div>
             </div>
