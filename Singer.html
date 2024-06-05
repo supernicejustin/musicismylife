@@ -190,10 +190,17 @@
             flex: 1;
             transition: background-color 0.3s;
             padding: 10px;
+            height: 60px; /* 수정됨 (추가) */
+            width: 600px; /* 수정됨 (추가) */
+            border-radius: 10px; /* 수정됨 (추가) */
         }
 
         .track-info:hover {
             background-color: #333;
+        }
+
+        .track-number { /* 수정됨 (추가) */
+            width: 50px;
         }
 
         .track-info:hover span.track-number {
@@ -216,15 +223,17 @@
 
         .track-duration {
             color: #b3b3b3;
+            margin-left: 20px; /* 수정됨 (추가) */
         }
 
         .track-plays {
             color: #b3b3b3;
-            margin-right: 300px;
+            /* 수정됨 (삭제) margin-right: 300px; */
         }
 
         .recommendations {
             flex: 3;
+            margin-left: 60px; /* 수정됨 (추가) */
         }
 
         .recommendations h2 {
