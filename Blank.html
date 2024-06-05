@@ -1,294 +1,15 @@
 <!DOCTYPE html>
-<html lang="ko"> <!-- HTML 문서의 언어를 한국어로 설정 -->
+<html lang="ko">
 
 <head>
-    <meta charset="UTF-8"> <!-- 문서의 문자 인코딩을 UTF-8로 설정 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 반응형 웹 디자인을 위한 뷰포트 설정 -->
-    <title>Blank Page</title> <!-- 웹 페이지 제목 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Album</title>
     <style>
-        /* 기본 바디 스타일 */
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: white;
-        }
-
-        /* 사이드바 스타일 */
-        .sidebar {
-            width: 240px;
-            height: 100vh;
-            background-color: #000;
-            position: fixed;
-            overflow: hidden;
-        }
-
-        /* 링크 스타일 */
-        a {
-            text-decoration: none;
-            color: white;
-        }
-
-        /* 로고 스타일 */
-        .logo {
-            height: 130px;
-            padding: 15px;
-            border-bottom: 1px solid #333;
-        }
-
-        /* 메뉴 스타일 */
-        .menu {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .menu li {
-            padding: 15px 20px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-        }
-
-        .menu li:hover {
-            background-color: #333;
-        }
-
-        .menu li i {
-            margin-right: 10px;
-        }
-
-        /* 메인 콘텐츠 스타일 */
-        .content {
-            margin-left: 240px;
-            height: 300px;
-            background: linear-gradient(45deg, #B99BA1, #E3E1E8);
-            border-radius: 20px 20px 0px 0px;
-            box-shadow: 1px 1px 7px pink;
-        }
-
-        /* 앨범 이미지 스타일 */
-        .img {
-            height: 170px;
-            padding: 10px;
-            padding-top: 110px;
-            border-radius: 20px;
-            float: left;
-        }
-
-        /* 작은 이미지 스타일 */
-        .mini {
-            border-radius: 50%;
-            height: 20px;
-        }
-
-        /* 버튼 컨테이너 스타일 */
-        .button-container {
-            display: inline-block;
-            border-radius: 50%;
-            padding: 1px;
-            margin-left: 10px;
-            margin-top: 20px;
-            padding: 5px;
-            transition: background-color 0.5s;
-            cursor: pointer;
-        }
-
-        /* 버튼 hover 스타일 */
-        .button-container:hover .button {
-            transform: scale(1.2);
-            /* 버튼 크기 확대 */
-            box-shadow: 0 0 20px rgb(55, 187, 83);
-            /* 상자 그림자 효과 */
-        }
-
-        /* 버튼 스타일 */
-        .button {
-            border-radius: 50%;
-            height: 50px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        /* 하단 섹션 스타일 */
-        .bottom {
-            margin-left: 240px;
-            display: flex;
-            align-items: center;
-            position: relative;
-        }
-
-        /* 소개 섹션 스타일 */
-        .introduce {
-            padding-top: 140px;
-        }
-
-        .flex-grow {
-            flex-grow: 1;
-        }
-
-        /* 드롭다운 메뉴 스타일 */
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 20px;
-            background-color: #333;
-            border-radius: 5px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-
-        .dropdown-menu a {
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown-menu a:hover {
-            background-color: #575757;
-        }
-
-        .fa-list-ul {
-            margin-left: auto;
-            padding-right: 20px;
-            cursor: pointer;
-        }
-
-        /* 트랙 헤더 스타일 */
-        .track-header {
-            margin-left: 240px;
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 0;
-            border-bottom: 1px solid #333;
-        }
-
-        .track-header div {
-            padding: 0 10px;
-        }
-
-        /* 트랙 리스트 스타일 */
-        /* 트랙 리스트 스타일 */
-        .track-list {
-            margin-left: 240px;
-            list-style: none;
-            padding: 0;
-            margin-top: 0;
-        }
-
-        .track-list li {
-            padding: 10px 20px;
-            border-bottom: 1px solid #333;
-            display: flex;
-            align-items: center;
-            transition: background-color 0.3s, transform 0.3s;
-            cursor: pointer;
-        }
-
-        .track-list li:hover {
-            background-color: #575757;
-            transform: scale(1.02);
-        }
-
-        .track-list li a {
-            color: white;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            width: 100%;
-        }
-
-        .track-list li a:hover {
-            text-decoration: none;
-        }
-
-        .track-number {
-            width: 20px;
-            margin-right: 10px;
-        }
-
-        .track-title {
-            flex-grow: 1;
-        }
-
-        .track-duration {
-            margin-left: auto;
-        }
-
-        /* 가수 이름 스타일 */
-        .Singer:hover {
-            text-decoration: underline;
-        }
-
-        /* select 요소 스타일 */
-        .select-container {
-            position: relative;
-            display: inline-block;
-        }
-
-        .select-list {
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            padding: 10px 40px 10px 10px;
-            font-size: 16px;
-            color: #333;
-            cursor: pointer;
-            outline: none;
-            width: 100%;
-            max-width: 300px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="none" stroke="gray" stroke-width=".5" d="M2 0L0 2h4zm0 5L0 3h4z"/></svg>');
-            background-repeat: no-repeat;
-            background-position: right 10px top 50%;
-            background-size: 10px;
-            transition: border-color 0.3s, box-shadow 0.3s;
-            margin-left: 10px;
-            margin-top: 23px;
-        }
-
-        .select-list:hover {
-            border-color: #888;
-            box-shadow: 0 0 5px rgba(136, 136, 136, 0.5);
-        }
-
-        .select-list:focus {
-            border-color: #555;
-            box-shadow: 0 0 5px rgba(85, 85, 85, 0.5);
-        }
-
-        /* custom-submit 버튼 스타일 */
-        .custom-submit {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px;
-            margin-top: 25px;
-            margin-left: 20px;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .custom-submit:hover {
-            background-color: #45a049;
-            transform: scale(1.05);
-        }
-
-        .custom-submit:active {
-            background-color: #3e8e41;
-        }
     </style>
     <!-- 외부 스타일시트 및 아이콘 폰트 연결 -->
     <link rel="stylesheet" href="./css/heart.css">
+    <link rel="stylesheet" href="./css/Black.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
@@ -318,13 +39,13 @@
     </div>
     <!-- 메인 콘텐츠 영역 -->
     <div>
-        <div class="content">
+        <div class="content"> 
             <img class="img" src="media/album/IMG_2027.JPG"> <!-- 앨범 이미지 -->
             <div class="introduce"><br>
-                <p>앨범</p>
+                <p>Album</p>
                 <h1>Lover</h1>
                 <img class="mini" src="media/profile/unnamed.jpg"> <!-- 아티스트 프로필 이미지 -->
-                <span><a href="Singer.html" class="Singer">Taylor Swift</a></span><span> . 2019 . 18곡,1시간1분</span>
+                <span><a href="Singer.html" class="Singer">Taylor Swift</a></span><span> . 2019 . 18Songs,1 hour1 minute</span>
             </div>
         </div>
         <!-- 하단 버튼 및 메뉴 영역 -->
@@ -345,26 +66,22 @@
             <!-- 드롭다운 메뉴 -->
             <div class="select-container">
                 <select name="option" class="select-list">
-                    <option value="Library">내 라이브러리에 추가하기</option>
-                    <option value="Live">아티스트 라디오 보러가기</option>
-                    <option value="Playlist">플레이리스트에 추가하기</option>
-                    <option value="Share">공유</option>
+                    <option value="Library">Add Library</option>
+                    <option value="Share">Share</option>
                 </select>
             </div>
             <input type="button" value="Submit" class="custom-submit">
-            <i class="fa-solid fa-list-ul" id="dropdownToggle">목록</i>
+            <i class="fa-solid fa-list-ul" id="dropdownToggle"></i>
             <div class="dropdown-menu" id="dropdownMenu">
-                <a href="#">내 라이브러리에 추가하기</a>
-                <a href="#">아티스트 라디오 보러가기</a>
-                <a href="#">플레이리스트에 추가하기</a>
-                <a href="#">공유</a>
+                <a href="#">Add library</a>
+                <a href="#">Share</a>
             </div>
         </div>
         <!-- 트랙 리스트 헤더 -->
         <div class="track-header">
             <div>#</div>
-            <div>제목</div>
-            <div>재생 시간</div>
+            <div>Title</div>
+            <div>Playback time</div>
         </div>
         <!-- 트랙 리스트 -->
         <ul class="track-list">
