@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>결제 페이지</title>
+  <script type="text/javascript" nonce="3b3d59411edf4f20ab2b5556396" src="//local.adguard.org?ts=1717157966017&amp;type=content-script&amp;dmn=file.notion.so&amp;url=https%3A%2F%2Ffile.notion.so%2Ff%2Ff%2F4deb25dd-7003-476a-ae13-554b1284cf56%2Fec219c5d-6186-4f63-a8fe-523f8b7c3028%2F%25EC%2599%2584%25EC%2584%25B1_%25EC%25B6%2594%25EA%25B0%2580%25EC%2588%2598%25EC%25A0%2595%25EC%259A%2594%25ED%2595%25A8.html%3Fid%3Dfd0571d0-275c-498d-a346-58b1147f19cf%26table%3Dblock%26spaceId%3D4deb25dd-7003-476a-ae13-554b1284cf56%26expirationTimestamp%3D1717286400000%26signature%3D7l97Lu93V00fy7fuyPiR3toid0KgUc5y-u2JiD_dNp8%26download%3Dtrue%26downloadName%3D%25EA%25B2%25B0%25EC%25A0%259C_%25EC%25B6%2594%25EA%25B0%2580%25EC%2588%2598%25EC%25A0%2595%25EC%259A%2594%25ED%2595%25A8.html&amp;app=firefox.exe&amp;css=2&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1&amp;stealth=1&amp;st-loc&amp;st-flash&amp;st-dnt"></script>
+  <script type="text/javascript" nonce="3b3d59411edf4f20ab2b5556396" src="//local.adguard.org?ts=1717157966017&amp;name=AdGuard%20Assistant&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;type=user-script"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #121212;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      width: 400px;
+      padding: 20px;
+      background-color: #1e1e1e;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+
+    .container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: -20px; /* Adjust margins to avoid overflow */
+      background: black;
+      border-radius: 12px;
+      z-index: -1;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 24px;
+      color: #1db954;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .plan-details {
+      background-color: #2a2a2a;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .plan-details h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #1db954;
+    }
+
+    .plan-details p {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #ccc;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      position: relative;
+    }
+
+    .form-group label {
+      display: inline-block; /* 변경: block에서 inline-block으로 변경 */
+      margin-bottom: 5px;
+      font-size: 14px;
+      color: #1db954;
+      width: 100px; /* 변경: 고정된 너비를 주거나 원하는 크기로 지정 */
+    }
+
+    .form-group input {
+      width: calc(100% - 40px); /* 변경: label의 너비만큼을 제외한 나머지 영역 */
+      padding: 10px;
+      padding-left: 40px; /* 변경: padding-left를 고정된 아이콘 위치에 맞게 설정 */
+      font-size: 14px;
+      border-radius: 4px;
+      border: none;
+      outline: none;
+      background-color: #3a3a3a;
+      color: white;
+    }
+
+    .form-group input::placeholder {
+      color: #b3b3b3;
+    }
+
+    .form-group i {
+      position: absolute;
+      top: 65%;
+      left: 10px;
+      transform: translateY(-50%);
+      color: #1db954;
+      font-size: 14px; /* 아이콘의 크기 */
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      background-color: #1db954;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .submit-btn:hover {
+      background-color: #1aa34a;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 12px;
+      color: #777;
+    }
+
+  </style>
+</head>
+<body> 
+  <div class="container">
+    <h1><i class="fas fa-music"></i> 결제 페이지</h1>
+    <div class="plan-details">
+      <h2>내 요금제</h2>
+      <p>프리미엄 플랜<br>월 $9.99</p>
+    </div>
+    <form>
+      <div class="form-group">
+        <label for="cardNumber">카드번호</label>
+        <i class="fas fa-credit-card"></i>
+        <input type="text" id="cardNumber" placeholder="0000 0000 0000 0000" required>
+      </div>
+      <div class="form-group">
+        <label for="expiryDate">만료날짜</label>
+        <i class="fas fa-calendar-alt"></i>
+        <input type="text" id="expiryDate" placeholder="MM/YY" required>
+      </div>
+      <div class="form-group">
+        <label for="securityCode">보안코드</label>
+        <i class="fas fa-lock"></i>
+        <input type="text" id="securityCode" placeholder="CVC" required>
+      </div>
+      <div class="form-group">
+        <label for="birthdate">생년월일</label>
+        <i class="fas fa-birthday-cake"></i>
+        <input type="text" id="birthdate" placeholder="YYYY-MM-DD" required>
+      </div>
+      <div class="form-group">
+        <label for="paymentPassword">결제 비밀번호</label>
+        <i class="fas fa-key"></i>
+        <input type="password" id="paymentPassword" placeholder="결제 비밀번호" required>
+      </div>
+      <button type="submit" class="submit-btn">결제하기</button>
+    </form>
+    <div class="footer">
+      <p>&copy; 2024 Musicsite. All rights reserved.</p>
+    </div>
+  </div>
+
+</body>
+</html>

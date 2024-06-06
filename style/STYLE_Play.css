@@ -1,0 +1,98 @@
+/* ex.css */
+
+/* 기본 스타일 설정 */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    display: flex;
+    height: 100vh;
+}
+
+/* 메인 컨텐츠 영역 스타일 */
+.main-content {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: calc(100vh - 60px); /* 재생 바 높이를 제외한 화면 높이 */
+}
+
+.new-playlist {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #444;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* 컨텐츠 영역 스타일 */
+.content {
+    flex: 1;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* 플레이어 영역 스타일 */
+.player {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* 앨범 커버 이미지 스타일 */
+.album-cover img {
+    margin-left: 300px;
+    max-width: 100%;
+    height: 600px;
+    border-radius: 10px;
+}
+
+/* 트랙 리스트 iframe 스타일 */
+.tracks {
+    width: 300px;
+    height: 100%;
+    margin-left: 20px;
+    border: none;
+    float: right;
+}
+
+.iframe {
+    position: relative;
+}
+
+/* 고정된 재생 바 스타일 */
+.player-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #333;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.play-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+span {
+    clear: both;
+    float: right;
+}

@@ -1,0 +1,237 @@
+ /* 기본 바디 스타일 */
+ body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0f0f29;
+    color: white;
+}
+
+/* 메인 콘텐츠 스타일 */
+.content {
+    margin-left: 240px;
+    height: 300px;
+    background: linear-gradient(45deg, #B99BA1, #E3E1E8);
+    /* 수정됨 (빼봄) border-radius: 20px 20px 0px 0px; */
+    box-shadow: 1px 1px 7px pink;
+}
+
+/* 앨범 이미지 스타일 */
+.img {
+    height: 170px;
+    padding: 10px;
+    padding-top: 110px;
+    /* 수정됨 (빼봄) border-radius: 20px; */
+    margin-left: 5px; /* 수정됨 (추가) */
+    float: left;
+}
+
+/* 작은 이미지 스타일 */
+.mini {
+    border-radius: 50%;
+    height: 20px;
+}
+
+/* 버튼 컨테이너 스타일 */
+.button-container {
+    display: inline-block;
+    border-radius: 50%;
+    padding: 1px;
+    margin-left: 10px;
+    margin-top: 20px;
+    padding: 5px;
+    transition: background-color 0.5s;
+    cursor: pointer;
+}
+
+/* 버튼 hover 스타일 */
+.button-container:hover .button {
+    transform: scale(1.2);
+    /* 버튼 크기 확대 */
+    box-shadow: 0 0 10px rgb(55, 187, 83); /* 수정됨 (원래는 0 0 20px) */
+    /* 상자 그림자 효과 */
+}
+
+/* 버튼 스타일 */
+.button {
+    border-radius: 50%;
+    height: 50px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* 하단 섹션 스타일 */
+.bottom {
+    margin-left: 240px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* 소개 섹션 스타일 */
+.introduce {
+    padding-top: 120px; /* 수정됨 (원래는 140px) */
+}
+
+.flex-grow {
+    flex-grow: 1;
+}
+
+/* 드롭다운 메뉴 스타일 */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 20px;
+    background-color: #333;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-menu a {
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-menu a:hover {
+    background-color: #575757;
+}
+
+.fa-list-ul {
+    margin-left: auto;
+    padding-right: 20px;
+    cursor: pointer;
+}
+
+/* 트랙 헤더 스타일 */
+.track-header {
+    margin-left: 240px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+}
+
+.track-header div {
+    padding: 0 10px;
+}
+
+/* 트랙 리스트 스타일 */
+.track-list {
+    margin-left: 240px;
+    list-style: none;
+    padding: 0;
+    margin-top: 0;
+}
+
+.track-list li {
+    padding: 10px 20px;
+    border-bottom: 1px solid #333;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+
+.track-list li:hover {
+    background-color: #333;
+/* 수정됨 (빼봄) transform: scale(1.02); */
+}
+
+.track-list li a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.track-list li a:hover {
+    text-decoration: none;
+}
+
+.track-number {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.track-title {
+    flex-grow: 1;
+}
+
+.track-duration {
+    margin-left: auto;
+}
+
+/* 가수 이름 스타일 */
+.Singer:hover {
+    text-decoration: underline;
+}
+
+/* select 요소 스타일 */
+.select-container {
+    position: relative;
+    display: inline-block;
+    margin: 0 0 5px 5px; /* 수정됨 (추가) */
+}
+
+.select-list {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px 40px 10px 10px;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    outline: none;
+    width: 100%;
+    max-width: 300px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="none" stroke="gray" stroke-width=".5" d="M2 0L0 2h4zm0 5L0 3h4z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 10px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    margin-left: 10px;
+    margin-top: 23px;
+}
+
+.select-list:hover {
+    border-color: #888;
+    box-shadow: 0 0 5px rgba(136, 136, 136, 0.5);
+}
+
+.select-list:focus {
+    border-color: #555;
+    box-shadow: 0 0 5px rgba(85, 85, 85, 0.5);
+}
+
+/* custom-submit 버튼 스타일 */
+.custom-submit {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px;
+    margin-top: 23px; /* 수정됨 (원래는 25px) */
+    margin-left: 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.custom-submit:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.custom-submit:active {
+    background-color: #3e8e41;
+}
