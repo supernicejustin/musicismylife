@@ -27,20 +27,6 @@ body {
     background: linear-gradient(135deg, #FFCC33, #290f29, #00CED1);
 }
 
-.banner::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.banner-content {
-    position: relative;
-    z-index: 1;
-}
-
 .banner h1 {
     font-size: 56px;
     margin: 0 0 20px;
