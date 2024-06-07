@@ -35,6 +35,6 @@ a {
 
 footer {
     position : absolute;
-    margin-bottom: 10px;
+    bottom : 0;
     font-size: 12px;
 }
