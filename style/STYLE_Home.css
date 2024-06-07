@@ -1,0 +1,101 @@
+* {
+    box-sizing: border-box;
+  }
+  
+body {
+    font-family: sans-serif;
+    background-color: #0f0f29;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.content { /* 앨범이나 아티스트 사진, 정보 표시하는 공간 */
+    margin-left: 240px; /* 사이드바가 분리된 공간이 아니기 때문에 사이드바 넓이 만큼 옆으로 띄어줌 */
+    padding: 20px;
+    padding-bottom: 0px;
+    margin-bottom: 50px;
+    height: 273px;
+}
+
+.scrollbar { /* content 부분 가로 스크롤 기능 */
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.scrollbar::-webkit-scrollbar { /* 스크롤바 높이 */
+    height: 17px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb { /* 스크롤바 막대기 기본 색 */
+    background-color: #666;
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover { /* 스크롤바 막대기 호버시 색 */
+    background-color: #555;
+}
+
+.scrollbar::-webkit-scrollbar-thumb:active {  /* 스크롤바 막대기 활성화시 색 */
+    background-color: #444;
+}
+
+.scrollbar::-webkit-scrollbar-track { /* 스크롤바 배경 (전체 배경색과 같게함) */
+    background-color: #0f0f29;
+}
+
+.scrollbar:hover { /* 호버시에만 스크롤바 표시 */
+    overflow: auto;
+}
+
+.album {
+    display: inline-block; /* 같은 열로 표시 되면서 크기, 간격 속성 지정 */
+    width: 170px;
+    margin: 10px;
+    vertical-align: top; /* 요소의 맨 위를 줄에서 가장 큰 요소의 맨 위에 맞춤 */
+}
+
+.albumart:hover {
+    transition: 0.1s ease-out;
+    transform: scale(1.05); /*호버시 앨범커버 주변효과 */
+    box-shadow: 0px 0px 3px 2px #0f0f29; /* 현재 주변 그림자 효과 안보이는 상태 */
+}
+
+.album img {
+    width: 100%;
+    /* 가로 사이즈에 맞춤 */
+    height: auto;
+}
+
+.album-title {
+    margin-top: 8px;
+    font-size: 14px;
+    overflow: hidden; /* 앨범 타이틀이 너무 길면 글자 자름 */
+}
+
+.album-artist {
+    font-size: 12px; /* 글씨를 타이틀 보다는 작게 */
+    color: #ccc; /* 약간 어둡게 처리 */
+}
+
+.profile {
+    box-sizing: border-box;
+    border-radius: 50%; /* 둥글게 처리 */
+}
+
+.profile:hover {
+    transition: 0.1s ease-out;
+    transform: scale(1.05);
+    box-shadow: 0px 0px 3px 2px #0f0f29;
+}
+
+.artist-name { /* 앨범 타이틀 때보다 마진 조금 더 주고 글씨 크기도 조금 더 크게하고 가운데 정렬 */
+    margin-top: 10px;
+    font-size: 15px;
+    text-align: center;
+}
+
+footer {
+    position : absolute;
+    bottom : 0;
+    font-size: 12px;
+}

@@ -1,0 +1,40 @@
+.sidebar {
+    width: 240px;
+    height: 100vh; /* 100% 높이로 보여져라 */
+    background-color: #000; /* 사이드바 배경색 */
+    position: fixed;
+    overflow: hidden; /* 스크롤바 생기는거 방지 (화면 크기 줄여서 스크롤바가 생기면 로고가 깨짐) */
+}
+
+a {
+    text-decoration: none; /* 링크 밑줄 제거 */
+    color: white; /* 흰색으로 다른 텍스트들이랑 맞추기 */
+}
+
+.logo {
+    height: 150px;
+    padding: 10px;
+    border-bottom: 1px solid #333;
+}
+
+.menu {
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    list-style: none; /* ul li로 리스트 만들거기 때문에 list-style: none; */
+    padding: 15px 20px;
+    cursor: pointer; /* 커서 모양 손모양으로 */
+    border-bottom: 1px solid #7a7a7a;
+}
+
+.menu li:hover {
+    background-color: #333;
+}
+
+footer {
+    position : absolute;
+    bottom : 0;
+    font-size: 12px;
+}

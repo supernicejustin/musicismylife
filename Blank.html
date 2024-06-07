@@ -8,44 +8,46 @@
     <style>
     </style>
     <!-- 외부 스타일시트 및 아이콘 폰트 연결 -->
-    <link rel="stylesheet" href="./css/heart.css">
-    <link rel="stylesheet" href="./css/Blank.css">
+    <link rel="stylesheet" href="style/heart.css">
+    <link rel="stylesheet" href="style/Blank.css">
+    <link rel="stylesheet" href="style/STYLE_sidebar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
-    <!-- 사이드바 -->
+    <!-- 로고 영역 -->
     <div class="sidebar">
-        <!-- 로고 영역 -->
-        <div class="logo">
-            <a href="home.html"><img src="media/etc/IMG_2701.JPG" alt="Logo" style="max-height: 130px;"></a>
-            <img src="media/etc/Design.png" alt="Logo" style="max-height: 75px; margin-bottom: 30px;">
+        <div class="logo" style="height: 130px;">
+            <a href="home.html"><img src="media/etc/IMG_2701.JPG" alt="Logo" style="max-height: 130px;"></a><a
+                href=""><img src="media/etc/Design.png" alt="Logo" style="max-height: 75px; margin-bottom: 30px;"></a>
+            <!-- 작곡 파트로 이동하기 위한 로고 (로고 변경 가능, 추후 작곡파트 완성 후 연결) -->
         </div>
-        <!-- 메뉴 리스트 -->
         <ul class="menu">
             <a href="home.html">
-                <li><i class="fas fa-search"></i>Home</li>
+                <li><i class="fa-solid fa-house"></i>Home</li>
             </a>
-            <a href="menu/Library.html"> <!--여기에 검색창 연결-->
-                <li><i class="fas fa-book"></i>Search</li>
+            <a href="home.html"> <!--@!여기에 검색창 연결-->
+                <li><i class="fas fa-search"></i>Search</li>
             </a>
-            <a href="menu/Playlist.html"> <!--여기에 라이브러리 연결-->
-                <li><i class="fas fa-plus"></i>Library</li>
+            <a href="Library.html"> <!--@!여기에 라이브러리 연결-->
+                <li><i class="fa-solid fa-book"></i>Library</li>
             </a>
-            <a href="menu/LikedSongs.html"> <!--여기에 세팅 연결-->
-                <li><i class="fas fa-heart"></i>Setting</li>
+            <a href="settings.html#general">
+                <li><i class="fa-solid fa-gear"></i>Settings</li>
             </a>
         </ul>
+        <footer>© 2024 Musicsite</footer>
     </div>
     <!-- 메인 콘텐츠 영역 -->
     <div>
-        <div class="content"> 
+        <div class="content">
             <img class="img" src="media/album/IMG_2027.JPG"> <!-- 앨범 이미지 -->
-            <div class="introduce"><br>
+            <div class="introduce">
                 <p>Album</p>
                 <h1>Lover</h1>
                 <img class="mini" src="media/profile/unnamed.jpg"> <!-- 아티스트 프로필 이미지 -->
-                <span><a href="Singer.html" class="Singer">Taylor Swift</a></span><span> . 2019 . 18Songs,1 hour1 minute</span>
+                <span><a href="Singer.html" class="Singer">Taylor Swift</a></span><span> . 2019 . 18Songs,1 hour1
+                    minute</span>
             </div>
         </div>
         <!-- 하단 버튼 및 메뉴 영역 -->

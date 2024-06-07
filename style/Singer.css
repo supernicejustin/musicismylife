@@ -59,7 +59,7 @@ footer {
 }
 
 .content {
-    background-image: url('./media/profile/Post.jpg');
+    background-image: url('/siyun/media/profile/Post.jpg');
     background-size: cover;
     background-position: center;
     position: relative;
