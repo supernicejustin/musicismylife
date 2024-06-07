@@ -20,7 +20,7 @@ body {
 
 .scrollbar { /* content 부분 가로 스크롤 기능 */
     overflow: hidden;
-    white-space: nowrap;
+    white-space: nowrap; /* 줄바꿈 방지 */
 }
 
 .scrollbar::-webkit-scrollbar { /* 스크롤바 높이 */
