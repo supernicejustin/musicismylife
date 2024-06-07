@@ -15,7 +15,6 @@
     margin-left: 240px;
     height: 300px;
     background: linear-gradient(45deg, #B99BA1, #E3E1E8);
-    border-radius: 20px 20px 0px 0px;
     box-shadow: 1px 1px 7px pink;
 }
 
@@ -24,8 +23,8 @@
     height: 170px;
     padding: 10px;
     padding-top: 110px;
-    border-radius: 20px;
     float: left;
+    margin-left: 5px;
 }
 
 /* 작은 이미지 스타일 */
@@ -50,7 +49,7 @@
 .button-container:hover .button {
     transform: scale(1.2);
     /* 버튼 크기 확대 */
-    box-shadow: 0 0 20px rgb(55, 187, 83);
+    box-shadow: 0 0 10px rgb(55, 187, 83);
     /* 상자 그림자 효과 */
 }
 
@@ -71,7 +70,7 @@
 
 /* 소개 섹션 스타일 */
 .introduce {
-    padding-top: 140px;
+    padding-top: 120px;
 }
 
 .flex-grow {
@@ -139,7 +138,6 @@
 
 .track-list li:hover {
     background-color: #575757;
-    transform: scale(1.02);
 }
 
 .track-list li a {
@@ -176,6 +174,7 @@
 .select-container {
     position: relative;
     display: inline-block;
+    margin: 0 0 5px 5px;
 }
 
 .select-list {
@@ -222,7 +221,7 @@
     display: inline-block;
     font-size: 16px;
     margin: 4px;
-    margin-top: 25px;
+    margin-top: 23px;
     margin-left: 20px;
     cursor: pointer;
     border-radius: 4px;
