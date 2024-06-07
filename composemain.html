@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSS - Compose</title>
+    <link rel="icon" href="media/etc/IMG_2701-removebg-preview.png">
+    <link rel="stylesheet" href="style/STYLE_composemain.css">
+  </head>
+  <body>
+
+    <header>
+      <div class="logo">
+        <a href="home.html"><img src="media/etc/logo.png" alt="로고"></a>
+      </div>
+
+      <div class="buttons">
+        <button class="save-button" onclick="saveComposition()">Save</button>
+        <button class="publish-button" onclick="publishComposition()">Publish</button>
+      </div>
+    </header>
+
+    <main>
+      <div class="controls">
+        <button class="control-button play" onclick="playComposition()">Play</button>
+        <button class="control-button pause">Pause</button>
+        <button class="control-button stop">Stop</button>
+        <button class="control-button record">Record</button>
+      </div>
+
+      <div class="main-content">
+        <aside class="instrument-panel">
+          <button class="add-track-button" onclick="showInstrumentModal()">+Add Track</button>
+          <div id="instrument-controls"></div>
+        </aside>
+        <div class="composition-area" id="composition-area"></div>
+      </div>
+      <div class="instrument-display hidden">
+        <div class="instrument-select"></div>
+        <div class="instrument-list" id="instrument-list"></div>
+      </div>
+    </main>
+
+    <div id="instrument-modal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close-button" onclick="hideInstrumentModal()">&times;</span>
+        <h2>Select an instrument</h2>
+        
+        <button class="instrument-button" onclick="addInstrument('Piano')">Piano</button>
+        <button class="instrument-button" onclick="addInstrument('Drum')">Drum</button>
+      </div>
+    </div>
+
+    <script src="javascript/scripts.js"></script>
+
+  </body>
+</html>

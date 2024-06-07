@@ -1,0 +1,135 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    background-color: #0f0f29;
+}
+
+.main-content {
+    margin-left: 240px;
+}
+
+.banner {
+    background: url('images/banner.jpg') no-repeat center center/cover;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px #555 solid;
+    background: linear-gradient(135deg, #FFCC33, #290f29, #00CED1);
+}
+
+.banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.banner-content {
+    position: relative;
+    z-index: 1;
+}
+
+.banner h1 {
+    font-size: 56px;
+    margin: 0 0 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.cta-button {
+    padding: 15px 30px;
+    font-size: 20px;
+    background-color: #179141;
+    color: #ddd;
+    border: none;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #11642e;
+}
+
+.features, .pricing, .testimonials {
+    padding: 80px 50px;
+    text-align: center;
+}
+
+.features h2, .pricing h2, .testimonials h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #ddd;
+}
+
+.feature-list, .pricing-plans, .testimonial-list {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.feature-item, .plan, .testimonial-item {
+    background-color: #2a2a2a;
+    padding: 30px;
+    border-radius: 8px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.feature-item img, .testimonial-item img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.feature-item h3, .plan h3 {
+    color: #00CED1;
+}
+
+.feature-item p, .plan p, .testimonial-item p {
+    color: #ccc;
+}
+
+.pricing .plan .price {
+    font-size: 28px;
+    margin: 20px 0;
+    color: #ddd;
+}
+
+.subscribe-button {
+    padding: 15px 30px;
+    font-size: 16px;
+    background-color: #179141;
+    color: #ddd;
+    border: none;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.subscribe-button:hover {
+    background-color: #11642e;
+}
+
+.testimonial-item p {
+    margin: 10px 0;
+}
+
+.testimonial-item img {
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}

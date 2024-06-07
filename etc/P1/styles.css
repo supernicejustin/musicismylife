@@ -1,0 +1,289 @@
+/* 전체 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* 로고 이미지 스타일 */
+.logo img {
+    max-height: 60px; /* 메뉴 부분의 높이를 넘지 않도록 설정 */
+    width: auto; /* 비율을 유지하면서 너비 자동 조정 */
+    object-fit: contain; /* 이미지 비율 유지 */
+}
+
+/* 헤더 스타일 */
+header {
+    background-color: #000000;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    height: 70px; /* 메뉴 부분 높이 고정 */
+    box-sizing: border-box; /* padding 포함한 높이 계산 */
+}
+
+.buttons button {
+    padding: 12px 20px; /* 버튼 크기 조정 */
+    margin-left: 10px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* 호버 효과 추가 */
+    font-size: 16px;
+}
+
+.save-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.save-button:hover {
+    background-color: #3E8E41; /* 호버 시 색상 변경 */
+}
+
+.publish-button {
+    background-color: #A0A0A0;
+    color: white;
+}
+
+.publish-button:hover {
+    background-color: #909090;
+}
+
+/* 메인 영역 스타일 */
+main {
+    padding: 20px;
+    background-color: #0D0D0D; /* 작곡 부분의 밝은 배경색 */
+    height: calc(100vh - 70px); /* 메뉴 영역을 제외한 높이를 전체 화면 높이에서 계산 */
+    display: flex;
+    flex-direction: column;
+}
+
+/* 컨트롤 버튼 스타일 */
+.controls {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.control-button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* 호버 효과*/
+}
+
+.control-button.record {
+    background-color: #FF0000;
+}
+
+.control-button:hover {
+    background-color: #3E8E41;
+}
+
+.control-button.record:hover {
+    background-color: #CC0000;
+}
+
+/* 메인 콘텐츠 스타일 */
+.main-content {
+    display: flex;
+    flex: 1;
+}
+
+/* 악기 패널 스타일 */
+.instrument-panel {
+    width: 200px;
+    background-color: #2E2E2E;
+    padding: 20px;
+    color: white;
+    border-right: 1px solid #333;
+    overflow-y: auto;
+    position: relative; /* 모델 위치를 위한 상대 위치 */
+}
+
+.add-track-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.add-track-button:hover {
+    background-color: #3E8E41;
+}
+
+/* 모델 스타일 */
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute; /* 상대 부모 요소에 맞춰 위치 */
+    top: 50px; /* 버튼 바로 위에 위치하도록 설정 */
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 200px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    z-index: 10;
+}
+
+.modal-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.instrument-button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.instrument-button:hover {
+    background-color: #3E8E41;
+}
+
+/* 작곡 영역 스타일 */
+.composition-area {
+    flex: 1;
+    background-color: #1E1E1E; /* 작곡 영역의 배경색 */
+    border: 1px solid #333;
+    border-radius: 15px;
+    padding: 20px;
+    color: white;
+    overflow-y: auto;
+}
+
+/* 악기 표시 영역 스타일 */
+.instrument-display {
+    display: flex;
+    background-color: #2E2E2E; /* 표시 영역의 배경색 */
+    padding: 20px;
+    color: white;
+    border-top: 1px solid #333;
+    height: 150px;
+    overflow-y: auto;
+}
+
+.instrument-display.hidden {
+    display: none; /* 숨김 설정 */
+}
+
+.instrument-select {
+    width: 200px; /* 악기 선택 영역 너비 */
+    margin-right: 20px;
+    background-color: #3A3A3A;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.instrument-list {
+    flex: 1;
+    background-color: #3A3A3A;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.instrument-control {
+    margin-top: 10px;
+    background-color: #4A4A4A;
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    position: relative; /* 삭제 버튼 위치를 위한 상대 위치 */
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* 요소들 간의 간격을 10px로 설정 */
+}
+
+.instrument-control:hover {
+    cursor: pointer; /* 마우스 커서 변경 */
+}
+
+.instrument-control input[type="text"] {
+    background-color: #3E3E3E;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    width: calc(100% - 20px);
+    margin-right: 10px;
+    cursor: text; /* 텍스트 입력 시 커서 변경 */
+}
+
+.instrument-range {
+    width: 100%;
+}
+
+.instrument-select button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.instrument-select button:hover {
+    background-color: #3E8E41;
+}
+
+.instrument-select button.selected {
+    background-color: aliceblue; /* 선택된 버튼 색상 */
+    color: #000;
+}
+
+.delete-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #FF0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+    font-size: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: #CC0000;
+}

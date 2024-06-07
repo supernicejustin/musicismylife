@@ -1,0 +1,347 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.logo img {
+    max-height: 60px;
+    width: auto;
+    object-fit: contain;
+}
+
+header {
+    background-color: #000000;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    height: 70px;
+    box-sizing: border-box;
+}
+
+.buttons button {
+    padding: 12px 20px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+}
+
+.save-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.save-button:hover {
+    background-color: #3E8E41;
+}
+
+.publish-button {
+    background-color: #A0A0A0;
+    color: white;
+}
+
+.publish-button:hover {
+    background-color: #909090;
+}
+
+main {
+    padding: 20px;
+    background-color: #0D0D0D;
+    height: calc(100vh - 70px);
+    display: flex;
+    flex-direction: column;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.control-button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.control-button.record {
+    background-color: #FF0000;
+}
+
+.control-button:hover {
+    background-color: #3E8E41;
+}
+
+.control-button.record:hover {
+    background-color: #CC0000;
+}
+
+.control-button.recording {
+    background-color: #FF4500;
+}
+
+.main-content {
+    display: flex;
+    flex: 1;
+}
+
+.instrument-panel {
+    width: 200px;
+    background-color: #2E2E2E;
+    padding: 20px;
+    color: white;
+    border-right: 1px solid #333;
+    overflow-y: auto;
+    position: relative;
+}
+
+.add-track-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.add-track-button:hover {
+    background-color: #3E8E41;
+}
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 200px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    z-index: 10;
+}
+
+.modal-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.instrument-button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.instrument-button:hover {
+    background-color: #3E8E41;
+}
+
+.composition-area {
+    flex: 1;
+    background-color: #1E1E1E;
+    border: 1px solid #333;
+    border-radius: 15px;
+    padding: 20px;
+    color: white;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.instrument-display {
+    display: flex;
+    background-color: #2E2E2E;
+    padding: 20px;
+    color: white;
+    border-top: 1px solid #333;
+    height: 200px;
+    overflow-y: auto;
+}
+
+.instrument-display.hidden {
+    display: none;
+}
+
+.instrument-select {
+    width: 200px;
+    margin-right: 20px;
+    background-color: #3A3A3A;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.instrument-list {
+    flex: 1;
+    background-color: #3A3A3A;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.instrument-control {
+    margin-top: 10px;
+    background-color: #4A4A4A;
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.instrument-control:hover {
+    cursor: pointer;
+}
+
+.instrument-control input[type="text"] {
+    background-color: #555;
+    color: white;
+    border: 1px solid #777;
+    border-radius: 5px;
+    padding: 8px;
+    width: 90%;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.instrument-control input[type="text"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+.instrument-range {
+    width: 100%;
+}
+
+.instrument-select button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.instrument-select button:hover {
+    background-color: #3E8E41;
+}
+
+.instrument-select button.selected {
+    background-color: aliceblue;
+    color: #000;
+}
+
+.delete-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #FF0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+    font-size: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: #CC0000;
+}
+
+.piano-keyboard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.piano-key {
+    width: 60px;
+    height: 60px;
+    margin: 0;
+    border: 1px solid black;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    background-color: #fff;
+    color: black;
+    user-select: none;
+}
+
+.piano-key.black {
+    background-color: #000;
+    color: #fff;
+}
+
+.piano-key.active {
+    background-color: #ccc;
+}
+
+.composition-note {
+    display: inline-block;
+    padding: 10px;
+    margin: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.composition-line {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.composition-line-title {
+    font-weight: bold;
+    margin-right: 10px;
+    color: white;
+}

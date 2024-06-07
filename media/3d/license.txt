@@ -1,0 +1,11 @@
+Model Information:
+* title:	PFlow Practice - Music Spread
+* source:	https://sketchfab.com/3d-models/pflow-practice-music-spread-4877a06236ae4b76baa48b2735bbdaad
+* author:	Javier Da Rosa (https://sketchfab.com/Javier_Da_Rosa)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "PFlow Practice - Music Spread" (https://sketchfab.com/3d-models/pflow-practice-music-spread-4877a06236ae4b76baa48b2735bbdaad) by Javier Da Rosa (https://sketchfab.com/Javier_Da_Rosa) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="kr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>작곡 페이지</title>
+        <style>
+            @import url(compose3.css);
+        </style>
+    </head>
+    <body>
+        <div class="top">
+            <a href="home.html">
+                <img class="logo" src="imgs/logo.png" alt="logo" style="max-width: 100px; height: auto;">
+            </a>
+            <a href="compose1.html">
+                <img class="logo" src="imgs/Design.png" alt="Logo" style="max-height: 75px; margin-bottom: 30px;">
+            </a>
+            <button class="publish">Publish</button>
+            <button class="save" type="submit">Save</button>
+        </div>
+
+        <div class="menu">
+            <div class="inst">
+                <h3>Instrument</h3>
+                <button class="add"><a href="compose2.html">+ ADD</a></button>
+                <div class="instrument">
+                    <div class="adins">
+                        <input type="text" value="Piano2">
+                        <button class="del"><a href="compose1.html">삭제</a></button>
+                        <h4>Audio</h4>
+                        <input type="range" class="range" min="0" max="100">
+                        <h4>Echo</h4>
+                        <input type="range" class="range" min="0" max="100">
+                    </div>
+                </div>
+            </div>
+    
+            <div class="compose">
+                <div class="ssc">
+                    <button class="start">Start</button>
+                    <button class="stop">Stop</button>
+                    <button class="rec">Rec</button>
+                </div>
+                <div class="composing">
+                    <div></div>
+                </div>
+            </div>
+    
+            <div class="rins">
+                <h2>Current Instrument</h2>
+                <h4>Piano2</h4>
+                
+                <button class="sound" onclick="document.getElementById('a').play()">A</button>
+                <button class="sound2" onclick="document.getElementById('a2').play()">A#</button>
+                <button class="sound" onclick="document.getElementById('b').play()">B</button>
+                <button class="sound" onclick="document.getElementById('c').play()">C</button>
+                <button class="sound2" onclick="document.getElementById('c2').play()">C#</button>
+                <button class="sound" onclick="document.getElementById('d').play()">D</button>
+                <button class="sound2" onclick="document.getElementById('d2').play()">D#</button>
+                <button class="sound" onclick="document.getElementById('e').play()">E</button>
+                <button class="sound" onclick="document.getElementById('f').play()">F</button>
+                <button class="sound2" onclick="document.getElementById('f2').play()">F#</button>
+                <button class="sound" onclick="document.getElementById('g').play()">G</button>
+                <button class="sound2" onclick="document.getElementById('g2').play()">G#</button>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+
+
+
+
+<audio id="a" src="sounds/A.mp3"></audio>
+<audio id="a2" src="sounds/A2.mp3"></audio>
+<audio id="b" src="sounds/B.mp3"></audio>
+<audio id="c" src="sounds/C.mp3"></audio>
+<audio id="c2" src="sounds/C2.mp3"></audio>
+<audio id="d" src="sounds/D.mp3"></audio>
+<audio id="d2" src="sounds/D2.mp3"></audio>
+<audio id="e" src="sounds/E.mp3"></audio>
+<audio id="f" src="sounds/F.mp3"></audio>
+<audio id="f2" src="sounds/F2.mp3"></audio>
+<audio id="g" src="sounds/G.mp3"></audio>
+<audio id="g2" src="sounds/G2.mp3"></audio>

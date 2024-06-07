@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- 문서의 문자 인코딩을 UTF-8로 설정 -->
+    <meta charset="UTF-8">
+    <!-- 화면의 크기에 따라 레이아웃을 조절하도록 설정 (반응형 디자인) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 브라우저 탭에 표시될 문서 제목 -->
+    <title>SSS - Login</title>
+    <link rel="icon" href="media/etc/IMG_2701-removebg-preview.png">
+    <style>
+        /* 전체 문서 스타일 설정 */
+        body {
+            font-family: Arial, sans-serif; /* 폰트 설정 */
+            background-color: #0f0f29; /* 배경 색상 설정 */
+            color: white; /* 글자 색상 흰색 */
+            display: flex; /* Flexbox 레이아웃 사용 */
+            justify-content: center; /* 수평 가운데 정렬 */
+            align-items: center; /* 수직 가운데 정렬 */
+            height: 100vh; /* 뷰포트 높이 설정 */
+            margin: 0; /* 기본 여백 제거 */
+        }
+        /* 로그인 컨테이너 스타일 설정 */
+        .login-container {
+            background-color: #000; /* 배경 색상 검정 */
+            padding: 2rem; /* 내부 여백 2rem */
+            border-radius: 8px; /* 테두리 반경 8px */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* 그림자 효과 */
+            width: 300px; /* 너비 300px */
+            text-align: center; /* 텍스트 가운데 정렬 */
+            position: relative; /* 상대 위치 */
+        }
+        /* 로그인 컨테이너 내 제목 스타일 설정 */
+        .login-container h1 {
+            font-size: 1.5rem; /* 폰트 크기 1.5rem */
+            margin-bottom: 1rem; /* 아래 여백 1rem */
+        }
+        /* 로그인 버튼 스타일 설정 */
+        .login-container button {
+            width: 100%; /* 가로 너비 100% */
+            padding: 10px; /* 내부 여백 10px */
+            margin: 5px 0; /* 위아래 여백 5px */
+            border: 1px solid white; /* 흰색 테두리 */
+            border-radius: 4px; /* 테두리 반경 4px */
+            font-size: 1rem; /* 폰트 크기 1rem */
+            cursor: pointer; /* 커서 포인터로 변경 */
+        }
+        /* 버튼 내 이미지 스타일 설정 */
+        .login-container button img {
+            margin-right: 10px; /* 오른쪽 여백 10px */
+            width: 20px; /* 너비 20px */
+            height: 20px; /* 높이 20px */
+        }
+        /* 사이트 로고 스타일 설정 */
+        .site-logo {
+            position: absolute; /* 절대 위치 */
+            top: -120px; /* 위쪽 위치 -120px */
+            left: -700px; /* 왼쪽 위치 -700px */
+            width: 155px; /* 너비 155px */
+        }
+        /* 구글 로그인 버튼 스타일 설정 */
+        .google {
+            background-color: black; /* 배경 색상 검정 */
+            color: white; /* 글자 색상 흰색 */
+        }
+        /* 페이스북 로그인 버튼 스타일 설정 */
+        .facebook {
+            background-color: black; /* 배경 색상 검정 */
+            color: white; /* 글자 색상 흰색 */
+        }
+        /* 애플 로그인 버튼 스타일 설정 */
+        .apple {
+            background-color: black; /* 배경 색상 검정 */
+            color: white; /* 글자 색상 흰색 */
+        }
+        /* 입력 필드 컨테이너 스타일 설정 */
+        .input-container {
+            margin: 15px 0; /* 위아래 여백 15px */
+            text-align: left; /* 텍스트 왼쪽 정렬 */
+        }
+        /* 입력 필드 레이블 스타일 설정 */
+        .input-container label {
+            display: block; /* 블록 요소로 설정 */
+            margin-bottom: 5px; /* 아래 여백 5px */
+        }
+        /* 입력 필드 스타일 설정 */
+        .input-container input {
+            width: 93%; /* 가로 너비 93% */
+            padding: 10px; /* 내부 여백 10px */
+            border: 1px solid #333; /* 테두리 색상 설정 */
+            border-radius: 4px; /* 테두리 반경 4px */
+            background-color: #121212; /* 배경 색상 설정 */
+            color: white; /* 글자 색상 흰색 */
+        }
+        /* '내 정보 기억하기' 섹션 스타일 설정 */
+        .remember-me {
+            display: flex; /* Flexbox 레이아웃 사용 */
+            align-items: center; /* 가운데 정렬 */
+            margin: 10px 0; /* 위아래 여백 10px */
+        }
+        /* '내 정보 기억하기' 체크박스 스타일 설정 */
+        .remember-me input {
+            margin-right: 5px; /* 오른쪽 여백 5px */
+        }
+        /* 로그인 버튼 스타일 설정 */
+        .login-btn {
+            background-color: #1DB954; /* 배경 색상 녹색 */
+            color: white; /* 글자 색상 흰색 */
+        }
+        /* 비밀번호를 잊었을 때 링크 스타일 설정 */
+        .forgot-password, .signup {
+            display: block; /* 블록 요소로 설정 */
+            margin-top: 10px; /* 위쪽 여백 10px */
+            font-size: 0.9rem; /* 폰트 크기 0.9rem */
+            color: #B3B3B3; /* 글자 색상 설정 */
+            text-decoration: none; /* 밑줄 없음 */
+        }
+        /* 가입하기 링크 스타일 설정 */
+        .signup {
+            margin-top: 20px; /* 위쪽 여백 20px */
+        }
+
+        .logo {
+            position: absolute; /* 절대 위치 설정 */
+            top: 10px; /* 위쪽 위치 60px */
+            left: 10px; /* 왼쪽 위치 60px */
+        }
+
+        .login-link {
+            color: #1DB954; /* 글자 색상 설정 */
+            text-decoration: none; /* 밑줄 없음 */
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <!-- 홈 페이지로 이동하는 로고 링크 -->
+        <a href="home.html"><img src="media/etc/IMG_2701-removebg-preview.png" alt="Logo" width="130px"></a>
+    </div>
+    <!-- 로그인 컨테이너 -->
+    <div class="login-container">
+        <!-- 로그인 폼 제목 -->
+        <h1>Log in to SSS</h1>
+        <!-- 구글 로그인 버튼 -->
+        <button class="google">
+            <img src="media/social/google-logo.png" alt="google 로고">
+            Continue with Google
+        </button>
+        <!-- 페이스북 로그인 버튼 -->
+        <button class="facebook">
+            <img src="media/social/facebook-logo.png" alt="facebook 로고">
+            Continue with Facebook
+        </button>
+        <!-- 애플 로그인 버튼 -->
+        <button class="apple">
+            <img src="media/social/apple-logo.jpg" alt="apple 로고">
+            Continue with Apple
+        </button>
+        
+        <!-- 이메일 또는 사용자 이름 입력 필드 -->
+        <div class="input-container">
+            <label for="email">Email or username</label>
+            <input type="text" id="email" name="email" placeholder="Email or username">
+        </div>
+        <!-- 비밀번호 입력 필드 -->
+        <div class="input-container">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Password">
+        </div>
+        <!-- '내 정보 기억하기' 체크박스 -->
+        <div class="remember-me">
+            <input type="checkbox" id="remember" name="remember">
+            <label for="remember">Remember me</label>
+        </div>
+        <!-- 로그인 버튼 -->
+        <a href="home.html"><button class="login-btn">Log In</button></a>
+        
+        <!-- 비밀번호를 잊었을 때 링크 -->
+        <a href="home.html" class="forgot-password">Forgot your password?</a>
+        <!-- 가입하기 링크 -->
+        <div><a href="signup.html" class="signup">Don't have an account? Sign up for SSS</a>
+    </div>
+</body>
+</html>

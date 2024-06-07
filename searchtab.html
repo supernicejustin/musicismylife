@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>SSS - Search</title>
+  <link rel="icon" href="media/etc/IMG_2701-removebg-preview.png">
+  
+  <style>
+    @import url(style/STYLE_Search.css);
+    @import url(style/STYLE_sidebar.css);
+    @import url(style/STYLE_Chatbot.css);
+  </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "@google/generative-ai": "https://esm.run/@google/generative-ai"
+      }
+    }
+  </script>
+
+  <div class="sidebar">
+    <div class="logo">
+      <a href="home.html"><img src="media/etc/IMG_2701.JPG" alt="Logo" style="max-height: 130px;"></a><a href="composemain.html"><img src="media/etc/Design.png" alt="Logo" style="max-height: 75px; margin-bottom: 30px;"></a> <!-- 작곡 파트로 이동하기 위한 로고 (로고 변경 가능, 추후 작곡파트 완성 후 연결) -->
+    </div>
+      <ul class="menu">
+        <a href="home.html"><li>Home</li></a>
+        <a href="#"><li style="background-color: #222;">Search</li></a>
+        <a href="Library.html#downloads"><li>Library</li></a>
+        <a href="settings.html#general"><li>Settings</li></a>
+      </ul>
+      <footer>© 2024 SoundSeaStudio</footer>
+  </div>
+
+  <div>
+    <div style="padding-top: 30px;">
+      <h1 style="margin: 0px 0px 30px 265px; display: inline;">Search</h1>
+      <h4 style="float: right; margin-right: 30px; display: inline;"><a href="login.html">Log in</a></h4> <!-- 오른쪽 정렬 (text-align 썼는데 안되서 딴거 씀), 너무 오른쪽에 붙어서 마진 줌. 추후 로그인 페이지와 연결-->
+      <h4 style="float: right; margin-right: 20px; display: inline;"><a href="signup.html">Sign up</a></h4>
+      <!-- h1, h4 두 태그는 원래 줄바꿈이 되지만 같은 열에 있어야 하므로 display: inline; 속성 사용함으로써 같은 열에 표시 -->
+    </div>
+    <section class="searchbox">
+      <form>
+      <input type="search" placeholder="What do you want to play?" list="song" >
+      <button type="submit" value="text">Search</button>
+      <datalist id="song"><!--데이터 리스트로 검색창 호버시 결과 보여줌-->
+        <option value="Lover" label="Taylor Swift"></option>
+        <option value="AUSTIN" label="Post Malone"></option>
+        <option value="GUTS" label="Oliva Rodrigo"></option>
+        <option value="After Hours" label="The Weeknd"></option>
+      </datalist>
+      </form> 
+    </section>
+    <!-- 위쪽과 아래와 왼쪽(사이드바 넓이보다 더 크게) 알맞게 마진을 줌 -->
+  </div>
+  <main>
+    <section>
+      <h2 style="margin: 0px 0px 10px 264px;">Moods & genres</h2>
+      <table>
+        <tr>
+          <td><a href="moodsgenres.html#familiar">
+              <div>
+                Pop
+              </div>
+            </a></td>
+          <td><a href="moodsgenres.html#familiar">
+              <div>
+                Commute
+              </div>
+            </a></td>
+          <td><a href="moodsgenres.html#familiar">
+              <div>
+                Focus
+              </div>
+            </a></td>
+          <td><a href="moodsgenres.html#familiar">
+              <div>
+                Rock
+              </div>
+            </a></td>
+          <td><a href="moodsgenres.html#familiar">
+              <div >
+                Indie & Alternative
+              </div>
+            </a></td>
+          <td><a href="moodsgenres.html#familiar">
+              <div >
+                Jazz
+              </div>
+            </a></td>
+          <td><a href="moodsgenres.html#familiar">
+              <div >
+                Energe Boosters
+              </div>
+            </a></td>
+          <td><a href="moodsgenres.html#familiar">
+              <div >
+                Folk & Acoustic
+              </div>
+            </a></td>
+        </tr>
+        <tr>
+          <td><a href="moodsgenres.html#familiar">
+              <div >
+                R&B Soul
+              </div>
+            </a></td>
+          <td><a href="moodsgenres.html#familiar">
+              <div >
+                Dance & Electronic
+              </div>
+            </a></td>
+          <td><a href="moodsgenres.html#familiar">
+              <div >
+                Hip-Hop
+              </div>
+            </a></td>
+          <td><a href="moodsgenres.html#familiar">
+              <div >
+                Romance
+              </div>
+            </a></td>
+          <td><a href="moodsgenres.html#familiar">
+              <div >
+                Sad
+              </div>
+            </a></td>
+          <td><a href="moodsgenres.html#familiar">
+              <div >
+                Workout
+              </div>
+            </a></td>
+          <td><a href="moodsgenres.html#familiar">
+              <div >
+                Sleep
+              </div>
+            </a></td>
+          <td><a href="moodsgenres.html#familiar">
+              <div >
+                Chill
+              </div>
+            </a></td>
+        </tr>
+        <tr>
+          <td><a href="moodsgenres.html#familiar">
+              <div >
+                Party
+              </div>
+            </a></td>
+          <td><a href="moodsgenres.html#familiar">
+              <div >
+                Feel Good
+              </div>
+            </a></td>
+          <td><a href="moodsgenres.html#familiar">
+              <div >
+                Family
+              </div>
+            </a></td>
+          <td><a href="moodsgenres.html#familiar">
+              <div >
+                Classical
+              </div>
+            </a></td>
+          <td><a href="moodsgenres.html#familiar">
+              <div >
+                Metal
+              </div>
+            </a></td>
+          <td><a href="moodsgenres.html#familiar">
+              <div >
+                K-Pop
+              </div>
+            </a></td>
+          <td><a href="moodsgenres.html#familiar">
+              <div >
+                J-Pop
+              </div>
+            </a></td>
+          <td><a href="moodsgenres.html#familiar">
+              <div >
+                Latin
+              </div>
+            </a></td>
+        </tr>
+        <tr>
+          <td><a href="moodsgenres.html#familiar">
+              <div >
+                African
+              </div>
+            </a></td>
+          <td><a href="moodsgenres.html#familiar">
+              <div >
+                2010s
+              </div>
+            </a></td>
+          <td><a href="moodsgenres.html#familiar">
+              <div >
+                2000s
+              </div>
+            </a></td>
+          <td><a href="moodsgenres.html#familiar">
+              <div >
+                1990s
+              </div>
+            </a></td>
+          <td><a href="moodsgenres.html#familiar">
+              <div >
+                1980s
+              </div>
+            </a></td>
+          <td><a href="moodsgenres.html#familiar">
+              <div >
+                1970s
+              </div>
+            </a></td>
+          <td><a href="moodsgenres.html#familiar">
+              <div >
+                1960s
+              </div>
+            </a></td>
+          <td><a href="moodsgenres.html#familiar">
+              <div >
+                New
+              </div>
+            </a></td>
+        </tr>
+      </table>
+    </section>
+  </main>
+  <h2 style="margin: 50px 0px 0px 264px ;">Featured Albums</h2><!--위치 맞추기 위한 마진-->
+  <div class="content scrollbar"> <!-- content 속성으로 공간을 만들어 주고, scrollbar 속성으로 overflow상황에서 가로 스크롤 구현 -->
+
+    <!-- 앨범 표시 부문 -->
+
+    <div class="album">
+      <a href="album.html"><img src="media/album/IMG_2027.JPG" alt="Album" class="albumart"></a>
+      <a href="album.html"><div class="album-title">Lover</div></a>
+      <a href="singer.html"><div class="album-artist">Taylor Swift</div></a>
+    </div>
+    
+    <div class="album">
+      <a href="album.html"><img src="media/album/IMG_2029.JPG" alt="Album" class="albumart"></a>
+      <a href="album.html"><div class="album-title">AUSTIN</div></a>
+      <a href="singer.html"><div class="album-artist">Post Malone</div></a>
+    </div>
+
+    <div class="album">
+      <a href="album.html"><img src="media/album/IMG_2030.PNG" alt="Album" class="albumart"></a>
+      <a href="album.html"><div class="album-title">GUTS</div></a>
+      <a href="singer.html"><div class="album-artist">Oliva Rodrigo</div></a>
+    </div>
+
+    <div class="album">
+      <a href="album.html"><img src="media/album/IMG_2039.JPG" alt="Album" class="albumart"></a>
+      <a href="album.html"><div class="album-title">x (Deluxe Edition)</div></a>
+      <a href="singer.html"><div class="album-artist">Ed Sheeran</div></a>
+    </div>
+    
+    <div class="album">
+      <a href="album.html"><img src="media/album/IMG_2049.JPG" alt="Album" class="albumart"></a>
+      <a href="album.html"><div class="album-title">Divinely Uninspired To A Hellish Extent</div></a>
+      <a href="singer.html"><div class="album-artist">Lewis Capaldi</div></a>
+    </div>
+    
+    <div class="album">
+      <a href="album.html"><img src="media/album/IMG_2059.JPG" alt="Album" class="albumart"></a>
+      <a href="album.html"><div class="album-title">After Hours</div></a>
+      <a href="singer.html"><div class="album-artist">The Weeknd</div></a>
+    </div>
+        
+    <div class="album">
+      <a href="album.html"><img src="media/album/IMG_2069.JPG" alt="Album" class="albumart"></a>
+      <a href="album.html"><div class="album-title">My Everything (Deluxe)</div></a>
+      <a href="singer.html"><div class="album-artist">Ariana Grande</div></a>
+    </div>
+    
+    <div class="album">
+      <a href="album.html"><img src="media/album/IMG_2079.JPG" alt="Album" class="albumart"></a>
+      <a href="album.html"><div class="album-title">Future Nostalgia</div></a>
+      <a href="singer.html"><div class="album-artist">Dua Lipa</div></a>
+    </div>
+    
+    <div class="album">
+      <a href="album.html"><img src="media/album/IMG_2089.JPG" alt="Album" class="albumart"></a>
+      <a href="album.html"><div class="album-title">Love Goes</div></a>
+      <a href="singer.html"><div class="album-artist">Sam Smith</div></a>
+    </div>
+
+    <!-- 더 추가 가능 -->
+
+  </div>
+
+
+
+
+  <!-- 챗봇 html -->
+
+  <button class="chatbot-toggler">
+    <span class="material-symbols-rounded" style="margin-left: 8px;">mode_comment</span>
+    <h4 style="margin-left: 40px;">Assistant</h4>
+    <span class="material-symbols-outlined">close</span>
+  </button>
+  <div class="chatbot">
+    <a href="easteregg.html"><header>
+      <h2>Assistant</h2>
+      <p>Powered by Gemini</p>
+      <span class="close-btn material-symbols-outlined">close</span>
+    </header></a>
+    <a href="easteregg.html"><ul class="chatbox">
+      <li class="chat incoming">
+        <span class="material-symbols-outlined">smart_toy</span>
+        <p>Hi there 👋<br>How can I help you today?</p>
+      </li>
+    </ul></a>
+    <div class="chat-input">
+      <textarea placeholder="Enter a message..." spellcheck="false" required></textarea>
+      <span id="send-btn" class="material-symbols-rounded">send</span>
+    </div>
+  </div>
+
+  <!-- 챗봇 스크립트 -->
+  <script type="module">
+    // Google Generative AI 라이브러리 가져오기
+    import { GoogleGenerativeAI } from "@google/generative-ai";
+    
+    // Generative AI 초기화 및 API 키 설정
+    const genAI = new GoogleGenerativeAI('AIzaSyAUOyuSGwGGOp_YTo1xjLoXt6DgXw8jh7A');
+
+    // 챗봇 기능에 필요한 DOM 요소 선택
+    const chatbotToggler = document.querySelector(".chatbot-toggler"); // 챗봇 토글 버튼
+    const closeBtn = document.querySelector(".close-btn"); // 챗봇 닫기 버튼
+    const chatbox = document.querySelector(".chatbox"); // 채팅 메시지를 표시하는 영역
+    const chatInput = document.querySelector(".chat-input textarea"); // 사용자 입력란
+    const sendChatBtn = document.querySelector(".chat-input span"); // 메시지 전송 버튼
+
+    // 사용자 메시지 저장 변수 및 입력란 초기 높이 저장
+    let userMessage = null;
+    const inputInitHeight = chatInput.scrollHeight;
+
+    // 사용자가 입력한 메시지로 모델 실행
+    async function runModel(prompt) {
+        const model = genAI.getGenerativeModel({ model: "gemini-pro"}); // 모델 가져오기
+      
+        // 사용자 메시지로 콘텐츠 생성
+        const result = await model.generateContent(prompt);
+        const response = await result.response;
+        const text = response.text();
+        return (text); // 생성된 텍스트 반환
+    }
+    
+    // 채팅 메시지 리스트 항목 생성
+    const createChatLi = (message, className) => {
+        const chatLi = document.createElement("li"); // 새로운 리스트 항목 생성
+        chatLi.classList.add("chat", `${className}`); // 클래스 추가
+        // 메시지 타입에 따라 내용 설정
+        let chatContent = className === "outgoing" ? `<p></p>` : `<span class="material-symbols-outlined">smart_toy</span><p></p>`;
+        chatLi.innerHTML = chatContent; // HTML 설정
+        chatLi.querySelector("p").textContent = message; // 메시지 내용 설정
+        return chatLi; // 리스트 항목 반환
+    }
+
+    // 챗봇 응답 생성
+    const generateResponse = async (chatElement, userMessage) => {
+        const messageElement = chatElement.querySelector("p");
+        try {
+            const answer = await runModel(userMessage); // 모델 실행하여 응답 생성
+            messageElement.textContent = answer; // 응답 내용 설정
+        } catch (error) {
+            // 오류 처리
+            console.error("Failed to generate response;", error);
+            messageElement.textContent = "Sorry, something went wrong."; // 오류 메시지 표시
+        }
+        chatbox.scrollTo(0, chatbox.scrollHeight); // 채팅 박스를 최신 메시지로 스크롤
+    }
+
+    // 채팅 처리
+    const handleChat = () => {
+        userMessage = chatInput.value.trim(); // 사용자 입력 메시지 가져오기
+        if(!userMessage) return; // 메시지가 비어있으면 반환
+        
+        // 입력란 초기화 및 높이 재설정
+        chatInput.value = "";
+        chatInput.style.height = `${inputInitHeight}px`;
+
+        // 사용자 메시지를 채팅 박스에 추가
+        chatbox.appendChild(createChatLi(userMessage, "outgoing"));
+        chatbox.scrollTo(0, chatbox.scrollHeight);
+
+        setTimeout(() => {
+            // 응답을 기다리는 동안 "Thinking..." 메시지 표시
+            const incomingChatLi = createChatLi("Thinking...", "incoming");
+            chatbox.appendChild(incomingChatLi);
+            chatbox.scrollTo(0, chatbox.scrollHeight);
+            generateResponse(incomingChatLi, userMessage); // 응답 생성 함수 호출
+        }, 0); // 응답 생성 지연시간 설정
+    }
+
+    // 입력란 내용 길이에 따라 높이 조절
+    chatInput.addEventListener("input", () => {
+        chatInput.style.height = `${inputInitHeight}px`; // 초기 높이로 재설정
+        chatInput.style.height = `${chatInput.scrollHeight}px`; // 새로운 내용에 맞게 높이 조절
+    });
+
+    // Enter 키를 눌러 채팅 처리
+    chatInput.addEventListener("keydown", (e) => {
+        if(e.key === "Enter" && !e.shiftKey && window.innerWidth > 800) { // Shift 키를 누르지 않고 Enter 키를 눌렀으며 창 너비가 800px 이상인 경우
+            e.preventDefault(); // 기본 Enter 키 동작 방지
+            handleChat(); // 채팅 처리 함수 호출
+        }
+    });
+
+    // 전송 버튼 클릭 시 채팅 처리
+    sendChatBtn.addEventListener("click", handleChat);
+
+    // 닫기 버튼 클릭 시 챗봇 닫기
+    closeBtn.addEventListener("click", () => document.body.classList.remove("show-chatbot"));
+
+    // 토글 버튼 클릭 시 챗봇 표시/숨기기 토글
+    chatbotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
+
+</script>
+
+
+</body>
+
+</html>
+

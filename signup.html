@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- 문서의 문자 인코딩을 UTF-8로 설정 -->
+    <meta charset="UTF-8">
+    <!-- 화면의 크기에 따라 레이아웃을 조절하도록 설정 (반응형 디자인) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 브라우저 탭에 표시될 문서 제목 -->
+    <title>SSS - Signup</title>
+    <link rel="icon" href="media/etc/IMG_2701-removebg-preview.png">
+    <style>
+        /* 전체 문서 스타일 설정 */
+        body {
+            background-color: #0f0f29; /* 배경 색상 설정 */
+            color: white; /* 글자 색상 흰색 */
+            font-family: Arial, sans-serif; /* 폰트 설정 */
+            display: flex; /* Flexbox 레이아웃 사용 */
+            justify-content: center; /* 수평 가운데 정렬 */
+            align-items: center; /* 수직 가운데 정렬 */
+            height: 100vh; /* 뷰포트 높이 설정 */
+            margin: 0; /* 기본 여백 제거 */
+            position: relative; /* 상대 위치 설정 */
+        }
+        /* 컨테이너 스타일 설정 */
+        .container {
+            text-align: center; /* 텍스트 가운데 정렬 */
+            max-width: 400px; /* 최대 너비 400px */
+            width: 100%; /* 너비 100% */
+            background-color: #000;
+            padding: 60px 30px;
+            border-radius: 8px;
+        }
+        /* 로고 스타일 설정 */
+        .logo {
+            position: absolute; /* 절대 위치 설정 */
+            top: 10px; /* 위쪽 위치 60px */
+            left: 10px; /* 왼쪽 위치 60px */
+        }
+        /* 제목 스타일 설정 */
+        .heading {
+            font-size: 38px; /* 폰트 크기 28px */
+            font-weight: bold; /* 폰트 굵기 설정 */
+            margin-bottom: 20px; /* 아래 여백 20px */
+        }
+        /* 입력 필드 컨테이너 스타일 설정 */
+        .input-container {
+            margin-bottom: 10px; /* 아래 여백 10px */
+        }
+        /* 입력 필드 스타일 설정 */
+        .input-container input {
+            width: 95%; /* 너비 95% */
+            padding: 10px; /* 내부 여백 10px */
+            border: none; /* 테두리 없음 */
+            border-radius: 5px; /* 테두리 반경 5px */
+        }
+        /* 버튼 스타일 설정 */
+        .button {
+            width: 100%; /* 너비 100% */
+            padding: 10px; /* 내부 여백 10px */
+            background-color: #1DB954; /* 배경 색상 설정 */
+            border: none; /* 테두리 없음 */
+            border-radius: 5px; /* 테두리 반경 5px */
+            color: white; /* 글자 색상 흰색 */
+            font-size: 16px; /* 폰트 크기 16px */
+            cursor: pointer; /* 커서 포인터로 변경 */
+            margin-bottom: 10px; /* 아래 여백 10px */
+        }
+        /* 구분선 스타일 설정 */
+        .divider {
+            margin: 20px 0; /* 위아래 여백 20px */
+            display: flex; /* Flexbox 레이아웃 사용 */
+            align-items: center; /* 가운데 정렬 */
+        }
+        /* 구분선 전후 스타일 설정 */
+        .divider::before, .divider::after {
+            content: ""; /* 내용 없음 */
+            flex: 1; /* flex-grow: 1 */
+            height: 1px; /* 높이 1px */
+            background: white; /* 배경 색상 흰색 */
+        }
+        /* 구분선 앞쪽 여백 설정 */
+        .divider::before {
+            margin-right: 10px; /* 오른쪽 여백 10px */
+        }
+        /* 구분선 뒤쪽 여백 설정 */
+        .divider::after {
+            margin-left: 10px; /* 왼쪽 여백 10px */
+        }
+        /* 소셜 버튼 스타일 설정 */
+        .social-button {
+            width: 100%; /* 너비 100% */
+            padding: 10px; /* 내부 여백 10px */
+            border: none; /* 테두리 없음 */
+            border-radius: 5px; /* 테두리 반경 5px */
+            font-size: 16px; /* 폰트 크기 16px */
+            cursor: pointer; /* 커서 포인터로 변경 */
+            margin-bottom: 10px; /* 아래 여백 10px */
+            display: flex; /* Flexbox 레이아웃 사용 */
+            align-items: center; /* 가운데 정렬 */
+            justify-content: center; /* 수평 가운데 정렬 */
+            color: white; /* 글자 색상 흰색 */
+        }
+        /* 소셜 버튼 내 이미지 스타일 설정 */
+        .social-button img {
+            margin-right: 10px; /* 오른쪽 여백 10px */
+        }
+        /* 구글 버튼 스타일 설정 */
+        .google {
+            background-color: #000; /* 배경 색상 검정 */
+            border: 1px solid #fff; /* 흰색 테두리 */
+        }
+        /* 페이스북 버튼 스타일 설정 */
+        .facebook {
+            background-color: #000; /* 배경 색상 검정 */
+            border: 1px solid #fff; /* 흰색 테두리 */
+        }
+        /* 애플 버튼 스타일 설정 */
+        .apple {
+            background-color: #000; /* 배경 색상 검정 */
+            color: white; /* 글자 색상 흰색 */
+            border: 1px solid #fff; /* 흰색 테두리 */
+        }
+        /* 로그인 링크 스타일 설정 */
+        .login-link {
+            color: #1DB954; /* 글자 색상 설정 */
+            text-decoration: none; /* 밑줄 없음 */
+        }
+        /* 로그인 링크 호버 스타일 설정 */
+        .login-link:hover {
+            text-decoration: underline; /* 밑줄 표시 */
+        }
+        /* 개인정보 보호 관련 텍스트 스타일 설정 */
+        .privacy {
+            font-size: 12px; /* 폰트 크기 12px */
+            color: #999; /* 글자 색상 설정 */
+            margin-top: 20px; /* 위쪽 여백 20px */
+        }
+    </style>
+</head>
+<body>
+    <!-- 로고 섹션 -->
+    <div class="logo">
+        <!-- 홈 페이지로 이동하는 로고 링크 -->
+        <a href="home.html"><img src="media/etc/IMG_2701-removebg-preview.png" alt="Logo" width="130px"></a>
+    </div>
+    <!-- 메인 컨테이너 -->
+    <div class="container">
+        <!-- 회원가입 제목 -->
+        <div class="heading">Sign up to start<br>listening</div>
+        <!-- 이메일 입력 필드 -->
+        <div class="input-container">
+            <div style="margin-left: -300px;">Email address</div>
+            <input type="email" placeholder="name@domain.com" required>
+        </div>
+        <!-- 다음 버튼 -->
+        <button class="button">Next</button>
+        <!-- 구분선 -->
+        <div class="divider">or</div>
+        <!-- 구글로 가입하기 버튼 -->
+        <button class="social-button google">
+            <img src="media/social/google-logo.png" alt="Google Logo" width="20">
+            Sign up with Google
+        </button>
+        <!-- 페이스북으로 가입하기 버튼 -->
+        <button class="social-button facebook">
+            <img src="media/social/facebook-logo.png" alt="Facebook Logo" width="20">
+            Sign up with Facebook
+        </button>
+        <!-- 애플로 가입 버튼 -->
+        <button class="social-button apple">
+            <img src="media/social/apple-logo.jpg" alt="Apple Logo" width="20">
+            Sign up with Apple
+        </button>
+        <!-- 로그인 링크 -->
+        <div>
+            Already have an account? <a href="login.html" class="login-link">Log in here.</a>
+        </div>
+        <!-- 개인정보 보호 및 이용 약관 링크 -->
+        <div class="privacy">
+            This site is protected by reCAPTCHA and the Google
+            <a href="https://policies.google.com/privacy" target="_blank" class="privacy-link">Privacy Policy</a> and
+            <a href="https://policies.google.com/terms" target="_blank" class="privacy-link">Terms of Service</a> apply.
+        </div>
+    </div>
+</body>
+</html>
