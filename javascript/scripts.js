@@ -201,6 +201,8 @@ function loadComposition() {
   if (savedComposition) {
     savedComposition.forEach(note => addToComposition(note));
   }
+  //addInstrument('Piano')
+  //창 열었을 때 피아노 바로 뜨게하기
 }
 
 function playComposition() {

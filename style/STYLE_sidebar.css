@@ -38,3 +38,7 @@ footer {
     bottom : 0;
     font-size: 12px;
 }
+
+.menu li i {
+    margin-right: 10px;
+}

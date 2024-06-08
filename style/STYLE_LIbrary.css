@@ -62,7 +62,7 @@ body {
     display: flex;
 }
 
-.ssidebar li h3{
+.ssidebar li h4{
     padding: 8px;
     background-color: #444;
     border-radius: 10px;
