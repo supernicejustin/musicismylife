@@ -333,6 +333,11 @@ main {
     cursor: pointer;
 }
 
+.composition-gap {
+    display: inline-block;
+    height: 10px;
+}
+
 .composition-line {
     display: flex;
     flex-direction: row;

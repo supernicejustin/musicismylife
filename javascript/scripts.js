@@ -1,6 +1,11 @@
 let composition = [];
 let isRecording = false;
+let isPlaying = false;
 let currentInstrument = '';
+let startTime = 0;
+let playStartTime = 0;
+let playIndex = 0;
+let pausedTime = 0;
 
 function showInstrumentModal() {
   document.getElementById('instrument-modal').classList.remove('hidden');
@@ -45,6 +50,7 @@ function addInstrument(instrument) {
   deleteButton.classList.add('delete-button');
   deleteButton.onclick = function() {
     instrumentControl.remove();
+    removeInstrumentFromComposition(instrument);
     checkInstruments();
   };
   instrumentControl.appendChild(deleteButton);
@@ -73,7 +79,7 @@ function updateInstrumentSelect(instrumentControl) {
   const selectedType = instrumentControl.dataset.selectedType || 'First';
   const instrumentSelect = document.querySelector('.instrument-select');
   instrumentSelect.innerHTML = `
-    <h3>Select a ${instrument} type</h3>
+    <h3>${instrument} Type Select</h3>
     <button onclick="selectInstrumentType('${instrument}', 'First', this)" class="${selectedType === 'First' ? 'selected' : ''}">First</button>
     <button onclick="selectInstrumentType('${instrument}', 'Second', this)" class="${selectedType === 'Second' ? 'selected' : ''}">Second</button>
   `;
@@ -171,17 +177,27 @@ function stopNoteKey(keyElement) {
 }
 
 function addToComposition(note) {
+  const currentTime = Date.now();
+  const timeElapsed = currentTime - startTime;
+  startTime = currentTime;
+
   const compositionArea = document.getElementById('composition-area');
   const noteElement = document.createElement('div');
   noteElement.classList.add('composition-note');
   noteElement.textContent = note;
   noteElement.dataset.note = note;
+  noteElement.dataset.time = timeElapsed;
   noteElement.addEventListener('click', () => removeFromComposition(noteElement));
 
-  composition.push(note);
+  const gapElement = document.createElement('div');
+  gapElement.classList.add('composition-gap');
+  gapElement.style.width = `${timeElapsed * 0.1}px`;
+
+  composition.push({ note, timeElapsed, instrument: currentInstrument });
 
   const currentLine = Array.from(compositionArea.children).find(line => line.dataset.instrument === currentInstrument);
   if (currentLine) {
+    currentLine.appendChild(gapElement);
     currentLine.appendChild(noteElement);
   }
 }
@@ -192,6 +208,16 @@ function removeFromComposition(noteElement) {
   noteElement.remove();
 }
 
+function removeInstrumentFromComposition(instrument) {
+  composition = composition.filter(noteData => noteData.instrument !== instrument);
+  const compositionLines = Array.from(document.querySelectorAll('.composition-line'));
+  compositionLines.forEach(line => {
+    if (line.dataset.instrument === instrument) {
+      line.remove();
+    }
+  });
+}
+
 function saveComposition() {
   localStorage.setItem('composition', JSON.stringify(composition));
 }
@@ -199,30 +225,78 @@ function saveComposition() {
 function loadComposition() {
   const savedComposition = JSON.parse(localStorage.getItem('composition'));
   if (savedComposition) {
-    savedComposition.forEach(note => addToComposition(note));
+    savedComposition.forEach(noteData => {
+      const { note, timeElapsed, instrument } = noteData;
+      const currentLine = Array.from(document.getElementById('composition-area').children).find(line => line.dataset.instrument === instrument);
+      if (currentLine) {
+        const gapElement = document.createElement('div');
+        gapElement.classList.add('composition-gap');
+        gapElement.style.width = `${timeElapsed * 0.1}px`;
+        const noteElement = document.createElement('div');
+        noteElement.classList.add('composition-note');
+        noteElement.textContent = note;
+        noteElement.dataset.note = note;
+        noteElement.dataset.time = timeElapsed;
+        currentLine.appendChild(gapElement);
+        currentLine.appendChild(noteElement);
+      }
+      composition.push(noteData);
+    });
   }
-  //addInstrument('Piano')
-  //창 열었을 때 피아노 바로 뜨게하기
 }
 
 function playComposition() {
-  let index = 0;
+  if (isPlaying) {
+    return;
+  }
+  isPlaying = true;
+  playStartTime = Date.now();
+  playIndex = 0;
+  playNextNote();
+}
 
-  function playNextNote() {
-    if (index < composition.length) {
-      const note = composition[index];
-      const audio = new Audio(`sounds/${note}.mp3`);
-      audio.play();
-      index++;
-      setTimeout(playNextNote, 500);
-    }
+function playNextNote() {
+  if (!isPlaying || playIndex >= composition.length) {
+    isPlaying = false;
+    playIndex = 0;
+    pausedTime = 0;
+    return;
   }
 
-  playNextNote();
+  const { note, timeElapsed } = composition[playIndex];
+  const audio = new Audio(`sounds/${note}.mp3`);
+  audio.play();
+  playIndex++;
+  setTimeout(playNextNote, timeElapsed);
+}
+
+function stopComposition() {
+  isPlaying = false;
+  playIndex = 0;
+  pausedTime = 0;
+}
+
+function resetComposition() {
+  isPlaying = false;
+  isRecording = false;
+  playIndex = 0;
+  pausedTime = 0;
+  composition = [];
+  const compositionLines = document.querySelectorAll('.composition-line');
+  compositionLines.forEach(line => {
+    while (line.children.length > 1) {
+      line.removeChild(line.lastChild);
+    }
+  });
+  const recordButton = document.querySelector('.control-button.record');
+  recordButton.classList.remove('recording');
 }
 
 function toggleRecording() {
   isRecording = !isRecording;
+  if (isRecording) {
+    startTime = Date.now();
+  }
   const recordButton = document.querySelector('.control-button.record');
   if (isRecording) {
     recordButton.classList.add('recording');
@@ -234,3 +308,6 @@ function toggleRecording() {
 window.onload = loadComposition;
 
 document.querySelector('.control-button.record').addEventListener('click', toggleRecording);
+document.querySelector('.control-button.play').addEventListener('click', playComposition);
+document.querySelector('.control-button.stop').addEventListener('click', stopComposition);
+document.querySelector('.control-button.reset').addEventListener('click', resetComposition);

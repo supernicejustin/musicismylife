@@ -1,57 +1,183 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="kr">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SSS - Compose</title>
     <link rel="icon" href="media/etc/IMG_2701-removebg-preview.png">
-    <link rel="stylesheet" href="style/STYLE_composemain.css">
-  </head>
-  <body>
-
+    <style>
+        @import url(style/STYLE_Chatbot.css);
+        @import url(style/STYLE_composemain.css);
+    </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
     <header>
-      <div class="logo">
-        <a href="home.html"><img src="media/etc/logo.png" alt="로고"></a>
-      </div>
-
-      <div class="buttons">
-        <button class="save-button" onclick="saveComposition()">Save</button>
-        <button class="publish-button" onclick="publishComposition()">Publish</button>
-      </div>
+        <div class="logo">
+            <a href="home.html"><img src="media/etc/logo.png" alt="Logo"></a>
+        </div>
+        <div class="buttons">
+            <button class="save-button">Save</button>
+            <button class="publish-button">Publish</button>
+        </div>
     </header>
-
     <main>
-      <div class="controls">
-        <button class="control-button play" onclick="playComposition()">Play</button>
-        <button class="control-button pause">Pause</button>
-        <button class="control-button stop">Stop</button>
-        <button class="control-button record">Record</button>
-      </div>
-
-      <div class="main-content">
-        <aside class="instrument-panel">
-          <button class="add-track-button" onclick="showInstrumentModal()">+Add Track</button>
-          <div id="instrument-controls"></div>
-        </aside>
-        <div class="composition-area" id="composition-area"></div>
-      </div>
-      <div class="instrument-display hidden">
-        <div class="instrument-select"></div>
-        <div class="instrument-list" id="instrument-list"></div>
-      </div>
+        <div class="controls">
+            <button class="control-button play">Play</button>
+            <button class="control-button stop">Stop</button>
+            <button class="control-button reset">Reset</button>
+            <button class="control-button record">Record</button>
+        </div>
+        <div class="main-content">
+            <div class="instrument-panel">
+                <button class="add-track-button" onclick="showInstrumentModal()">+Add Track</button>
+                <div id="instrument-controls"></div>
+            </div>
+            <div class="composition-area" id="composition-area"></div>
+        </div>
+        <div class="instrument-display hidden">
+            <div class="instrument-select"></div>
+            <div class="instrument-list" id="instrument-list"></div>
+        </div>
     </main>
 
     <div id="instrument-modal" class="modal hidden">
-      <div class="modal-content">
-        <span class="close-button" onclick="hideInstrumentModal()">&times;</span>
-        <h2>Select an instrument</h2>
-        
-        <button class="instrument-button" onclick="addInstrument('Piano')">Piano</button>
-        <button class="instrument-button" onclick="addInstrument('Drum')">Drum</button>
-      </div>
+        <div class="modal-content">
+            <span class="close-button" onclick="hideInstrumentModal()">&times;</span>
+            <h3>Select Instrument</h3>
+            <button class="instrument-button" onclick="addInstrument('Piano')">Piano</button>
+            <button class="instrument-button" onclick="addInstrument('Drum')">Drum</button>
+        </div>
     </div>
+
+      <button class="chatbot-toggler">
+        <span class="material-symbols-rounded" style="margin-left: 8px;">mode_comment</span>
+        <h4 style="margin-left: 40px;">Assistant</h4>
+        <span class="material-symbols-outlined">close</span>
+      </button>
+      <div class="chatbot">
+        <a href="easteregg.html"><header>
+          <h2>Assistant</h2>
+          <p>Powered by Gemini</p>
+          <span class="close-btn material-symbols-outlined">close</span>
+        </header></a>
+        <a href="easteregg.html"><ul class="chatbox">
+          <li class="chat incoming">
+            <span class="material-symbols-outlined">smart_toy</span>
+            <p>Hi there 👋<br>How can I help you today?</p>
+          </li>
+        </ul></a>
+        <div class="chat-input">
+          <textarea placeholder="Enter a message..." spellcheck="false" required></textarea>
+          <span id="send-btn" class="material-symbols-rounded">send</span>
+        </div>
+      </div>
+    
+      <!-- 챗봇 스크립트 -->
+      <script type="module">
+        // Google Generative AI 라이브러리 가져오기
+        import { GoogleGenerativeAI } from "@google/generative-ai";
+        
+        // Generative AI 초기화 및 API 키 설정
+        const genAI = new GoogleGenerativeAI('AIzaSyAUOyuSGwGGOp_YTo1xjLoXt6DgXw8jh7A');
+    
+        // 챗봇 기능에 필요한 DOM 요소 선택
+        const chatbotToggler = document.querySelector(".chatbot-toggler"); // 챗봇 토글 버튼
+        const closeBtn = document.querySelector(".close-btn"); // 챗봇 닫기 버튼
+        const chatbox = document.querySelector(".chatbox"); // 채팅 메시지를 표시하는 영역
+        const chatInput = document.querySelector(".chat-input textarea"); // 사용자 입력란
+        const sendChatBtn = document.querySelector(".chat-input span"); // 메시지 전송 버튼
+    
+        // 사용자 메시지 저장 변수 및 입력란 초기 높이 저장
+        let userMessage = null;
+        const inputInitHeight = chatInput.scrollHeight;
+    
+        // 사용자가 입력한 메시지로 모델 실행
+        async function runModel(prompt) {
+            const model = genAI.getGenerativeModel({ model: "gemini-pro"}); // 모델 가져오기
+          
+            // 사용자 메시지로 콘텐츠 생성
+            const result = await model.generateContent(prompt);
+            const response = await result.response;
+            const text = response.text();
+            return (text); // 생성된 텍스트 반환
+        }
+        
+        // 채팅 메시지 리스트 항목 생성
+        const createChatLi = (message, className) => {
+            const chatLi = document.createElement("li"); // 새로운 리스트 항목 생성
+            chatLi.classList.add("chat", `${className}`); // 클래스 추가
+            // 메시지 타입에 따라 내용 설정
+            let chatContent = className === "outgoing" ? `<p></p>` : `<span class="material-symbols-outlined">smart_toy</span><p></p>`;
+            chatLi.innerHTML = chatContent; // HTML 설정
+            chatLi.querySelector("p").textContent = message; // 메시지 내용 설정
+            return chatLi; // 리스트 항목 반환
+        }
+    
+        // 챗봇 응답 생성
+        const generateResponse = async (chatElement, userMessage) => {
+            const messageElement = chatElement.querySelector("p");
+            try {
+                const answer = await runModel(userMessage); // 모델 실행하여 응답 생성
+                messageElement.textContent = answer; // 응답 내용 설정
+            } catch (error) {
+                // 오류 처리
+                console.error("Failed to generate response;", error);
+                messageElement.textContent = "Sorry, something went wrong."; // 오류 메시지 표시
+            }
+            chatbox.scrollTo(0, chatbox.scrollHeight); // 채팅 박스를 최신 메시지로 스크롤
+        }
+    
+        // 채팅 처리
+        const handleChat = () => {
+            userMessage = chatInput.value.trim(); // 사용자 입력 메시지 가져오기
+            if(!userMessage) return; // 메시지가 비어있으면 반환
+            
+            // 입력란 초기화 및 높이 재설정
+            chatInput.value = "";
+            chatInput.style.height = `${inputInitHeight}px`;
+    
+            // 사용자 메시지를 채팅 박스에 추가
+            chatbox.appendChild(createChatLi(userMessage, "outgoing"));
+            chatbox.scrollTo(0, chatbox.scrollHeight);
+    
+            setTimeout(() => {
+                // 응답을 기다리는 동안 "Thinking..." 메시지 표시
+                const incomingChatLi = createChatLi("Thinking...", "incoming");
+                chatbox.appendChild(incomingChatLi);
+                chatbox.scrollTo(0, chatbox.scrollHeight);
+                generateResponse(incomingChatLi, userMessage); // 응답 생성 함수 호출
+            }, 0); // 응답 생성 지연시간 설정
+        }
+    
+        // 입력란 내용 길이에 따라 높이 조절
+        chatInput.addEventListener("input", () => {
+            chatInput.style.height = `${inputInitHeight}px`; // 초기 높이로 재설정
+            chatInput.style.height = `${chatInput.scrollHeight}px`; // 새로운 내용에 맞게 높이 조절
+        });
+    
+        // Enter 키를 눌러 채팅 처리
+        chatInput.addEventListener("keydown", (e) => {
+            if(e.key === "Enter" && !e.shiftKey && window.innerWidth > 800) { // Shift 키를 누르지 않고 Enter 키를 눌렀으며 창 너비가 800px 이상인 경우
+                e.preventDefault(); // 기본 Enter 키 동작 방지
+                handleChat(); // 채팅 처리 함수 호출
+            }
+        });
+    
+        // 전송 버튼 클릭 시 채팅 처리
+        sendChatBtn.addEventListener("click", handleChat);
+    
+        // 닫기 버튼 클릭 시 챗봇 닫기
+        closeBtn.addEventListener("click", () => document.body.classList.remove("show-chatbot"));
+    
+        // 토글 버튼 클릭 시 챗봇 표시/숨기기 토글
+        chatbotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
+    
+    </script>
 
     <script src="javascript/scripts.js"></script>
 
-  </body>
+</body>
 </html>
