@@ -243,6 +243,7 @@ function loadComposition() {
       composition.push(noteData);
     });
   }
+  addInstrument('Piano')
 }
 
 function playComposition() {

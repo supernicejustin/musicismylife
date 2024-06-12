@@ -116,69 +116,57 @@ ul {
 .toggle input[type="checkbox"] {
     width: 65px;
     height: 30px;
-    display: inline-block;
-    appearance: none;
-    margin-right: 3px;
-    background-color: #333333;
+    appearance: none; /* 기본 브라우저 스타일 제거 */
+    background-color: #333333; /* 스위치의 배경 색상 설정 (OFF 상태) */
     border-radius: 50px;
     position: absolute;
-    right: 10px;
+    right: 10px; /* 오른쪽에서의 거리 */
     top: 50%;
     margin-top: -15px;
     transition: all .5s ease;
     cursor: pointer;
 }
 
-/* OFF로 전환할 때 스위치 */
+/* OFF로 전환할 때 스위치 내부 원 */
 .toggle input[type="checkbox"]:after {
-    content: '';
-    display: inline-block;
     width: 20px;
     height: 20px;
     background-color: #fff;
     border-radius: 50px;
     position: absolute;
     top: 50%;
-    left: 6px;
+    left: 6px; /* 왼쪽에서의 거리 */
     margin-top: -10px;
     transition: all .3s ease;
 }
 
+/* OFF로 전환할 때 스위치 텍스트 */
 .toggle input[type="checkbox"]:before {
-    content: 'OFF';
+    content: 'OFF'; /* 텍스트 내용 설정 */
     position: absolute;
-    right: 10px;
+    right: 10px; /* 오른쪽에서의 거리 */
     color: #ffffff;
     font-size: 12px;
     top: 50%;
-    margin-top: -7px;
-    opacity: .5;
+    margin-top: -7px; /* 위쪽 마진 설정 (높이의 절반으로 중앙 정렬) */
+    opacity: .5; /* 불투명도 설정 */
 }
 
-/* ON으로 전활할 때 스위치 색상 */
+/* ON으로 전환할 때 스위치 색상 */
 .toggle input:checked[type="checkbox"] {
-    background-color: #179141;
-    transition: all .5s ease;
+    background-color: #179141; /* 배경 색상 설정 (ON 상태) */
+    transition: all .5s ease; /* 모든 속성에 대한 전환 효과 설정 */
 }
 
+/* ON으로 전환할 때 스위치 텍스트 */
 .toggle input:checked[type="checkbox"]:before {
-    content: 'ON';
-    right: auto;
-    left: 15px;
-    color: #ffffff;
-    font-size: 12px;
+    content: 'ON'; /* 텍스트 내용 설정 */
+    right: auto; /* 오른쪽에서의 거리 설정 제거 */
+    left: 15px; /* 왼쪽에서의 거리 설정 */
 }
 
-/* ON으로 전환할 때 스위치 */
+/* ON으로 전환할 때 스위치 내부 원 */
 .toggle input:checked[type="checkbox"]:after {
-    left: 40px;
+    left: 40px; /* 왼쪽에서의 거리 설정 */
     transition: all .3s ease;
-}
-
-.toggle ul.alert_switch li label {
-    position: absolute;
-    font-size: 0;
-    width: 1px;
-    height: 1px;
-    opacity: 0;
 }

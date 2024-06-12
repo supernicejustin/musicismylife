@@ -116,6 +116,10 @@ body{
     font-size: 16px;
 }
 
+.item p:hover {
+    text-decoration: underline;
+}
+
 .tracks {
     flex: 3;
     margin-right: 20px;
@@ -225,6 +229,25 @@ body{
     transition: 0.1s ease-out;
 }
 
+.recommendations .rec-infox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+}
+
+.recommendations .rec-infox img {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.recommendations .rec-infox img:hover {
+    transform: scale(1.05);
+    transition: 0.1s ease-out;
+}
+
 .Lover {
     transition: background-color 0.3s, transform 0.3s;
     cursor: pointer;
@@ -233,4 +256,8 @@ body{
 .Lover:hover {
     transform: scale(1.05);
     transition: 0.1s ease-out;
+}
+
+.ap p:hover {
+    text-decoration: underline;
 }
